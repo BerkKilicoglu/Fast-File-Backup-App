@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import sys, os
-from Utils import Utils
-utils = Utils()
+
 PYSIDE6_DAN_PYQT5_CEVIR = True
 if PYSIDE6_DAN_PYQT5_CEVIR: # Bu Qt Designer kullanıp ui dosyasını pythona cevirince pyside6 olarak çeviriyor pyqt5 bende bulamadım kodla hallediyorum
     for Dosya in ["ui_homepage.py"]:
@@ -9,7 +9,7 @@ if PYSIDE6_DAN_PYQT5_CEVIR: # Bu Qt Designer kullanıp ui dosyasını pythona ce
             with open(DosyaKonum, 'r') as f: # r+ yada w+ çalışmadı
                 okunan = f.read()
             with open(DosyaKonum, 'w') as f:
-                f.write(okunan.replace("PySide2", "PyQt5"))
+                f.write(okunan.replace("PySide2", "PyQt5").replace("PySide6", "PyQt5"))
         else:
             print("PyQt5 cevirmek icin dosya bulunamadi: ", DosyaKonum)
 
@@ -22,7 +22,7 @@ from PyQt5 import QtGui
 class homepage(object):
     def __init__(self, parent):
         super().__init__()
-        self.parent = parent
+        self.parent, self.utils = parent, parent.utils
         self.ui = ui_homepage.Ui_MainWindow()
         self.ui.setupUi(parent)
 
@@ -40,6 +40,13 @@ class homepage(object):
         self.ui.frame_upload.dragLeaveEvent = self.SurukleLeaveEvent
         self.ui.frame_upload.dropEvent = self.SurukleDropEvent
 
+        self.ui.btnBackupNow.clicked.connect(self.parent.BackupNow)
+
+
+
+
+
+
     dragEnter = False
     def SurukleEnterEvent(self, event):
         if event.mimeData().hasUrls():
@@ -53,7 +60,7 @@ class homepage(object):
         mime = event.mimeData()
         self.parent.selectedFiles = []
         for file in mime.urls():
-            self.parent.selectedFiles.append(utils.pathConvert(file.toLocalFile()))
+            self.parent.selectedFiles.append(self.utils.pathConvert(file.toLocalFile()))
         self.dragEnter=False
 
 

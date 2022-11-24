@@ -289,8 +289,11 @@
     <file>assets/icons/nightblue/zoom-out.svg</file>
   </qresource>
   <qresource prefix="logo">
-    <file>assets/logo/BerkEmreLogo.png</file>
+    <file>assets/logo/check.png</file>
+    <file>assets/logo/error.png</file>
     <file>assets/logo/GitHub-Mark-64px.png</file>
+    <file>assets/logo/GitHub-Mark-Light-64px.png</file>
+    <file>assets/logo/BerkEmreLogo.png</file>
   </qresource>
   <qresource prefix="whiteIcons">
     <file>assets/icons/white/activity.svg</file>

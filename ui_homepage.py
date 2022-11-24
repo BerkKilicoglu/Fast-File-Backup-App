@@ -1,29 +1,34 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageiKIPPw.ui'
+## Form generated from reading UI file 'homepagekUckUG.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.14.1
+## Created by: Qt User Interface Compiler version 6.2.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
-from PyQt5.QtWidgets import *
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 from components.EStackedWidgetSliding import EStackedWidgetSliding
-
 import assets_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if MainWindow.objectName():
+        if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(959, 830)
+        MainWindow.resize(959, 851)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -187,7 +192,6 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(18)
         font1.setBold(True)
-        font1.setWeight(75)
         self.label_brand.setFont(font1)
 
         self.horizontalLayout_6.addWidget(self.label_brand)
@@ -225,7 +229,6 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
-        font2.setWeight(50)
         self.pushButton_Storage.setFont(font2)
         self.pushButton_Storage.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
@@ -260,9 +263,9 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.frame_menusection)
         self.label.setObjectName(u"label")
-        self.label.setMaximumSize(QSize(48, 48))
-        self.label.setPixmap(QPixmap(u":/logo/assets/logo/GitHub-Mark-64px.png"))
-        self.label.setScaledContents(True)
+        self.label.setMaximumSize(QSize(128, 128))
+        self.label.setPixmap(QPixmap(u":/logo/assets/logo/GitHub-Mark-Light-64px.png"))
+        self.label.setScaledContents(False)
         self.label.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_5.addWidget(self.label, 2, 2, 1, 1)
@@ -286,7 +289,6 @@ class Ui_MainWindow(object):
         font3 = QFont()
         font3.setPointSize(10)
         font3.setBold(True)
-        font3.setWeight(75)
         self.btnGitBerk.setFont(font3)
         self.btnGitBerk.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitBerk.setIconSize(QSize(40, 40))
@@ -347,7 +349,6 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(16)
         font4.setBold(True)
-        font4.setWeight(75)
         self.label_menuname.setFont(font4)
 
         self.horizontalLayout_3.addWidget(self.label_menuname)
@@ -439,7 +440,6 @@ class Ui_MainWindow(object):
         font5 = QFont()
         font5.setPointSize(14)
         font5.setBold(True)
-        font5.setWeight(75)
         self.label_upsettings.setFont(font5)
 
         self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
@@ -462,7 +462,6 @@ class Ui_MainWindow(object):
         self.btnSelectLocation.setMaximumSize(QSize(150, 50))
         font6 = QFont()
         font6.setBold(True)
-        font6.setWeight(75)
         self.btnSelectLocation.setFont(font6)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -560,7 +559,6 @@ class Ui_MainWindow(object):
         font7 = QFont()
         font7.setPointSize(10)
         font7.setBold(False)
-        font7.setWeight(50)
         self.label_4.setFont(font7)
 
         self.horizontalLayout.addWidget(self.label_4)
@@ -665,7 +663,6 @@ class Ui_MainWindow(object):
         font10.setBold(False)
         font10.setItalic(True)
         font10.setUnderline(False)
-        font10.setWeight(50)
         font10.setStrikeOut(False)
         font10.setKerning(True)
         self.label_browsefile.setFont(font10)
@@ -762,7 +759,7 @@ class Ui_MainWindow(object):
         self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 week", None))
         self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 month", None))
 
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Project name:", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name:", None))
         self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
         self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your files type", None))
         self.lineEdit_filetype.setText("")
