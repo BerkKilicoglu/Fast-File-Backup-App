@@ -1,0 +1,1 @@
+pyrcc5 assets.qrc -o assets_rc.py
