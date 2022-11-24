@@ -1095,7 +1095,7 @@ color:#415AAF;
                         </font>
                        </property>
                        <property name="text">
-                        <string>Filter your files type</string>
+                        <string>Filter your exclude files type</string>
                        </property>
                       </widget>
                      </item>
