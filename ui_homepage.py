@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageTgRXYT.ui'
+## Form generated from reading UI file 'homepageFlEjGZ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -44,6 +44,7 @@ class Ui_MainWindow(object):
 "QLineEdit#lineEdit_search{\n"
 "border:none\n"
 "}\n"
+"\n"
 "#centralwidget{\n"
 "	background-color: #EFF9FE;\n"
 "}\n"
@@ -93,9 +94,9 @@ class Ui_MainWindow(object):
 "	color: white;\n"
 "}\n"
 "\n"
-"#btnSelectLocation::hover, #btnSelectLocation::hover{\n"
-""
-                        "	background-color: #1F2A5B;\n"
+"#btnSelectLocation::hover, #btnSelectLocation::ho"
+                        "ver{\n"
+"	background-color: #1F2A5B;\n"
 "	color: white;\n"
 "	font-size: 15px;\n"
 "	font-weight: bold;\n"
@@ -129,9 +130,9 @@ class Ui_MainWindow(object):
 "	border-radius:60px;\n"
 "}\n"
 "#btnBackupNow::pressed{\n"
-"	font: 75 10pt \"Microsoft YaHei UI\";\n"
-"	"
-                        "font-weight: bold;\n"
+"	font: 75 10pt \"Microsoft YaHei UI"
+                        "\";\n"
+"	font-weight: bold;\n"
 "	color: white;\n"
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #415AAF, stop:1 #D4F1FF);\n"
 "	border: 3px solid #D4F1FF;\n"
@@ -155,6 +156,7 @@ class Ui_MainWindow(object):
 "	background-color: #415AAF;\n"
 "	color: white;\n"
 "}\n"
+"\n"
 "")
         self.gridLayout_6 = QGridLayout(self.centralwidget)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
@@ -527,6 +529,7 @@ class Ui_MainWindow(object):
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.setObjectName(u"cmbBackupPeriod")
+        self.cmbBackupPeriod.setStyleSheet(u"")
 
         self.horizontalLayout_9.addWidget(self.cmbBackupPeriod)
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>876</width>
-    <height>851</height>
+    <width>959</width>
+    <height>853</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,6 +33,7 @@ border:none;
 QLineEdit#lineEdit_search{
 border:none
 }
+
 #centralwidget{
 	background-color: #EFF9FE;
 }
@@ -142,18 +143,18 @@ color:#415AAF;
 	background-color: #415AAF;
 	color: white;
 }
-
 QComboBox{
-	border: none;
-	background-color: rgb(65,90,175, .7);
-	color: 	white;
-	font-weight: bold;
-	padding: 3px;	
+border: none;
+background-color: rgb(65,90,175);
+color: 	white;
+font-weight: bold;
+padding: 3px;
 }
 
 QComboBox:on{
-    background-color: rgb(65,90,175, .5);
+    background-color: rgb(65,90,175);
 }
+
 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout_6">
@@ -248,7 +249,6 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>18</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -276,9 +276,6 @@ QComboBox:on{
             </property>
             <layout class="QGridLayout" name="gridLayout_5">
              <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
               <number>0</number>
              </property>
              <item row="2" column="3">
@@ -329,7 +326,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -368,7 +364,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -477,7 +472,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -500,7 +494,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -585,7 +578,6 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>16</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -772,7 +764,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -804,7 +795,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -830,7 +820,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>-1</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -897,7 +886,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -962,6 +950,9 @@ QComboBox:on{
                         </item>
                         <item>
                          <widget class="QComboBox" name="cmbBackupPeriod">
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
                           <item>
                            <property name="text">
                             <string>1 min</string>
@@ -1040,9 +1031,6 @@ QComboBox:on{
                      </size>
                     </property>
                     <layout class="QHBoxLayout" name="horizontalLayout">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
                      <item>
                       <widget class="QLabel" name="label_4">
                        <property name="sizePolicy">
@@ -1054,7 +1042,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -1206,7 +1193,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1257,7 +1243,7 @@ QComboBox:on{
                      <property name="bottomMargin">
                       <number>5</number>
                      </property>
-                     <item alignment="Qt::AlignHCenter">
+                     <item>
                       <widget class="QLabel" name="label_upicon">
                        <property name="minimumSize">
                         <size>
@@ -1281,7 +1267,7 @@ QComboBox:on{
                         <bool>true</bool>
                        </property>
                        <property name="alignment">
-                        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                        <set>Qt::AlignCenter</set>
                        </property>
                       </widget>
                      </item>
@@ -1296,7 +1282,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
                          <italic>true</italic>
                          <bold>false</bold>
                          <underline>false</underline>
@@ -1305,7 +1290,7 @@ QComboBox:on{
                         </font>
                        </property>
                        <property name="text">
-                        <string>Drag and Drop files, or Browse</string>
+                        <string>Drag and Drop directory or Browse</string>
                        </property>
                       </widget>
                      </item>
@@ -1321,7 +1306,7 @@ QComboBox:on{
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="text">
-                        <string>Select File</string>
+                        <string>Select Directory</string>
                        </property>
                        <property name="checkable">
                         <bool>false</bool>
