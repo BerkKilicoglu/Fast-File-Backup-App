@@ -157,10 +157,16 @@ QComboBox:on{
     background-color: rgb(65,90,175);
 }
 
-#label_infloc{
-	font-weight: bold;
-	color: #415AAF;
+#label_source, #label_backup{
 	font-size: 14px;
+	color: #415AAF;
+	font-weight: bold;
+	margin: 4px;
+}
+
+#label_infloc{
+	margin: 5px;
+	margin-left: 0px;
 }
 </string>
    </property>
@@ -956,6 +962,13 @@ QComboBox:on{
                        </layout>
                       </widget>
                      </item>
+                     <item row="9" column="0">
+                      <widget class="QLabel" name="label_source">
+                       <property name="text">
+                        <string>Source Location:</string>
+                       </property>
+                      </widget>
+                     </item>
                      <item row="0" column="0">
                       <widget class="QCheckBox" name="chkAutoBackup">
                        <property name="font">
@@ -973,7 +986,7 @@ QComboBox:on{
                        </property>
                       </widget>
                      </item>
-                     <item row="9" column="3">
+                     <item row="11" column="3">
                       <spacer name="horizontalSpacer_4">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
@@ -986,7 +999,19 @@ QComboBox:on{
                        </property>
                       </spacer>
                      </item>
-                     <item row="9" column="0">
+                     <item row="7" column="0" rowspan="2" colspan="3">
+                      <widget class="QLabel" name="label_infloc">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Source and Backup Location</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="11" column="0">
                       <spacer name="horizontalSpacer_3">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
@@ -999,7 +1024,7 @@ QComboBox:on{
                        </property>
                       </spacer>
                      </item>
-                     <item row="9" column="1" colspan="2">
+                     <item row="11" column="1" colspan="2">
                       <widget class="QPushButton" name="btnBackupNow">
                        <property name="minimumSize">
                         <size>
@@ -1042,10 +1067,10 @@ QComboBox:on{
                        </layout>
                       </widget>
                      </item>
-                     <item row="7" column="0" rowspan="2" colspan="3">
-                      <widget class="QLabel" name="label_infloc">
+                     <item row="10" column="0">
+                      <widget class="QLabel" name="label_backup">
                        <property name="text">
-                        <string>Source and Backup Location</string>
+                        <string>Backup Location:</string>
                        </property>
                       </widget>
                      </item>

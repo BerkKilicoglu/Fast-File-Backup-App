@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageBsgzMp.ui'
+## Form generated from reading UI file 'homepageQtNNhs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -165,10 +165,17 @@ class Ui_MainWindow(object):
 "    background-color: rgb(65,90,175);\n"
 "}\n"
 "\n"
-"#label_infloc{\n"
-"	font-weight: bold;\n"
-"	color: #415AAF;\n"
+"#label_source, #label_backup{\n"
 "	font-size: 14px;\n"
+"	color: #415AAF;\n"
+"	font-weight: bold;\n"
+"	margin: 4px;\n"
+"}\n"
+"\n"
+"#label_infloc{\n"
+"	margin: 5px;\n"
+"	margin-le"
+                        "ft: 0px;\n"
 "}\n"
 "")
         self.gridLayout_6 = QGridLayout(self.centralwidget)
@@ -535,6 +542,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.frameAutoBackup, 1, 0, 1, 1)
 
+        self.label_source = QLabel(self.s_backupType)
+        self.label_source.setObjectName(u"label_source")
+
+        self.gridLayout.addWidget(self.label_source, 9, 0, 1, 1)
+
         self.chkAutoBackup = QCheckBox(self.s_backupType)
         self.chkAutoBackup.setObjectName(u"chkAutoBackup")
         self.chkAutoBackup.setFont(font2)
@@ -544,11 +556,17 @@ class Ui_MainWindow(object):
 
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer_4, 9, 3, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_4, 11, 3, 1, 1)
+
+        self.label_infloc = QLabel(self.s_backupType)
+        self.label_infloc.setObjectName(u"label_infloc")
+        self.label_infloc.setFont(font7)
+
+        self.gridLayout.addWidget(self.label_infloc, 7, 0, 2, 3)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer_3, 9, 0, 1, 1)
+        self.gridLayout.addItem(self.horizontalSpacer_3, 11, 0, 1, 1)
 
         self.btnBackupNow = QPushButton(self.s_backupType)
         self.btnBackupNow.setObjectName(u"btnBackupNow")
@@ -556,7 +574,7 @@ class Ui_MainWindow(object):
         self.btnBackupNow.setMaximumSize(QSize(120, 16777215))
         self.btnBackupNow.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.gridLayout.addWidget(self.btnBackupNow, 9, 1, 1, 2)
+        self.gridLayout.addWidget(self.btnBackupNow, 11, 1, 1, 2)
 
         self.radiosetting = QWidget(self.s_backupType)
         self.radiosetting.setObjectName(u"radiosetting")
@@ -567,10 +585,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.radiosetting, 8, 1, 1, 1)
 
-        self.label_infloc = QLabel(self.s_backupType)
-        self.label_infloc.setObjectName(u"label_infloc")
+        self.label_backup = QLabel(self.s_backupType)
+        self.label_backup.setObjectName(u"label_backup")
 
-        self.gridLayout.addWidget(self.label_infloc, 7, 0, 2, 3)
+        self.gridLayout.addWidget(self.label_backup, 10, 0, 1, 1)
 
 
         self.gridLayout_7.addWidget(self.s_backupType, 4, 0, 1, 2)
@@ -788,9 +806,11 @@ class Ui_MainWindow(object):
         self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 week", None))
         self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 month", None))
 
+        self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
         self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
-        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
         self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
+        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
+        self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name:", None))
         self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
         self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
