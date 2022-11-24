@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageFlEjGZ.ui'
+## Form generated from reading UI file 'homepageYyIJhW.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(959, 851)
+        MainWindow.resize(959, 853)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -155,6 +155,17 @@ class Ui_MainWindow(object):
 "#btnGitBerk, #btnGitEmre{\n"
 "	background-color: #415AAF;\n"
 "	color: white;\n"
+"}\n"
+"QComboBox{\n"
+"border: none;\n"
+"background-color: rgb(65,90,175);\n"
+"color: 	white;\n"
+"font-weight: bold;\n"
+"padding: 3px;\n"
+"}\n"
+"\n"
+"QComboBox:on{\n"
+"    background-color: rgb(65,90,175);\n"
 "}\n"
 "\n"
 "")
@@ -654,9 +665,9 @@ class Ui_MainWindow(object):
         self.label_upicon.setMaximumSize(QSize(40, 40))
         self.label_upicon.setPixmap(QPixmap(u":/nightblueIcons/assets/icons/nightblue/upload.svg"))
         self.label_upicon.setScaledContents(True)
-        self.label_upicon.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_upicon.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.label_upicon, 0, Qt.AlignHCenter)
+        self.verticalLayout_3.addWidget(self.label_upicon)
 
         self.label_browsefile = QLabel(self.frame_upload)
         self.label_browsefile.setObjectName(u"label_browsefile")
@@ -770,8 +781,8 @@ class Ui_MainWindow(object):
         self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"Status: Waiting...", None))
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
-        self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop files, or Browse", None))
-        self.pushButton_selectfile.setText(QCoreApplication.translate("MainWindow", u"Select File", None))
+        self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
+        self.pushButton_selectfile.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
