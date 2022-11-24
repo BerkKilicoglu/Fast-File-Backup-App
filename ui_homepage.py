@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageLsqXnn.ui'
+## Form generated from reading UI file 'homepagepoPDTJ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -806,12 +806,13 @@ class Ui_MainWindow(object):
         self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
         self.lineEdit_filetype.setText("")
         self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
+        self.txtBackupName.setText(QCoreApplication.translate("MainWindow", u"MyProject", None))
         self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
         self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
         self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
         self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
-        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"Status: Waiting...", None))
+        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"<b>Status:</b> Waiting...", None))
         self.label_3.setText("")
         self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Backup Location", None))
         self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))

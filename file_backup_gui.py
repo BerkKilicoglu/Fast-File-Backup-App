@@ -48,7 +48,7 @@ class homepage(object):
         self.ui.btnBackupNow.clicked.connect(self.parent.BackupNow)
         self.ui.btnSelectSrcDirectory.clicked.connect(self.SelectSourceDir)
         self.ui.btnSelectLocation.clicked.connect(self.SelectBackupDir)
-        self.ui.lineEdit_filetype.textChanged.connect(self.FileTypeDegisti)
+        self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
         def changedAutoBackup(newState:int):
             self.ui.frameAutoBackup.setEnabled(newState)
             self.parent.Settings["autoBackupEnabled"] = bool(newState)
@@ -59,7 +59,7 @@ class homepage(object):
             self.parent.SaveSettings()
         self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
 
-    def FileTypeDegisti(self, newText:str):
+    def FilterTypeDegisti(self, newText:str):
         try:
             self.parent.Settings["excludeFileTypes"] = newText.replace(",",";").replace("-",";").replace("|",";").replace("&",";").split(";")
             self.parent.SaveSettings()

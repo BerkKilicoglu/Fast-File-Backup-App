@@ -1,0 +1,9 @@
+{
+    "sourceLocation": "C:\\Users\\Emre\\Desktop\\Test1",
+    "backupLocation": "C:\\Users\\Emre\\Desktop\\Test2",
+    "excludeFileTypes": [
+        ".txt"
+    ],
+    "autoBackupEnabled": true,
+    "autoBackupPeriod": "1 min"
+}
