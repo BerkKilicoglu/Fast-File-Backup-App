@@ -1243,7 +1243,7 @@ QComboBox:on{
                      <property name="bottomMargin">
                       <number>5</number>
                      </property>
-                     <item>
+                     <item alignment="Qt::AlignHCenter">
                       <widget class="QLabel" name="label_upicon">
                        <property name="minimumSize">
                         <size>

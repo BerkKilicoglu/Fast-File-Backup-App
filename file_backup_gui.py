@@ -57,7 +57,6 @@ class homepage(object):
             self.utils.hataKodGoster("FileTypeDegisti: %s"%str(err))
     def SelectBackupDir(self):
         folderBackupDir = QFileDialog.getExistingDirectory(self.parent, 'Select Backup Directory')
-        print(folderBackupDir)
         if not folderBackupDir:
             return
         folderBackupDir = self.utils.pathConvert(folderBackupDir)
@@ -76,9 +75,13 @@ class homepage(object):
         self.dragEnter=False
     def SurukleDropEvent(self,event):
         mime = event.mimeData()
-        self.parent.selectedFiles = []
+        self.parent.selectedDirectories = []
         for file in mime.urls():
-            self.parent.selectedFiles.append(self.utils.pathConvert(file.toLocalFile()))
+            CorrectPath = self.utils.pathConvert(file.toLocalFile())
+            if os.path.isdir(CorrectPath):
+                self.parent.selectedDirectories.append(CorrectPath)
+            else:
+                print(f"{CorrectPath} klasor olmadigi icin selectedDirectories'e eklenmedi!")
         self.dragEnter=False
 
 
