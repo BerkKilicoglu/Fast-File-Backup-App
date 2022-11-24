@@ -23,8 +23,11 @@ class Main(QMainWindow):
             ui = self.getUi()
             ui.label_source.setText("Source Location: " + ((" <font color='black'><b>" + self.Settings["sourceLocation"] + "</b></font>") if self.Settings["sourceLocation"] else " <b>(Not Set)</b>"))
             ui.label_backup.setText("Backup Location: " + ((" <font color='black'><b>" + self.Settings["backupLocation"] + "</b></font>") if self.Settings["backupLocation"] else " <b>(Not Set)</b>"))
+            ui.txtBackupName.setText(self.Settings["backupName"])
             ui.lineEdit_filetype.setText(";".join(self.Settings["excludeFileTypes"]))
             ui.chkAutoBackup.setChecked(self.Settings["autoBackupEnabled"])
+
+
             ui.cmbBackupPeriod.setCurrentText(self.Settings["autoBackupPeriod"])
         except Exception as err:
             self.utils.hataKodGoster("RefreshGui: %s"%str(err))
@@ -32,9 +35,9 @@ class Main(QMainWindow):
         return self.homepage.ui
     def BackupNow(self) -> bool:
         try:
-            ProjectName = self.getUi().txtBackupName.text().strip()
+            backupName = self.getUi().txtBackupName.text().strip()
             ExcludedFileTypes = self.getUi().lineEdit_filetype.text().split(";")
-            if not ProjectName:
+            if not backupName:
                 self.utils.msgHata("Please enter backup name.")
                 return False
             Src = self.Settings["sourceLocation"]
@@ -46,10 +49,10 @@ class Main(QMainWindow):
                 return False
             ProcessedFilesInSrc = GetFilesNameList(Src, excluded=ExcludedFileTypes, removeSrcDir=False)#, FilesInDes = GetFilesNameList(Src, [".txt"]), GetFilesNameList(Des)
             if True:
-                DestinationPath = f"{Des}{os.sep}{ProjectName}"
+                DestinationPath = f"{Des}{os.sep}{backupName}"
             else: # new version, optional backup.
                 DateNow = datetime.now().strftime("%Y-%m-%d %H.%M.%S")
-                DestinationPath = f"{Des}{os.sep}{ProjectName}{os.sep}{DateNow}"
+                DestinationPath = f"{Des}{os.sep}{backupName}{os.sep}{DateNow}"
             os.makedirs(DestinationPath, exist_ok=True)
             totalChangedFiles = 0
             for FileSrc in ProcessedFilesInSrc:
@@ -76,14 +79,49 @@ class Main(QMainWindow):
                 self.utils.msgUyariUnlem("Success", f"{totalChangedFiles} files copied! (Same files skipped for performance)", False)
             else:
                 self.getUi().lblStatus.setText(f"<b>Status:</b> Already up to date on {datetime.now().strftime('%d %B %Y %I:%M:%S %p')}.")
+
+
+            self.Settings["dateLastBackup"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.SaveSettings()
+            
+            
+            if self.getUi().chkAutoBackup.isChecked():
+                self.getUi().lblRemainingTimeToAutoBackup.setVisible(True)
+                selectedPeriod = self.getUi().cmbBackupPeriod.currentText()
+                self.homepage.periodInSeconds = 60
+                if selectedPeriod in ["5 sec", "5 secs", "5 seconds"]:
+                    self.homepage.periodInSeconds = 5
+                elif selectedPeriod == "1 min":
+                    self.homepage.periodInSeconds = 60
+                elif selectedPeriod == "5 min":
+                    self.homepage.periodInSeconds = 60 * 5
+                elif selectedPeriod == "1 hour":
+                    self.homepage.periodInSeconds = 60 * 60
+                elif selectedPeriod == "12 hours":
+                    self.homepage.periodInSeconds = 60 * 60 * 12
+                elif selectedPeriod == "1 day":
+                    self.homepage.periodInSeconds = 60 * 60 * 24
+                elif selectedPeriod == "1 week":
+                    self.homepage.periodInSeconds = 60 * 60 * 24 * 7
+                elif selectedPeriod == "1 month":
+                    self.homepage.periodInSeconds = 60 * 60 * 24 * 30
+                self.homepage.periodInSeconds += 2 # QTimer starts 1 second later delay
+
+                self.homepage.tmrAutoBackup.start(1000)
+            else:
+                self.getUi().lblRemainingTimeToAutoBackup.setVisible(False)
+                self.homepage.tmrAutoBackup.stop()
+
         except Exception as err:
             self.utils.hataKodGoster("BackupNow: %s" % str(err))
     Settings = {
+        "backupName":"",
         "sourceLocation": "",
         "backupLocation": "",
         "excludeFileTypes":[],
         "autoBackupEnabled": 0,
-        "autoBackupPeriod":"1 min"
+        "autoBackupPeriod":"1 min",
+        "dateLastBackup": ""
     }
     SETTINGS_PATH = "Settings.json"
     def LoadSettings(self):

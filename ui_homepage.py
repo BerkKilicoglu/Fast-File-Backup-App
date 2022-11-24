@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepagepoPDTJ.ui'
+## Form generated from reading UI file 'homepageOXfcgN.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -465,57 +465,40 @@ class Ui_MainWindow(object):
         self.uploadsettings.setSizePolicy(sizePolicy2)
         self.gridLayout_7 = QGridLayout(self.uploadsettings)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.s_filterfile = QWidget(self.uploadsettings)
-        self.s_filterfile.setObjectName(u"s_filterfile")
-        self.gridLayout_9 = QGridLayout(self.s_filterfile)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.label_filterfiles = QLabel(self.s_filterfile)
-        self.label_filterfiles.setObjectName(u"label_filterfiles")
+        self.lblStatus = QLabel(self.uploadsettings)
+        self.lblStatus.setObjectName(u"lblStatus")
         font5 = QFont()
-        font5.setPointSize(12)
-        self.label_filterfiles.setFont(font5)
+        font5.setPointSize(11)
+        self.lblStatus.setFont(font5)
 
-        self.gridLayout_9.addWidget(self.label_filterfiles, 0, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.lblStatus, 6, 0, 1, 1)
 
-        self.lineEdit_filetype = QLineEdit(self.s_filterfile)
-        self.lineEdit_filetype.setObjectName(u"lineEdit_filetype")
-        self.lineEdit_filetype.setMinimumSize(QSize(250, 30))
-        self.lineEdit_filetype.setMaximumSize(QSize(300, 16777215))
+        self.label_upsettings = QLabel(self.uploadsettings)
+        self.label_upsettings.setObjectName(u"label_upsettings")
+        font6 = QFont()
+        font6.setPointSize(14)
+        font6.setBold(True)
+        self.label_upsettings.setFont(font6)
 
-        self.gridLayout_9.addWidget(self.lineEdit_filetype, 2, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.label_infloc = QLabel(self.uploadsettings)
+        self.label_infloc.setObjectName(u"label_infloc")
+        self.label_infloc.setFont(font6)
 
-        self.gridLayout_9.addItem(self.horizontalSpacer_5, 2, 1, 1, 1)
+        self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
 
-
-        self.gridLayout_7.addWidget(self.s_filterfile, 2, 0, 1, 2)
-
-        self.widget = QWidget(self.uploadsettings)
-        self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(0, 0))
-        self.gridLayout_11 = QGridLayout(self.widget)
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.txtBackupName = QLineEdit(self.widget)
-        self.txtBackupName.setObjectName(u"txtBackupName")
-        self.txtBackupName.setMinimumSize(QSize(0, 30))
-        self.txtBackupName.setMaximumSize(QSize(300, 16777215))
-
-        self.gridLayout_11.addWidget(self.txtBackupName, 1, 1, 1, 1)
-
-        self.label_4 = QLabel(self.widget)
-        self.label_4.setObjectName(u"label_4")
+        self.lblRemainingTimeToAutoBackup = QLabel(self.uploadsettings)
+        self.lblRemainingTimeToAutoBackup.setObjectName(u"lblRemainingTimeToAutoBackup")
         sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
-        self.label_4.setSizePolicy(sizePolicy3)
-        self.label_4.setFont(font2)
+        sizePolicy3.setHeightForWidth(self.lblRemainingTimeToAutoBackup.sizePolicy().hasHeightForWidth())
+        self.lblRemainingTimeToAutoBackup.setSizePolicy(sizePolicy3)
+        self.lblRemainingTimeToAutoBackup.setFont(font5)
+        self.lblRemainingTimeToAutoBackup.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
-        self.gridLayout_11.addWidget(self.label_4, 0, 1, 1, 1)
-
-
-        self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.lblRemainingTimeToAutoBackup, 6, 1, 1, 1)
 
         self.s_backupType = QWidget(self.uploadsettings)
         self.s_backupType.setObjectName(u"s_backupType")
@@ -568,15 +551,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.widget_2, 9, 0, 2, 4)
 
 
-        self.gridLayout_7.addWidget(self.s_backupType, 6, 0, 1, 2)
-
-        self.lblStatus = QLabel(self.uploadsettings)
-        self.lblStatus.setObjectName(u"lblStatus")
-        font6 = QFont()
-        font6.setPointSize(11)
-        self.lblStatus.setFont(font6)
-
-        self.gridLayout_7.addWidget(self.lblStatus, 7, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.s_backupType, 5, 0, 1, 2)
 
         self.s_location = QWidget(self.uploadsettings)
         self.s_location.setObjectName(u"s_location")
@@ -620,11 +595,14 @@ class Ui_MainWindow(object):
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(120, 16777215))
-        self.label_2.setFont(font5)
+        font8 = QFont()
+        font8.setPointSize(12)
+        self.label_2.setFont(font8)
 
         self.gridLayout_8.addWidget(self.label_2, 1, 0, 1, 1)
 
         self.cmbBackupPeriod = QComboBox(self.frame)
+        self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
@@ -651,22 +629,54 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addItem(self.horizontalSpacer_7, 2, 2, 1, 1)
 
 
-        self.gridLayout_7.addWidget(self.s_location, 4, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.s_location, 3, 0, 1, 2)
 
-        self.label_infloc = QLabel(self.uploadsettings)
-        self.label_infloc.setObjectName(u"label_infloc")
-        font8 = QFont()
-        font8.setPointSize(14)
-        font8.setBold(True)
-        self.label_infloc.setFont(font8)
+        self.s_filterfile = QWidget(self.uploadsettings)
+        self.s_filterfile.setObjectName(u"s_filterfile")
+        self.gridLayout_9 = QGridLayout(self.s_filterfile)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.label_filterfiles = QLabel(self.s_filterfile)
+        self.label_filterfiles.setObjectName(u"label_filterfiles")
+        self.label_filterfiles.setFont(font8)
 
-        self.gridLayout_7.addWidget(self.label_infloc, 5, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.label_filterfiles, 0, 0, 1, 1)
 
-        self.label_upsettings = QLabel(self.uploadsettings)
-        self.label_upsettings.setObjectName(u"label_upsettings")
-        self.label_upsettings.setFont(font8)
+        self.lineEdit_filetype = QLineEdit(self.s_filterfile)
+        self.lineEdit_filetype.setObjectName(u"lineEdit_filetype")
+        self.lineEdit_filetype.setMinimumSize(QSize(250, 30))
+        self.lineEdit_filetype.setMaximumSize(QSize(300, 16777215))
 
-        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
+        self.gridLayout_9.addWidget(self.lineEdit_filetype, 2, 0, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_5, 2, 1, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.s_filterfile, 2, 0, 1, 2)
+
+        self.widget = QWidget(self.uploadsettings)
+        self.widget.setObjectName(u"widget")
+        self.widget.setMinimumSize(QSize(0, 0))
+        self.gridLayout_11 = QGridLayout(self.widget)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.txtBackupName = QLineEdit(self.widget)
+        self.txtBackupName.setObjectName(u"txtBackupName")
+        self.txtBackupName.setMinimumSize(QSize(0, 30))
+        self.txtBackupName.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_11.addWidget(self.txtBackupName, 1, 1, 1, 1)
+
+        self.label_4 = QLabel(self.widget)
+        self.label_4.setObjectName(u"label_4")
+        sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy3)
+        self.label_4.setFont(font2)
+
+        self.gridLayout_11.addWidget(self.label_4, 0, 1, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 2)
 
 
         self.gridLayout_2.addWidget(self.uploadsettings, 1, 0, 1, 1)
@@ -687,7 +697,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.label_upfiles.sizePolicy().hasHeightForWidth())
         self.label_upfiles.setSizePolicy(sizePolicy4)
-        self.label_upfiles.setFont(font8)
+        self.label_upfiles.setFont(font6)
 
         self.verticalLayout_2.addWidget(self.label_upfiles)
 
@@ -803,30 +813,32 @@ class Ui_MainWindow(object):
         self.label_searchicon.setText("")
         self.lineEdit_search.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.btnProfile.setText("")
-        self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
-        self.lineEdit_filetype.setText("")
-        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
-        self.txtBackupName.setText(QCoreApplication.translate("MainWindow", u"MyProject", None))
-        self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
+        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"<b>Status:</b> Waiting...", None))
+        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
+        self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
+        self.lblRemainingTimeToAutoBackup.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
         self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
         self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
         self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
-        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"<b>Status:</b> Waiting...", None))
         self.label_3.setText("")
         self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Backup Location", None))
         self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Backup period:", None))
-        self.cmbBackupPeriod.setItemText(0, QCoreApplication.translate("MainWindow", u"1 min", None))
-        self.cmbBackupPeriod.setItemText(1, QCoreApplication.translate("MainWindow", u"5 min", None))
-        self.cmbBackupPeriod.setItemText(2, QCoreApplication.translate("MainWindow", u"1 hour", None))
-        self.cmbBackupPeriod.setItemText(3, QCoreApplication.translate("MainWindow", u"12 hours", None))
-        self.cmbBackupPeriod.setItemText(4, QCoreApplication.translate("MainWindow", u"1 day", None))
-        self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 week", None))
-        self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 month", None))
+        self.cmbBackupPeriod.setItemText(0, QCoreApplication.translate("MainWindow", u"5 sec", None))
+        self.cmbBackupPeriod.setItemText(1, QCoreApplication.translate("MainWindow", u"1 min", None))
+        self.cmbBackupPeriod.setItemText(2, QCoreApplication.translate("MainWindow", u"5 min", None))
+        self.cmbBackupPeriod.setItemText(3, QCoreApplication.translate("MainWindow", u"1 hour", None))
+        self.cmbBackupPeriod.setItemText(4, QCoreApplication.translate("MainWindow", u"12 hours", None))
+        self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 day", None))
+        self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 week", None))
+        self.cmbBackupPeriod.setItemText(7, QCoreApplication.translate("MainWindow", u"1 month", None))
 
-        self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
-        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
+        self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
+        self.lineEdit_filetype.setText("")
+        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
+        self.txtBackupName.setText("")
+        self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))

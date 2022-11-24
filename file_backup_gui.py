@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys, os
-
+from datetime import datetime, timedelta
 import Main
 
 PYSIDE6_DAN_PYQT5_CEVIR = True
@@ -25,9 +25,14 @@ from PyQt5.QtGui import *
 
 
 class homepage(object):
+    tmrAutoBackup:QTimer = None
+
     def __init__(self, parent:Main.Main):
         super().__init__()
         self.parent, self.utils = parent, parent.utils
+        self.tmrAutoBackup = QTimer(self.parent)
+        self.tmrAutoBackup.setInterval(1000)
+        self.tmrAutoBackup.timeout.connect(self.CalculateAutoBackupTimer)
         self.ui = ui_homepage.Ui_MainWindow()
         self.ui.setupUi(parent)
 
@@ -37,6 +42,8 @@ class homepage(object):
         self.ui.menuBtn.clicked.connect(self.menu_hide_unhide)
         self.hidden = False
         ######
+
+        self.ui.lblRemainingTimeToAutoBackup.setVisible(False) # default hiden
         self.ui.label_brand.setWordWrap(True)
 
         self.ui.pushButton_2_Dashboard.clicked.connect(lambda: self.menusection(storage=False, dashboard=True))
@@ -48,17 +55,61 @@ class homepage(object):
         self.ui.btnBackupNow.clicked.connect(self.parent.BackupNow)
         self.ui.btnSelectSrcDirectory.clicked.connect(self.SelectSourceDir)
         self.ui.btnSelectLocation.clicked.connect(self.SelectBackupDir)
+        self.ui.txtBackupName.textChanged.connect(self.BackupNameDegisti)
         self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
+
         def changedAutoBackup(newState:int):
             self.ui.frameAutoBackup.setEnabled(newState)
             self.parent.Settings["autoBackupEnabled"] = bool(newState)
             self.parent.SaveSettings()
+
+
         self.ui.chkAutoBackup.stateChanged.connect(changedAutoBackup)
         def changedAutoBackupPeriod(newPeriod:str):
             self.parent.Settings["autoBackupPeriod"] = newPeriod
             self.parent.SaveSettings()
-        self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
 
+        self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
+    periodInSeconds = 60
+    def CalculateAutoBackupTimer(self):
+        if not self.parent.Settings["autoBackupEnabled"]: return
+        backupStartedDate = datetime.strptime(self.parent.Settings["dateLastBackup"], "%Y-%m-%d %H:%M:%S")
+
+
+        targetDate = (backupStartedDate + timedelta(seconds=self.periodInSeconds))
+        calculatedDate = (targetDate - datetime.now())
+        differenceInSeconds = calculatedDate.seconds
+        day = calculatedDate.days
+        time = differenceInSeconds % (24 * 3600)
+        hour = time // 3600
+        time %= 3600
+        minutes = time // 60
+        time %= 60
+        seconds = time
+        if day <= 0:
+            self.ui.lblRemainingTimeToAutoBackup.setText(f"{hour:02}:{minutes:02}:{seconds:02}")
+        elif day == 1:
+            self.ui.lblRemainingTimeToAutoBackup.setText(f"{day:02} day, {hour:02}:{minutes:02}:{seconds:02}")
+        elif day > 1:
+            self.ui.lblRemainingTimeToAutoBackup.setText(f"{day:02} days, {hour:02}:{minutes:02}:{seconds:02}")
+
+        #print(targetDate, day, time, hour, seconds)
+
+        if day == 0 and differenceInSeconds <= 0:
+            print("[DEBUG] Auto backup triggered.")
+            self.tmrAutoBackup.stop()
+
+            self.ui.lblRemainingTimeToAutoBackup.setPixmap(QPixmap(':/logo/assets/logo/check.png').scaled(QSize(16,16), Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            self.parent.BackupNow()
+
+
+
+    def BackupNameDegisti(self, newText:str):
+        try:
+            self.parent.Settings["backupName"] = newText
+            self.parent.SaveSettings()
+        except Exception as err:
+            self.utils.hataKodGoster("BackupNameDegisti: %s"%str(err))
     def FilterTypeDegisti(self, newText:str):
         try:
             self.parent.Settings["excludeFileTypes"] = newText.replace(",",";").replace("-",";").replace("|",";").replace("&",";").split(";")

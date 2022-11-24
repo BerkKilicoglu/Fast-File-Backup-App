@@ -1,9 +1,11 @@
 {
+    "backupName": "MyProject",
     "sourceLocation": "C:\\Users\\Emre\\Desktop\\Test1",
     "backupLocation": "C:\\Users\\Emre\\Desktop\\Test2",
     "excludeFileTypes": [
         ".txt"
     ],
     "autoBackupEnabled": true,
-    "autoBackupPeriod": "1 min"
+    "autoBackupPeriod": "12 hours",
+    "dateLastBackup": "2022-11-25 00:02:13"
 }
