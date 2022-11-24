@@ -1321,7 +1321,7 @@ QComboBox:on{
                         <cursorShape>PointingHandCursor</cursorShape>
                        </property>
                        <property name="text">
-                        <string>Select File</string>
+                        <string>Select Directory</string>
                        </property>
                        <property name="checkable">
                         <bool>false</bool>
