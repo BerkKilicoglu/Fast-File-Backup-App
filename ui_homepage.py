@@ -1,29 +1,34 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageVuusae.ui'
+## Form generated from reading UI file 'homepageLsqXnn.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.14.1
+## Created by: Qt User Interface Compiler version 6.2.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
-from PyQt5.QtWidgets import *
+from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 from components.EStackedWidgetSliding import EStackedWidgetSliding
-
 import assets_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if MainWindow.objectName():
+        if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(894, 955)
+        MainWindow.resize(894, 995)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -89,8 +94,8 @@ class Ui_MainWindow(object):
 "	color: white;\n"
 "}\n"
 "\n"
-"#btnSelectLocation::hover, #btnSelectLocation::ho"
-                        "ver{\n"
+"#btnSelectSrcDirectory::hover, #btnSelectLocation"
+                        "::hover{\n"
 "	background-color: #1F2A5B;\n"
 "	color: white;\n"
 "	font-size: 15px;\n"
@@ -125,8 +130,8 @@ class Ui_MainWindow(object):
 "	border-radius:60px;\n"
 "}\n"
 "#btnBackupNow::pressed{\n"
-"	font: 75 10pt \"Microsoft YaHei UI"
-                        "\";\n"
+"	font: 75 10pt \"Microsoft YaHe"
+                        "i UI\";\n"
 "	font-weight: bold;\n"
 "	color: white;\n"
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #415AAF, stop:1 #D4F1FF);\n"
@@ -174,8 +179,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#label_infloc{\n"
-"	font-wei"
-                        "ght: bold;\n"
+"	font"
+                        "-weight: bold;\n"
 "	margin: 5px;\n"
 "	margin-left: 0px;\n"
 "}\n"
@@ -216,8 +221,8 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(18)
         font1.setBold(True)
-        font1.setWeight(75)
         self.label_brand.setFont(font1)
+        self.label_brand.setStyleSheet(u"color:white")
 
         self.horizontalLayout_6.addWidget(self.label_brand)
 
@@ -254,7 +259,6 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
-        font2.setWeight(50)
         self.pushButton_Storage.setFont(font2)
         self.pushButton_Storage.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
@@ -315,7 +319,6 @@ class Ui_MainWindow(object):
         font3 = QFont()
         font3.setPointSize(10)
         font3.setBold(True)
-        font3.setWeight(75)
         self.btnGitBerk.setFont(font3)
         self.btnGitBerk.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitBerk.setIconSize(QSize(40, 40))
@@ -376,7 +379,6 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(16)
         font4.setBold(True)
-        font4.setWeight(75)
         self.label_menuname.setFont(font4)
 
         self.horizontalLayout_3.addWidget(self.label_menuname)
@@ -463,29 +465,144 @@ class Ui_MainWindow(object):
         self.uploadsettings.setSizePolicy(sizePolicy2)
         self.gridLayout_7 = QGridLayout(self.uploadsettings)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.s_filterfile = QWidget(self.uploadsettings)
+        self.s_filterfile.setObjectName(u"s_filterfile")
+        self.gridLayout_9 = QGridLayout(self.s_filterfile)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.label_filterfiles = QLabel(self.s_filterfile)
+        self.label_filterfiles.setObjectName(u"label_filterfiles")
+        font5 = QFont()
+        font5.setPointSize(12)
+        self.label_filterfiles.setFont(font5)
+
+        self.gridLayout_9.addWidget(self.label_filterfiles, 0, 0, 1, 1)
+
+        self.lineEdit_filetype = QLineEdit(self.s_filterfile)
+        self.lineEdit_filetype.setObjectName(u"lineEdit_filetype")
+        self.lineEdit_filetype.setMinimumSize(QSize(250, 30))
+        self.lineEdit_filetype.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_9.addWidget(self.lineEdit_filetype, 2, 0, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_9.addItem(self.horizontalSpacer_5, 2, 1, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.s_filterfile, 2, 0, 1, 2)
+
+        self.widget = QWidget(self.uploadsettings)
+        self.widget.setObjectName(u"widget")
+        self.widget.setMinimumSize(QSize(0, 0))
+        self.gridLayout_11 = QGridLayout(self.widget)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.txtBackupName = QLineEdit(self.widget)
+        self.txtBackupName.setObjectName(u"txtBackupName")
+        self.txtBackupName.setMinimumSize(QSize(0, 30))
+        self.txtBackupName.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_11.addWidget(self.txtBackupName, 1, 1, 1, 1)
+
+        self.label_4 = QLabel(self.widget)
+        self.label_4.setObjectName(u"label_4")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
+        self.label_4.setSizePolicy(sizePolicy3)
+        self.label_4.setFont(font2)
+
+        self.gridLayout_11.addWidget(self.label_4, 0, 1, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 1)
+
+        self.s_backupType = QWidget(self.uploadsettings)
+        self.s_backupType.setObjectName(u"s_backupType")
+        self.gridLayout = QGridLayout(self.s_backupType)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(30, -1, -1, -1)
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 12, 0, 1, 1)
+
+        self.frameAutoBackup = QFrame(self.s_backupType)
+        self.frameAutoBackup.setObjectName(u"frameAutoBackup")
+        self.frameAutoBackup.setEnabled(False)
+        self.frameAutoBackup.setFrameShape(QFrame.StyledPanel)
+        self.frameAutoBackup.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frameAutoBackup)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+
+        self.gridLayout.addWidget(self.frameAutoBackup, 0, 0, 1, 1)
+
+        self.btnBackupNow = QPushButton(self.s_backupType)
+        self.btnBackupNow.setObjectName(u"btnBackupNow")
+        self.btnBackupNow.setMinimumSize(QSize(120, 120))
+        self.btnBackupNow.setMaximumSize(QSize(120, 16777215))
+        self.btnBackupNow.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.gridLayout.addWidget(self.btnBackupNow, 12, 1, 1, 2)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 12, 3, 1, 1)
+
+        self.widget_2 = QWidget(self.s_backupType)
+        self.widget_2.setObjectName(u"widget_2")
+        self.widget_2.setMinimumSize(QSize(0, 0))
+        self.gridLayout_12 = QGridLayout(self.widget_2)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.label_source = QLabel(self.widget_2)
+        self.label_source.setObjectName(u"label_source")
+
+        self.gridLayout_12.addWidget(self.label_source, 0, 0, 2, 2)
+
+        self.label_backup = QLabel(self.widget_2)
+        self.label_backup.setObjectName(u"label_backup")
+
+        self.gridLayout_12.addWidget(self.label_backup, 2, 0, 1, 1)
+
+
+        self.gridLayout.addWidget(self.widget_2, 9, 0, 2, 4)
+
+
+        self.gridLayout_7.addWidget(self.s_backupType, 6, 0, 1, 2)
+
+        self.lblStatus = QLabel(self.uploadsettings)
+        self.lblStatus.setObjectName(u"lblStatus")
+        font6 = QFont()
+        font6.setPointSize(11)
+        self.lblStatus.setFont(font6)
+
+        self.gridLayout_7.addWidget(self.lblStatus, 7, 0, 1, 1)
+
         self.s_location = QWidget(self.uploadsettings)
         self.s_location.setObjectName(u"s_location")
-        self.verticalLayout_6 = QVBoxLayout(self.s_location)
-        self.verticalLayout_6.setSpacing(6)
-        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.verticalLayout_6.setContentsMargins(30, 10, 10, 20)
-        self.label_blocation = QLabel(self.s_location)
-        self.label_blocation.setObjectName(u"label_blocation")
-        self.label_blocation.setFont(font2)
+        self.gridLayout_10 = QGridLayout(self.s_location)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
+        self.label_3 = QLabel(self.s_location)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMinimumSize(QSize(0, 1))
+        self.label_3.setMaximumSize(QSize(16777215, 1))
 
-        self.verticalLayout_6.addWidget(self.label_blocation)
+        self.gridLayout_10.addWidget(self.label_3, 3, 0, 1, 1)
 
         self.btnSelectLocation = QPushButton(self.s_location)
         self.btnSelectLocation.setObjectName(u"btnSelectLocation")
-        self.btnSelectLocation.setMinimumSize(QSize(150, 50))
-        self.btnSelectLocation.setMaximumSize(QSize(150, 50))
-        font5 = QFont()
-        font5.setBold(True)
-        font5.setWeight(75)
-        self.btnSelectLocation.setFont(font5)
+        self.btnSelectLocation.setMinimumSize(QSize(175, 50))
+        self.btnSelectLocation.setMaximumSize(QSize(175, 50))
+        font7 = QFont()
+        font7.setBold(True)
+        self.btnSelectLocation.setFont(font7)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
-        self.verticalLayout_6.addWidget(self.btnSelectLocation)
+        self.gridLayout_10.addWidget(self.btnSelectLocation, 2, 1, 1, 1, Qt.AlignLeft)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 10, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout_10.addItem(self.verticalSpacer_3, 1, 1, 1, 1)
 
         self.frame = QFrame(self.s_location)
         self.frame.setObjectName(u"frame")
@@ -503,9 +620,7 @@ class Ui_MainWindow(object):
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(120, 16777215))
-        font6 = QFont()
-        font6.setPointSize(12)
-        self.label_2.setFont(font6)
+        self.label_2.setFont(font5)
 
         self.gridLayout_8.addWidget(self.label_2, 1, 0, 1, 1)
 
@@ -524,148 +639,34 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.cmbBackupPeriod, 1, 1, 1, 1)
 
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.verticalLayout_6.addWidget(self.frame, 0, Qt.AlignLeft)
-
-        self.label_3 = QLabel(self.s_location)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(0, 1))
-        self.label_3.setMaximumSize(QSize(16777215, 1))
-
-        self.verticalLayout_6.addWidget(self.label_3)
+        self.gridLayout_8.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
 
 
-        self.gridLayout_7.addWidget(self.s_location, 3, 0, 1, 1)
+        self.gridLayout_10.addWidget(self.frame, 1, 0, 2, 1)
 
-        self.widget = QWidget(self.uploadsettings)
-        self.widget.setObjectName(u"widget")
-        self.widget.setMinimumSize(QSize(0, 0))
-        self.horizontalLayout = QHBoxLayout(self.widget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.label_4 = QLabel(self.widget)
-        self.label_4.setObjectName(u"label_4")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
-        self.label_4.setSizePolicy(sizePolicy3)
-        self.label_4.setFont(font2)
+        self.horizontalSpacer_7 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.horizontalLayout.addWidget(self.label_4)
-
-        self.txtBackupName = QLineEdit(self.widget)
-        self.txtBackupName.setObjectName(u"txtBackupName")
-        self.txtBackupName.setMinimumSize(QSize(0, 30))
-        self.txtBackupName.setMaximumSize(QSize(300, 16777215))
-
-        self.horizontalLayout.addWidget(self.txtBackupName)
-
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_5)
+        self.gridLayout_10.addItem(self.horizontalSpacer_7, 2, 2, 1, 1)
 
 
-        self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 1)
-
-        self.label_upsettings = QLabel(self.uploadsettings)
-        self.label_upsettings.setObjectName(u"label_upsettings")
-        font7 = QFont()
-        font7.setPointSize(14)
-        font7.setBold(True)
-        font7.setWeight(75)
-        self.label_upsettings.setFont(font7)
-
-        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
-
-        self.s_backupType = QWidget(self.uploadsettings)
-        self.s_backupType.setObjectName(u"s_backupType")
-        self.gridLayout = QGridLayout(self.s_backupType)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(30, -1, -1, -1)
-        self.radiosetting = QWidget(self.s_backupType)
-        self.radiosetting.setObjectName(u"radiosetting")
-        self.horizontalLayout_7 = QHBoxLayout(self.radiosetting)
-        self.horizontalLayout_7.setSpacing(30)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
-
-        self.gridLayout.addWidget(self.radiosetting, 9, 1, 1, 1)
-
-        self.label_backup = QLabel(self.s_backupType)
-        self.label_backup.setObjectName(u"label_backup")
-
-        self.gridLayout.addWidget(self.label_backup, 11, 0, 1, 1)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_3, 12, 0, 1, 1)
-
-        self.btnBackupNow = QPushButton(self.s_backupType)
-        self.btnBackupNow.setObjectName(u"btnBackupNow")
-        self.btnBackupNow.setMinimumSize(QSize(120, 120))
-        self.btnBackupNow.setMaximumSize(QSize(120, 16777215))
-        self.btnBackupNow.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.gridLayout.addWidget(self.btnBackupNow, 12, 1, 1, 2)
-
-        self.frameAutoBackup = QFrame(self.s_backupType)
-        self.frameAutoBackup.setObjectName(u"frameAutoBackup")
-        self.frameAutoBackup.setEnabled(False)
-        self.frameAutoBackup.setFrameShape(QFrame.StyledPanel)
-        self.frameAutoBackup.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.frameAutoBackup)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-
-        self.gridLayout.addWidget(self.frameAutoBackup, 0, 0, 1, 1)
-
-        self.label_source = QLabel(self.s_backupType)
-        self.label_source.setObjectName(u"label_source")
-
-        self.gridLayout.addWidget(self.label_source, 10, 0, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_4, 12, 3, 1, 1)
-
-
-        self.gridLayout_7.addWidget(self.s_backupType, 5, 0, 1, 2)
-
-        self.s_filterfile = QWidget(self.uploadsettings)
-        self.s_filterfile.setObjectName(u"s_filterfile")
-        self.verticalLayout_5 = QVBoxLayout(self.s_filterfile)
-        self.verticalLayout_5.setSpacing(5)
-        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(30, 10, 0, 10)
-        self.label_filterfiles = QLabel(self.s_filterfile)
-        self.label_filterfiles.setObjectName(u"label_filterfiles")
-        self.label_filterfiles.setFont(font6)
-
-        self.verticalLayout_5.addWidget(self.label_filterfiles)
-
-        self.lineEdit_filetype = QLineEdit(self.s_filterfile)
-        self.lineEdit_filetype.setObjectName(u"lineEdit_filetype")
-        self.lineEdit_filetype.setMinimumSize(QSize(250, 30))
-        self.lineEdit_filetype.setMaximumSize(QSize(300, 16777215))
-
-        self.verticalLayout_5.addWidget(self.lineEdit_filetype)
-
-
-        self.gridLayout_7.addWidget(self.s_filterfile, 2, 0, 1, 2)
-
-        self.lblStatus = QLabel(self.uploadsettings)
-        self.lblStatus.setObjectName(u"lblStatus")
-        font8 = QFont()
-        font8.setPointSize(11)
-        self.lblStatus.setFont(font8)
-
-        self.gridLayout_7.addWidget(self.lblStatus, 6, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.s_location, 4, 0, 1, 1)
 
         self.label_infloc = QLabel(self.uploadsettings)
         self.label_infloc.setObjectName(u"label_infloc")
-        self.label_infloc.setFont(font7)
+        font8 = QFont()
+        font8.setPointSize(14)
+        font8.setBold(True)
+        self.label_infloc.setFont(font8)
 
-        self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.label_infloc, 5, 0, 1, 1)
+
+        self.label_upsettings = QLabel(self.uploadsettings)
+        self.label_upsettings.setObjectName(u"label_upsettings")
+        self.label_upsettings.setFont(font8)
+
+        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.uploadsettings, 1, 0, 1, 1)
@@ -686,7 +687,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.label_upfiles.sizePolicy().hasHeightForWidth())
         self.label_upfiles.setSizePolicy(sizePolicy4)
-        self.label_upfiles.setFont(font7)
+        self.label_upfiles.setFont(font8)
 
         self.verticalLayout_2.addWidget(self.label_upfiles)
 
@@ -702,7 +703,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3 = QVBoxLayout(self.frame_upload)
         self.verticalLayout_3.setSpacing(25)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 5, 0, 5)
+        self.verticalLayout_3.setContentsMargins(0, 10, 0, 10)
         self.label_upicon = QLabel(self.frame_upload)
         self.label_upicon.setObjectName(u"label_upicon")
         self.label_upicon.setMinimumSize(QSize(40, 40))
@@ -721,7 +722,6 @@ class Ui_MainWindow(object):
         font9.setBold(False)
         font9.setItalic(True)
         font9.setUnderline(False)
-        font9.setWeight(50)
         font9.setStrikeOut(False)
         font9.setKerning(True)
         self.label_browsefile.setFont(font9)
@@ -803,8 +803,17 @@ class Ui_MainWindow(object):
         self.label_searchicon.setText("")
         self.lineEdit_search.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.btnProfile.setText("")
-        self.label_blocation.setText(QCoreApplication.translate("MainWindow", u"Backup Location", None))
-        self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Location", None))
+        self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
+        self.lineEdit_filetype.setText("")
+        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
+        self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
+        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
+        self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
+        self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
+        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"Status: Waiting...", None))
+        self.label_3.setText("")
+        self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Backup Location", None))
         self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Backup period:", None))
         self.cmbBackupPeriod.setItemText(0, QCoreApplication.translate("MainWindow", u"1 min", None))
@@ -815,18 +824,8 @@ class Ui_MainWindow(object):
         self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 week", None))
         self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 month", None))
 
-        self.label_3.setText("")
-        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name:", None))
-        self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
-        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
-        self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
-        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
-        self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
-        self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
-        self.lineEdit_filetype.setText("")
-        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
-        self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"Status: Waiting...", None))
         self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
+        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))

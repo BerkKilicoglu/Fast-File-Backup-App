@@ -19,7 +19,8 @@ class Main(QMainWindow):
     def RefreshGui(self):
         try:
             ui = self.getUi()
-            ui.label_blocation.setText("Backup Location" + ((": <b>" + self.Settings["backupLocation"] + "</b>") if self.Settings["backupLocation"] else " <b>(Not Set)</b>"))
+            ui.label_source.setText("Source Location: " + ((" <font color='black'><b>" + self.Settings["sourceLocation"] + "</b></font>") if self.Settings["sourceLocation"] else " <b>(Not Set)</b>"))
+            ui.label_backup.setText("Backup Location: " + ((" <font color='black'><b>" + self.Settings["backupLocation"] + "</b></font>") if self.Settings["backupLocation"] else " <b>(Not Set)</b>"))
             ui.lineEdit_filetype.setText(";".join(self.Settings["excludeFileTypes"]))
             ui.chkAutoBackup.setChecked(self.Settings["autoBackupEnabled"])
             ui.cmbBackupPeriod.setCurrentText(self.Settings["autoBackupPeriod"])
