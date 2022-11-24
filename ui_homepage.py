@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageDheOzc.ui'
+## Form generated from reading UI file 'homepagesfCaEC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -784,7 +784,7 @@ class Ui_MainWindow(object):
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop files, or Browse", None))
-        self.pushButton_selectfile.setText(QCoreApplication.translate("MainWindow", u"Select File", None))
+        self.pushButton_selectfile.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
