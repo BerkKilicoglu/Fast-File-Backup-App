@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>959</width>
+    <width>876</width>
     <height>851</height>
    </rect>
   </property>
@@ -142,6 +142,18 @@ color:#415AAF;
 	background-color: #415AAF;
 	color: white;
 }
+
+QComboBox{
+	border: none;
+	background-color: rgb(65,90,175, .7);
+	color: 	white;
+	font-weight: bold;
+	padding: 3px;	
+}
+
+QComboBox:on{
+    background-color: rgb(65,90,175, .5);
+}
 </string>
    </property>
    <layout class="QGridLayout" name="gridLayout_6">
@@ -236,6 +248,7 @@ color:#415AAF;
                <property name="font">
                 <font>
                  <pointsize>18</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -263,6 +276,9 @@ color:#415AAF;
             </property>
             <layout class="QGridLayout" name="gridLayout_5">
              <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
               <number>0</number>
              </property>
              <item row="2" column="3">
@@ -313,6 +329,7 @@ color:#415AAF;
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -351,6 +368,7 @@ color:#415AAF;
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -459,6 +477,7 @@ color:#415AAF;
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -481,6 +500,7 @@ color:#415AAF;
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -565,6 +585,7 @@ color:#415AAF;
                <property name="font">
                 <font>
                  <pointsize>16</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -751,6 +772,7 @@ color:#415AAF;
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -782,6 +804,7 @@ color:#415AAF;
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
+                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -807,6 +830,7 @@ color:#415AAF;
                        <property name="font">
                         <font>
                          <pointsize>-1</pointsize>
+                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -873,6 +897,7 @@ color:#415AAF;
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
+                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -1015,6 +1040,9 @@ color:#415AAF;
                      </size>
                     </property>
                     <layout class="QHBoxLayout" name="horizontalLayout">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
                      <item>
                       <widget class="QLabel" name="label_4">
                        <property name="sizePolicy">
@@ -1026,6 +1054,7 @@ color:#415AAF;
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
+                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -1177,6 +1206,7 @@ color:#415AAF;
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1266,6 +1296,7 @@ color:#415AAF;
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
+                         <weight>50</weight>
                          <italic>true</italic>
                          <bold>false</bold>
                          <underline>false</underline>
