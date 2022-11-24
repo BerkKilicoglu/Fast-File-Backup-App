@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>959</width>
+    <width>964</width>
     <height>853</height>
    </rect>
   </property>
@@ -75,7 +75,7 @@ color:#415AAF;
 	background-color: #F5F8FC;
 }
 
-#pushButton_selectfile, #btnSelectLocation{
+#btnSelectSrcDirectory, #btnSelectLocation{
 	background-color: #415AAF;
 	border-radius: 25px;
 	font-size: 14px;
@@ -90,7 +90,7 @@ color:#415AAF;
 	font-weight: bold;
 }
 
-#pushButton_selectfile::pressed, #btnSelectLocation::pressed{
+#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed{
 	background-color: #8BA0D6;
 	font-size: 14px;
 	font-weight: bold;
@@ -150,7 +150,9 @@ color: 	white;
 font-weight: bold;
 padding: 3px;
 }
-
+QComboBox:disabled{
+background-color: rgb(45,60,145);
+}
 QComboBox:on{
     background-color: rgb(65,90,175);
 }
@@ -889,6 +891,9 @@ QComboBox:on{
                          <bold>false</bold>
                         </font>
                        </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
                        <property name="text">
                         <string>Automatic Backup</string>
                        </property>
@@ -916,7 +921,10 @@ QComboBox:on{
                       </widget>
                      </item>
                      <item row="1" column="0">
-                      <widget class="QFrame" name="frame">
+                      <widget class="QFrame" name="frameAutoBackup">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
                        <property name="frameShape">
                         <enum>QFrame::StyledPanel</enum>
                        </property>
@@ -940,7 +948,7 @@ QComboBox:on{
                          <widget class="QLabel" name="label_2">
                           <property name="font">
                            <font>
-                            <pointsize>10</pointsize>
+                            <pointsize>12</pointsize>
                            </font>
                           </property>
                           <property name="text">
@@ -1295,7 +1303,7 @@ QComboBox:on{
                       </widget>
                      </item>
                      <item alignment="Qt::AlignHCenter">
-                      <widget class="QPushButton" name="pushButton_selectfile">
+                      <widget class="QPushButton" name="btnSelectSrcDirectory">
                        <property name="minimumSize">
                         <size>
                          <width>150</width>

@@ -46,8 +46,18 @@ class homepage(object):
         self.ui.frame_upload.dropEvent = self.SurukleDropEvent
 
         self.ui.btnBackupNow.clicked.connect(self.parent.BackupNow)
+        self.ui.btnSelectSrcDirectory.clicked.connect(self.SelectSourceDir)
         self.ui.btnSelectLocation.clicked.connect(self.SelectBackupDir)
         self.ui.lineEdit_filetype.textChanged.connect(self.FileTypeDegisti)
+        def changedAutoBackup(newState:int):
+            self.ui.frameAutoBackup.setEnabled(newState)
+            self.parent.Settings["autoBackupEnabled"] = bool(newState)
+            self.parent.SaveSettings()
+        self.ui.chkAutoBackup.stateChanged.connect(changedAutoBackup)
+        def changedAutoBackupPeriod(newPeriod:str):
+            self.parent.Settings["autoBackupPeriod"] = newPeriod
+            self.parent.SaveSettings()
+        self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
 
     def FileTypeDegisti(self, newText:str):
         try:
@@ -55,6 +65,14 @@ class homepage(object):
             self.parent.SaveSettings()
         except Exception as err:
             self.utils.hataKodGoster("FileTypeDegisti: %s"%str(err))
+    def SelectSourceDir(self):
+        folderBackupDir = QFileDialog.getExistingDirectory(self.parent, 'Select Source Directory')
+        if not folderBackupDir:
+            return
+        folderBackupDir = self.utils.pathConvert(folderBackupDir)
+        self.parent.Settings["sourceLocation"] = folderBackupDir
+        self.parent.SaveSettings()
+        self.parent.RefreshGui()
     def SelectBackupDir(self):
         folderBackupDir = QFileDialog.getExistingDirectory(self.parent, 'Select Backup Directory')
         if not folderBackupDir:
@@ -101,12 +119,30 @@ class homepage(object):
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/white/home.svg"))
 
 
-
+    SolMenuWidth = -1
     def menu_hide_unhide(self):
         if self.hidden:
+
+            self.anim = QPropertyAnimation(self.ui.solMenu, b'maximumWidth')
+            self.anim.setEasingCurve(QEasingCurve.InOutQuad)
+            self.anim.setDuration(400)
+            self.anim.setEndValue(self.SolMenuWidth)
+            self.anim.start()
+
+
             self.ui.solMenu.show()
             self.hidden = False
         else:
-            self.ui.solMenu.hide()
+            if self.SolMenuWidth == -1: self.SolMenuWidth =self.ui.solMenu.width() # dynamic size after loaded GUI
+
+            self.anim = QPropertyAnimation(self.ui.solMenu, b'maximumWidth')
+            self.anim.setEasingCurve(QEasingCurve.InOutQuad)
+            self.anim.setDuration(400)
+            self.anim.setEndValue(0)
+            self.anim.start()
+            def End():
+                self.ui.solMenu.hide()
+
+            self.anim.finished.connect(End)
             self.hidden = True
 

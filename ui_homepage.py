@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageQkAvWX.ui'
+## Form generated from reading UI file 'homepageYgEZOr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(959, 853)
+        MainWindow.resize(964, 853)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -86,7 +86,7 @@ class Ui_MainWindow(object):
 "	background-color: #F5F8FC;\n"
 "}\n"
 "\n"
-"#pushButton_selectfile, #btnSelectLocation{\n"
+"#btnSelectSrcDirectory, #btnSelectLocation{\n"
 "	background-color: #415AAF;\n"
 "	border-radius: 25px;\n"
 "	font-size: 14px;\n"
@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
 "	font-weight: bold;\n"
 "}\n"
 "\n"
-"#pushButton_selectfile::pressed, #btnSelectLocation::pressed{\n"
+"#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed{\n"
 "	background-color: #8BA0D6;\n"
 "	font-size: 14px;\n"
 "	font-weight: bold;\n"
@@ -163,7 +163,9 @@ class Ui_MainWindow(object):
 "font-weight: bold;\n"
 "padding: 3px;\n"
 "}\n"
-"\n"
+"QComboBox:disabled{\n"
+"background-color: rgb(45,60,145);\n"
+"}\n"
 "QComboBox:on{\n"
 "    background-color: rgb(65,90,175);\n"
 "}\n"
@@ -506,6 +508,7 @@ class Ui_MainWindow(object):
         self.chkAutoBackup = QCheckBox(self.s_backupType)
         self.chkAutoBackup.setObjectName(u"chkAutoBackup")
         self.chkAutoBackup.setFont(font2)
+        self.chkAutoBackup.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.gridLayout.addWidget(self.chkAutoBackup, 0, 0, 1, 1)
 
@@ -518,20 +521,23 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.radiosetting, 7, 1, 1, 1)
 
-        self.frame = QFrame(self.s_backupType)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.frame)
+        self.frameAutoBackup = QFrame(self.s_backupType)
+        self.frameAutoBackup.setObjectName(u"frameAutoBackup")
+        self.frameAutoBackup.setEnabled(False)
+        self.frameAutoBackup.setFrameShape(QFrame.StyledPanel)
+        self.frameAutoBackup.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frameAutoBackup)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.frame)
+        self.label_2 = QLabel(self.frameAutoBackup)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font)
+        font7 = QFont()
+        font7.setPointSize(12)
+        self.label_2.setFont(font7)
 
         self.horizontalLayout_9.addWidget(self.label_2)
 
-        self.cmbBackupPeriod = QComboBox(self.frame)
+        self.cmbBackupPeriod = QComboBox(self.frameAutoBackup)
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
         self.cmbBackupPeriod.addItem("")
@@ -545,7 +551,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.cmbBackupPeriod)
 
 
-        self.gridLayout.addWidget(self.frame, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.frameAutoBackup, 1, 0, 1, 1)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -570,10 +576,10 @@ class Ui_MainWindow(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy3)
-        font7 = QFont()
-        font7.setPointSize(10)
-        font7.setBold(False)
-        self.label_4.setFont(font7)
+        font8 = QFont()
+        font8.setPointSize(10)
+        font8.setBold(False)
+        self.label_4.setFont(font8)
 
         self.horizontalLayout.addWidget(self.label_4)
 
@@ -599,9 +605,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setContentsMargins(30, 10, 0, 10)
         self.label_filterfiles = QLabel(self.s_filterfile)
         self.label_filterfiles.setObjectName(u"label_filterfiles")
-        font8 = QFont()
-        font8.setPointSize(12)
-        self.label_filterfiles.setFont(font8)
+        self.label_filterfiles.setFont(font7)
 
         self.verticalLayout_5.addWidget(self.label_filterfiles)
 
@@ -683,13 +687,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.label_browsefile, 0, Qt.AlignHCenter)
 
-        self.pushButton_selectfile = QPushButton(self.frame_upload)
-        self.pushButton_selectfile.setObjectName(u"pushButton_selectfile")
-        self.pushButton_selectfile.setMinimumSize(QSize(150, 50))
-        self.pushButton_selectfile.setCursor(QCursor(Qt.PointingHandCursor))
-        self.pushButton_selectfile.setCheckable(False)
+        self.btnSelectSrcDirectory = QPushButton(self.frame_upload)
+        self.btnSelectSrcDirectory.setObjectName(u"btnSelectSrcDirectory")
+        self.btnSelectSrcDirectory.setMinimumSize(QSize(150, 50))
+        self.btnSelectSrcDirectory.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btnSelectSrcDirectory.setCheckable(False)
 
-        self.verticalLayout_3.addWidget(self.pushButton_selectfile, 0, Qt.AlignHCenter)
+        self.verticalLayout_3.addWidget(self.btnSelectSrcDirectory, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_2.addWidget(self.frame_upload)
@@ -782,7 +786,7 @@ class Ui_MainWindow(object):
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
-        self.pushButton_selectfile.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
+        self.btnSelectSrcDirectory.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
