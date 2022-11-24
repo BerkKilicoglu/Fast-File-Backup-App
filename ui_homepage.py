@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageQtNNhs.ui'
+## Form generated from reading UI file 'homepageVuusae.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.14.1
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(964, 853)
+        MainWindow.resize(894, 955)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -169,13 +169,15 @@ class Ui_MainWindow(object):
 "	font-size: 14px;\n"
 "	color: #415AAF;\n"
 "	font-weight: bold;\n"
-"	margin: 4px;\n"
+"	margin: 0px;\n"
+"	padding: 6px;\n"
 "}\n"
 "\n"
 "#label_infloc{\n"
+"	font-wei"
+                        "ght: bold;\n"
 "	margin: 5px;\n"
-"	margin-le"
-                        "ft: 0px;\n"
+"	margin-left: 0px;\n"
 "}\n"
 "")
         self.gridLayout_6 = QGridLayout(self.centralwidget)
@@ -461,16 +463,6 @@ class Ui_MainWindow(object):
         self.uploadsettings.setSizePolicy(sizePolicy2)
         self.gridLayout_7 = QGridLayout(self.uploadsettings)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_upsettings = QLabel(self.uploadsettings)
-        self.label_upsettings.setObjectName(u"label_upsettings")
-        font5 = QFont()
-        font5.setPointSize(14)
-        font5.setBold(True)
-        font5.setWeight(75)
-        self.label_upsettings.setFont(font5)
-
-        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
-
         self.s_location = QWidget(self.uploadsettings)
         self.s_location.setObjectName(u"s_location")
         self.verticalLayout_6 = QVBoxLayout(self.s_location)
@@ -487,13 +479,53 @@ class Ui_MainWindow(object):
         self.btnSelectLocation.setObjectName(u"btnSelectLocation")
         self.btnSelectLocation.setMinimumSize(QSize(150, 50))
         self.btnSelectLocation.setMaximumSize(QSize(150, 50))
-        font6 = QFont()
-        font6.setBold(True)
-        font6.setWeight(75)
-        self.btnSelectLocation.setFont(font6)
+        font5 = QFont()
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.btnSelectLocation.setFont(font5)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.verticalLayout_6.addWidget(self.btnSelectLocation)
+
+        self.frame = QFrame(self.s_location)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_8 = QGridLayout(self.frame)
+        self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.chkAutoBackup = QCheckBox(self.frame)
+        self.chkAutoBackup.setObjectName(u"chkAutoBackup")
+        self.chkAutoBackup.setFont(font2)
+        self.chkAutoBackup.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.gridLayout_8.addWidget(self.chkAutoBackup, 0, 0, 1, 2)
+
+        self.label_2 = QLabel(self.frame)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(120, 16777215))
+        font6 = QFont()
+        font6.setPointSize(12)
+        self.label_2.setFont(font6)
+
+        self.gridLayout_8.addWidget(self.label_2, 1, 0, 1, 1)
+
+        self.cmbBackupPeriod = QComboBox(self.frame)
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.addItem("")
+        self.cmbBackupPeriod.setObjectName(u"cmbBackupPeriod")
+        self.cmbBackupPeriod.setMinimumSize(QSize(120, 0))
+        self.cmbBackupPeriod.setMaximumSize(QSize(200, 16777215))
+        self.cmbBackupPeriod.setStyleSheet(u"")
+
+        self.gridLayout_8.addWidget(self.cmbBackupPeriod, 1, 1, 1, 1)
+
+
+        self.verticalLayout_6.addWidget(self.frame, 0, Qt.AlignLeft)
 
         self.label_3 = QLabel(self.s_location)
         self.label_3.setObjectName(u"label_3")
@@ -504,94 +536,6 @@ class Ui_MainWindow(object):
 
 
         self.gridLayout_7.addWidget(self.s_location, 3, 0, 1, 1)
-
-        self.s_backupType = QWidget(self.uploadsettings)
-        self.s_backupType.setObjectName(u"s_backupType")
-        self.gridLayout = QGridLayout(self.s_backupType)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(30, -1, -1, -1)
-        self.frameAutoBackup = QFrame(self.s_backupType)
-        self.frameAutoBackup.setObjectName(u"frameAutoBackup")
-        self.frameAutoBackup.setEnabled(False)
-        self.frameAutoBackup.setFrameShape(QFrame.StyledPanel)
-        self.frameAutoBackup.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.frameAutoBackup)
-        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
-        self.label_2 = QLabel(self.frameAutoBackup)
-        self.label_2.setObjectName(u"label_2")
-        font7 = QFont()
-        font7.setPointSize(12)
-        self.label_2.setFont(font7)
-
-        self.horizontalLayout_9.addWidget(self.label_2)
-
-        self.cmbBackupPeriod = QComboBox(self.frameAutoBackup)
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.addItem("")
-        self.cmbBackupPeriod.setObjectName(u"cmbBackupPeriod")
-        self.cmbBackupPeriod.setStyleSheet(u"")
-
-        self.horizontalLayout_9.addWidget(self.cmbBackupPeriod)
-
-
-        self.gridLayout.addWidget(self.frameAutoBackup, 1, 0, 1, 1)
-
-        self.label_source = QLabel(self.s_backupType)
-        self.label_source.setObjectName(u"label_source")
-
-        self.gridLayout.addWidget(self.label_source, 9, 0, 1, 1)
-
-        self.chkAutoBackup = QCheckBox(self.s_backupType)
-        self.chkAutoBackup.setObjectName(u"chkAutoBackup")
-        self.chkAutoBackup.setFont(font2)
-        self.chkAutoBackup.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.gridLayout.addWidget(self.chkAutoBackup, 0, 0, 1, 1)
-
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_4, 11, 3, 1, 1)
-
-        self.label_infloc = QLabel(self.s_backupType)
-        self.label_infloc.setObjectName(u"label_infloc")
-        self.label_infloc.setFont(font7)
-
-        self.gridLayout.addWidget(self.label_infloc, 7, 0, 2, 3)
-
-        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_3, 11, 0, 1, 1)
-
-        self.btnBackupNow = QPushButton(self.s_backupType)
-        self.btnBackupNow.setObjectName(u"btnBackupNow")
-        self.btnBackupNow.setMinimumSize(QSize(120, 120))
-        self.btnBackupNow.setMaximumSize(QSize(120, 16777215))
-        self.btnBackupNow.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.gridLayout.addWidget(self.btnBackupNow, 11, 1, 1, 2)
-
-        self.radiosetting = QWidget(self.s_backupType)
-        self.radiosetting.setObjectName(u"radiosetting")
-        self.horizontalLayout_7 = QHBoxLayout(self.radiosetting)
-        self.horizontalLayout_7.setSpacing(30)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
-
-        self.gridLayout.addWidget(self.radiosetting, 8, 1, 1, 1)
-
-        self.label_backup = QLabel(self.s_backupType)
-        self.label_backup.setObjectName(u"label_backup")
-
-        self.gridLayout.addWidget(self.label_backup, 10, 0, 1, 1)
-
-
-        self.gridLayout_7.addWidget(self.s_backupType, 4, 0, 1, 2)
 
         self.widget = QWidget(self.uploadsettings)
         self.widget.setObjectName(u"widget")
@@ -605,11 +549,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setVerticalStretch(0)
         sizePolicy3.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy3)
-        font8 = QFont()
-        font8.setPointSize(10)
-        font8.setBold(False)
-        font8.setWeight(50)
-        self.label_4.setFont(font8)
+        self.label_4.setFont(font2)
 
         self.horizontalLayout.addWidget(self.label_4)
 
@@ -627,6 +567,70 @@ class Ui_MainWindow(object):
 
         self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 1)
 
+        self.label_upsettings = QLabel(self.uploadsettings)
+        self.label_upsettings.setObjectName(u"label_upsettings")
+        font7 = QFont()
+        font7.setPointSize(14)
+        font7.setBold(True)
+        font7.setWeight(75)
+        self.label_upsettings.setFont(font7)
+
+        self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
+
+        self.s_backupType = QWidget(self.uploadsettings)
+        self.s_backupType.setObjectName(u"s_backupType")
+        self.gridLayout = QGridLayout(self.s_backupType)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(30, -1, -1, -1)
+        self.radiosetting = QWidget(self.s_backupType)
+        self.radiosetting.setObjectName(u"radiosetting")
+        self.horizontalLayout_7 = QHBoxLayout(self.radiosetting)
+        self.horizontalLayout_7.setSpacing(30)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+
+        self.gridLayout.addWidget(self.radiosetting, 9, 1, 1, 1)
+
+        self.label_backup = QLabel(self.s_backupType)
+        self.label_backup.setObjectName(u"label_backup")
+
+        self.gridLayout.addWidget(self.label_backup, 11, 0, 1, 1)
+
+        self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_3, 12, 0, 1, 1)
+
+        self.btnBackupNow = QPushButton(self.s_backupType)
+        self.btnBackupNow.setObjectName(u"btnBackupNow")
+        self.btnBackupNow.setMinimumSize(QSize(120, 120))
+        self.btnBackupNow.setMaximumSize(QSize(120, 16777215))
+        self.btnBackupNow.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.gridLayout.addWidget(self.btnBackupNow, 12, 1, 1, 2)
+
+        self.frameAutoBackup = QFrame(self.s_backupType)
+        self.frameAutoBackup.setObjectName(u"frameAutoBackup")
+        self.frameAutoBackup.setEnabled(False)
+        self.frameAutoBackup.setFrameShape(QFrame.StyledPanel)
+        self.frameAutoBackup.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frameAutoBackup)
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.horizontalLayout_9.setContentsMargins(0, 0, 0, 0)
+
+        self.gridLayout.addWidget(self.frameAutoBackup, 0, 0, 1, 1)
+
+        self.label_source = QLabel(self.s_backupType)
+        self.label_source.setObjectName(u"label_source")
+
+        self.gridLayout.addWidget(self.label_source, 10, 0, 1, 1)
+
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_4, 12, 3, 1, 1)
+
+
+        self.gridLayout_7.addWidget(self.s_backupType, 5, 0, 1, 2)
+
         self.s_filterfile = QWidget(self.uploadsettings)
         self.s_filterfile.setObjectName(u"s_filterfile")
         self.verticalLayout_5 = QVBoxLayout(self.s_filterfile)
@@ -635,7 +639,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setContentsMargins(30, 10, 0, 10)
         self.label_filterfiles = QLabel(self.s_filterfile)
         self.label_filterfiles.setObjectName(u"label_filterfiles")
-        self.label_filterfiles.setFont(font7)
+        self.label_filterfiles.setFont(font6)
 
         self.verticalLayout_5.addWidget(self.label_filterfiles)
 
@@ -651,11 +655,17 @@ class Ui_MainWindow(object):
 
         self.lblStatus = QLabel(self.uploadsettings)
         self.lblStatus.setObjectName(u"lblStatus")
-        font9 = QFont()
-        font9.setPointSize(11)
-        self.lblStatus.setFont(font9)
+        font8 = QFont()
+        font8.setPointSize(11)
+        self.lblStatus.setFont(font8)
 
-        self.gridLayout_7.addWidget(self.lblStatus, 5, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.lblStatus, 6, 0, 1, 1)
+
+        self.label_infloc = QLabel(self.uploadsettings)
+        self.label_infloc.setObjectName(u"label_infloc")
+        self.label_infloc.setFont(font7)
+
+        self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
 
 
         self.gridLayout_2.addWidget(self.uploadsettings, 1, 0, 1, 1)
@@ -676,7 +686,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.label_upfiles.sizePolicy().hasHeightForWidth())
         self.label_upfiles.setSizePolicy(sizePolicy4)
-        self.label_upfiles.setFont(font5)
+        self.label_upfiles.setFont(font7)
 
         self.verticalLayout_2.addWidget(self.label_upfiles)
 
@@ -706,15 +716,15 @@ class Ui_MainWindow(object):
         self.label_browsefile = QLabel(self.frame_upload)
         self.label_browsefile.setObjectName(u"label_browsefile")
         self.label_browsefile.setMinimumSize(QSize(160, 0))
-        font10 = QFont()
-        font10.setPointSize(10)
-        font10.setBold(False)
-        font10.setItalic(True)
-        font10.setUnderline(False)
-        font10.setWeight(50)
-        font10.setStrikeOut(False)
-        font10.setKerning(True)
-        self.label_browsefile.setFont(font10)
+        font9 = QFont()
+        font9.setPointSize(10)
+        font9.setBold(False)
+        font9.setItalic(True)
+        font9.setUnderline(False)
+        font9.setWeight(50)
+        font9.setStrikeOut(False)
+        font9.setKerning(True)
+        self.label_browsefile.setFont(font9)
 
         self.verticalLayout_3.addWidget(self.label_browsefile, 0, Qt.AlignHCenter)
 
@@ -793,10 +803,9 @@ class Ui_MainWindow(object):
         self.label_searchicon.setText("")
         self.lineEdit_search.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search", None))
         self.btnProfile.setText("")
-        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
         self.label_blocation.setText(QCoreApplication.translate("MainWindow", u"Backup Location", None))
         self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Location", None))
-        self.label_3.setText("")
+        self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Backup period:", None))
         self.cmbBackupPeriod.setItemText(0, QCoreApplication.translate("MainWindow", u"1 min", None))
         self.cmbBackupPeriod.setItemText(1, QCoreApplication.translate("MainWindow", u"5 min", None))
@@ -806,17 +815,18 @@ class Ui_MainWindow(object):
         self.cmbBackupPeriod.setItemText(5, QCoreApplication.translate("MainWindow", u"1 week", None))
         self.cmbBackupPeriod.setItemText(6, QCoreApplication.translate("MainWindow", u"1 month", None))
 
-        self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
-        self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
-        self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
-        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
-        self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
+        self.label_3.setText("")
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name:", None))
         self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
+        self.label_upsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
+        self.label_backup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
+        self.btnBackupNow.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
+        self.label_source.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
         self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
         self.lineEdit_filetype.setText("")
         self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
         self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"Status: Waiting...", None))
+        self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
