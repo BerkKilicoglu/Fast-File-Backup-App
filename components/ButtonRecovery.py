@@ -7,7 +7,9 @@ from PyQt5.QtCore import Qt, QSize, QObject, QTimer, QPoint, QEasingCurve, QPara
 from PyQt5.QtGui import *
 
 class ButtonRecovery(QPushButton):
-    def __init__(self, dictSaveInfo:dict):
-        super().__init__()
+    def __init__(self, dictSaveInfo:dict, parent=None):
+        super().__init__(parent)
         self.dictSaveInfo = dictSaveInfo
         self.setText("Recover")
+        self.setCursor(Qt.PointingHandCursor)
+        self.setStyleSheet("background-color:rgb(0,0,100);color:white")

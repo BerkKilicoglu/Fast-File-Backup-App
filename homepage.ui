@@ -749,7 +749,7 @@ QComboBox:on{
            <item row="0" column="0">
             <widget class="EStackedWidgetSliding" name="stackedWidget_2">
              <property name="currentIndex">
-              <number>1</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="pageStorage">
               <layout class="QGridLayout" name="gridLayout_2">
@@ -1249,6 +1249,13 @@ QComboBox:on{
                        </property>
                       </widget>
                      </item>
+                     <item row="2" column="1">
+                      <widget class="QCheckBox" name="chkOptionsCreatewithDate">
+                       <property name="text">
+                        <string>Create backup dir with dates (it will disable hash compare for performance)</string>
+                       </property>
+                      </widget>
+                     </item>
                     </layout>
                    </widget>
                   </item>
@@ -1436,6 +1443,25 @@ QComboBox:on{
                 <number>0</number>
                </property>
                <item row="0" column="0">
+                <widget class="QPushButton" name="btnRecoverLast">
+                 <property name="font">
+                  <font>
+                   <pointsize>14</pointsize>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:green;
+border-radius:30px;
+color:white;
+height:200px;</string>
+                 </property>
+                 <property name="text">
+                  <string>Recover!</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
                 <widget class="QTableWidget" name="tableDashboard">
                  <attribute name="verticalHeaderVisible">
                   <bool>false</bool>

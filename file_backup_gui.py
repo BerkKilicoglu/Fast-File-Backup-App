@@ -58,6 +58,7 @@ class homepage(object):
         self.ui.txtBackupName.textChanged.connect(self.BackupNameDegisti)
         self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
         self.ui.lineEdit_search.textChanged.connect(self.SearchDegisti)
+
         def releaseGitEmre(eventRelease):
             if eventRelease.button() != Qt.LeftButton:
                 return
@@ -82,6 +83,10 @@ class homepage(object):
             self.parent.SaveSettings()
 
         self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
+        def changedOptionsCreatewithDate(newState:int):
+            self.ui.tableDashboard.setVisible(bool(newState))
+            self.ui.btnRecoverLast.setVisible(not bool(newState))
+        self.ui.chkOptionsCreatewithDate.stateChanged.connect(changedOptionsCreatewithDate)
     periodInSeconds = 60
     def CalculateAutoBackupTimer(self):
         if not self.parent.Settings["autoBackupEnabled"]: return

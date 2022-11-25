@@ -7,11 +7,11 @@
     ],
     "autoBackupEnabled": true,
     "autoBackupPeriod": "12 hours",
-    "dateLastBackup": "2022-11-25 09:02:14",
+    "dateLastBackup": "2022-11-25 09:54:08",
     "saves": [
         {
             "backupName": "MyProject",
-            "date": "2022-11-25 09:02:14",
+            "date": "2022-11-25 09:54:08",
             "totalChangedFiles": 0
         }
     ]

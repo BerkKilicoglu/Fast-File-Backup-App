@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepagefDXdXq.ui'
+## Form generated from reading UI file 'homepageBqAbrq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -675,6 +675,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_11.addWidget(self.label_4, 0, 1, 1, 1)
 
+        self.chkOptionsCreatewithDate = QCheckBox(self.widget)
+        self.chkOptionsCreatewithDate.setObjectName(u"chkOptionsCreatewithDate")
+
+        self.gridLayout_11.addWidget(self.chkOptionsCreatewithDate, 2, 1, 1, 1)
+
 
         self.gridLayout_7.addWidget(self.widget, 0, 0, 1, 2)
 
@@ -759,6 +764,16 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setHorizontalSpacing(0)
         self.gridLayout_3.setContentsMargins(-1, 0, 0, 0)
+        self.btnRecoverLast = QPushButton(self.pageDashboard)
+        self.btnRecoverLast.setObjectName(u"btnRecoverLast")
+        self.btnRecoverLast.setFont(font6)
+        self.btnRecoverLast.setStyleSheet(u"background-color:green;\n"
+"border-radius:30px;\n"
+"color:white;\n"
+"height:200px;")
+
+        self.gridLayout_3.addWidget(self.btnRecoverLast, 0, 0, 1, 1)
+
         self.tableDashboard = QTableWidget(self.pageDashboard)
         if (self.tableDashboard.columnCount() < 4):
             self.tableDashboard.setColumnCount(4)
@@ -773,7 +788,7 @@ class Ui_MainWindow(object):
         self.tableDashboard.setObjectName(u"tableDashboard")
         self.tableDashboard.verticalHeader().setVisible(False)
 
-        self.gridLayout_3.addWidget(self.tableDashboard, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.tableDashboard, 1, 0, 1, 1)
 
         self.stackedWidget_2.addWidget(self.pageDashboard)
 
@@ -794,7 +809,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(0)
-        self.stackedWidget_2.setCurrentIndex(1)
+        self.stackedWidget_2.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -840,10 +855,12 @@ class Ui_MainWindow(object):
         self.txtBackupName.setText("")
         self.txtBackupName.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
+        self.chkOptionsCreatewithDate.setText(QCoreApplication.translate("MainWindow", u"Create backup dir with dates (it will disable hash compare for performance)", None))
         self.label_upfiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
         self.btnSelectSrcDirectory.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
+        self.btnRecoverLast.setText(QCoreApplication.translate("MainWindow", u"Recover!", None))
         ___qtablewidgetitem = self.tableDashboard.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
         ___qtablewidgetitem1 = self.tableDashboard.horizontalHeaderItem(1)
