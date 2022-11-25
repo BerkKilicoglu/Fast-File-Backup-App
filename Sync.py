@@ -59,7 +59,10 @@ def Sync(backupName:str, Src:str, Des:str, ExcludedFileTypes:list=[], ui=None) -
         ProcessedFilesInSrc = GetFilesNameList(Src, excluded=ExcludedFileTypes,
                                                removeSrcDir=False)  # , FilesInDes = GetFilesNameList(Src, [".txt"]), GetFilesNameList(Des)
         if True:
-            DestinationPath = f"{Des}{os.sep}{backupName}"
+            if backupName:
+                DestinationPath = f"{Des}{os.sep}{backupName}"
+            else:
+                DestinationPath = f"{Des}"
         else:  # new version, optional backup.
             DateNow = datetime.now().strftime("%Y-%m-%d %H.%M.%S")
             DestinationPath = f"{Des}{os.sep}{backupName}{os.sep}{DateNow}"

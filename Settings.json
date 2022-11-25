@@ -3,13 +3,13 @@
     "sourceLocation": "C:\\Users\\Emre\\Desktop\\Test1",
     "backupLocation": "C:\\Users\\Emre\\Desktop\\Test2",
     "excludeFileTypes": [],
-    "autoBackupEnabled": 0,
-    "autoBackupPeriod": "1 min",
-    "dateLastBackup": "2022-11-25 12:36:59",
+    "autoBackupEnabled": false,
+    "autoBackupPeriod": "5 sec",
+    "dateLastBackup": "2022-11-25 12:47:39",
     "saves": {
         "MyProject": {
-            "date": "2022-11-25 12:36:59",
-            "totalChangedFiles": 9
+            "date": "2022-11-25 12:47:39",
+            "totalChangedFiles": 27
         }
     }
 }

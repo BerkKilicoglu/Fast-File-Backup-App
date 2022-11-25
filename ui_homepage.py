@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepagejQGDsQ.ui'
+## Form generated from reading UI file 'homepageReLmRF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -797,6 +797,7 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.lblRemainingTimeToAutoBackup.sizePolicy().hasHeightForWidth())
         self.lblRemainingTimeToAutoBackup.setSizePolicy(sizePolicy3)
         self.lblRemainingTimeToAutoBackup.setFont(font9)
+        self.lblRemainingTimeToAutoBackup.setStyleSheet(u"padding-right:10px")
         self.lblRemainingTimeToAutoBackup.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
         self.gridLayout_13.addWidget(self.lblRemainingTimeToAutoBackup, 0, 1, 1, 1)

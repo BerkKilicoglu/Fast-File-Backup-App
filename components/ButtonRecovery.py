@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys, os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QPushButton
 from PyQt5.QtCore import Qt, QSize, QObject, QTimer, QPoint, QEasingCurve, QParallelAnimationGroup, QAbstractAnimation, \
@@ -19,7 +20,7 @@ class ButtonRecovery(QPushButton):
 
             SrcPath, DesPath = self.widParent.Settings["sourceLocation"], self.widParent.Settings["backupLocation"]
             SrcPath, DesPath = DesPath, SrcPath
-            totalChangedFiles = Sync(backupName=self.backupName, Src=SrcPath, Des=DesPath, ExcludedFileTypes=[],
+            totalChangedFiles = Sync(backupName="", Src=SrcPath+os.sep+self.backupName, Des=DesPath, ExcludedFileTypes=[],
                                      ui=self.widParent.getUi())
             self.widParent.getUi().lblStatus.setText(f"<b>Status: </b> Restored {totalChangedFiles} files.")
         except Exception as err:
