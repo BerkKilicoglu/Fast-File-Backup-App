@@ -83,10 +83,7 @@ class homepage(object):
             self.parent.SaveSettings()
 
         self.ui.cmbBackupPeriod.currentTextChanged.connect(changedAutoBackupPeriod)
-        def changedOptionsCreatewithDate(newState:int):
-            self.ui.tableDashboard.setVisible(bool(newState))
-            self.ui.btnRecoverLast.setVisible(not bool(newState))
-        self.ui.chkOptionsCreatewithDate.stateChanged.connect(changedOptionsCreatewithDate)
+
     periodInSeconds = 60
     def CalculateAutoBackupTimer(self):
         if not self.parent.Settings["autoBackupEnabled"]: return
@@ -114,10 +111,10 @@ class homepage(object):
 
         if day == 0 and differenceInSeconds <= 0:
             print("[DEBUG] Auto backup triggered.")
-            self.tmrAutoBackup.stop()
+            self.tmrAutoBackup.stop() # stopped timer
 
             self.ui.lblRemainingTimeToAutoBackup.setPixmap(QPixmap(':/logo/assets/logo/check.png').scaled(QSize(16,16), Qt.KeepAspectRatio, Qt.SmoothTransformation))
-            self.parent.BackupNow()
+            self.parent.BackupNow() # this will start timer again
 
 
 
@@ -135,9 +132,10 @@ class homepage(object):
             self.utils.hataKodGoster("FileTypeDegisti: %s"%str(err))
     def SearchDegisti(self, newText:str):
         try:
-            onStoragePage = self.ui.stackedWidget_2.currentWidget() == self.ui.pageStorage
+            onStoragePage = not self.onDashboard#self.ui.stackedWidget_2.currentWidget() == self.ui.pageStorage
             if onStoragePage:
-                self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
+                self.menusection(storage=False,dashboard=True)
+                #self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
             for i in range(self.ui.tableDashboard.rowCount()):
                 BackupName = self.ui.tableDashboard.item(i, 0).text()
                 Date = self.ui.tableDashboard.item(i, 1).text()
@@ -185,9 +183,10 @@ class homepage(object):
         self.dragEnter=False
 
 
-
+    onDashboard = False
     def menusection(self, storage, dashboard):
         if dashboard:
+            self.onDashboard=True
             self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
             self.ui.pushButton_2_Dashboard.setStyleSheet("background-color: #FEFEFF;border-top-left-radius: 20px; color: #415AAF")
             self.ui.pushButton_Storage.setStyleSheet("background-color: #415AAF; color: black;")
@@ -195,6 +194,7 @@ class homepage(object):
             self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/white/package.svg"))
             self.ui.label_menuname.setText("Dashboard")
         if storage:
+            self.onDashboard=False
             self.ui.stackedWidget_2.slideInWgt(self.ui.pageStorage)
             self.ui.pushButton_Storage.setStyleSheet("background-color: #FEFEFF; color: #415AAF")
             self.ui.pushButton_2_Dashboard.setStyleSheet("background-color: #415AAF;")

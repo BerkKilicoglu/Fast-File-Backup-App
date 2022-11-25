@@ -2,7 +2,7 @@
 import sys, os, json, time
 from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView
 from PyQt5 import QtGui
-from Sync import GetFileMD5, CopyFile, GetFilesNameList
+from Sync import GetFileMD5, CopyFile, GetFilesNameList, Sync
 from components.ETableWidgetItem import ETableWidgetItem
 from components.ButtonRecovery import ButtonRecovery
 from datetime import datetime
@@ -35,13 +35,14 @@ class Main(QMainWindow):
             liste.setRowCount(0)
             liste.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
-            for dictSaveInfo in self.Settings["saves"]:
+            for key, value in self.Settings["saves"].items():
+                backupName = key
                 index = liste.rowCount()
                 liste.insertRow(index)
-                liste.setItem(index, 0, ETableWidgetItem(str(dictSaveInfo["backupName"])))
-                liste.setItem(index, 1, ETableWidgetItem(str(dictSaveInfo["date"])))
-                liste.setItem(index, 2, ETableWidgetItem(str(dictSaveInfo["totalChangedFiles"])))
-                liste.setCellWidget(index, 3, ButtonRecovery(dictSaveInfo))
+                liste.setItem(index, 0, ETableWidgetItem(backupName))
+                liste.setItem(index, 1, ETableWidgetItem(str(value["date"])))
+                liste.setItem(index, 2, ETableWidgetItem(str(value["totalChangedFiles"])))
+                liste.setCellWidget(index, 3, ButtonRecovery(backupName=backupName, dictSaveInfo=value, parent=self))
 
         except Exception as err:
             self.utils.hataKodGoster("RefreshGui: %s"%str(err))
@@ -61,33 +62,8 @@ class Main(QMainWindow):
                     or Src == Des:# or not os.path.exists(Des):
                 self.utils.msgHata(f"Please be sure you have selected Source Location & Backup location and These locations are directories.\nAlso they can't be the same.\n\n\nSrc Location: {Src}\n\nDes Location: {Des}")
                 return False
-            ProcessedFilesInSrc = GetFilesNameList(Src, excluded=ExcludedFileTypes, removeSrcDir=False)#, FilesInDes = GetFilesNameList(Src, [".txt"]), GetFilesNameList(Des)
-            if True:
-                DestinationPath = f"{Des}{os.sep}{backupName}"
-            else: # new version, optional backup.
-                DateNow = datetime.now().strftime("%Y-%m-%d %H.%M.%S")
-                DestinationPath = f"{Des}{os.sep}{backupName}{os.sep}{DateNow}"
-            os.makedirs(DestinationPath, exist_ok=True)
-            totalChangedFiles = 0
-            for FileSrc in ProcessedFilesInSrc:
-                ResultDes = FileSrc.replace(Src, DestinationPath)
-                ParsedFileName = FileSrc.replace(Src, "")
-                if len(ParsedFileName) > 0: # For safety.
-                    ParsedFileName = ParsedFileName[1:] # Remove os.sep in first character
-                if os.path.exists(ResultDes): # For more performance, hash compare, if hashes are the same; it will not copy.
-                    hashSrc = GetFileMD5(FileSrc)
-                    hashDes = GetFileMD5(ResultDes)
-                    if hashSrc == hashDes:
-                        print("Not copied file: %s [Files are the same]" % str(FileSrc))
-                        continue
 
-                if CopyFile(FileSrc, ResultDes):
-                    totalChangedFiles += 1
-                else:
-                    print("[ERR] File: %s not copied (CopyFile is false)" % str(FileSrc))
-
-                self.getUi().lblStatus.setText(f"<b>Status: </b> File copying ({ParsedFileName}) {totalChangedFiles}/{len(ProcessedFilesInSrc)} {((totalChangedFiles)/len(ProcessedFilesInSrc)*100)}%")
-
+            totalChangedFiles = Sync(backupName=backupName, Src=Src, Des=Des, ExcludedFileTypes=ExcludedFileTypes, ui=self.getUi())
             if totalChangedFiles != 0:
                 self.getUi().lblStatus.setText(f"<b>Status:</b> {totalChangedFiles} files copied on {datetime.now().strftime('%d %B %Y %I:%M:%S %p')}.")
                 self.utils.msgUyariUnlem("Success", f"{totalChangedFiles} files copied! (Same files skipped for performance)", False)
@@ -97,12 +73,13 @@ class Main(QMainWindow):
 
             self.Settings["dateLastBackup"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             DictSaveInfo = {
-                "backupName":backupName,
                 "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 "totalChangedFiles": totalChangedFiles
 
             }
-            self.Settings["saves"].insert(0, DictSaveInfo)
+            if backupName not in self.Settings["saves"]:
+                self.Settings["saves"][backupName] = {}
+            self.Settings["saves"][backupName] = DictSaveInfo
             self.SaveSettings()
             self.RefreshGui() # for add to dashboard list
             
@@ -143,7 +120,7 @@ class Main(QMainWindow):
         "autoBackupEnabled": 0,
         "autoBackupPeriod":"1 min",
         "dateLastBackup": "",
-        "saves":[]
+        "saves":{}
     }
     SETTINGS_PATH = "Settings.json"
     def LoadSettings(self):

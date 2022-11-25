@@ -10,6 +10,12 @@
     <height>995</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>EB File Backup Automation</string>
   </property>
@@ -35,10 +41,10 @@ border:none
 }
 
 #centralwidget{
-	background-color: #EFF9FE;
+	background-color: #FEFEFF/*#EFF9FE*/;
 }
 
-#header, #uploadfiles, #uploadsettings{
+#header, #uploadfiles, #lblStatus, #uploadsettings,#lblRemainingTimeToAutoBackup{
 	background-color: #FEFEFF;
 }
 
@@ -185,7 +191,10 @@ QComboBox:on{
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item row="0" column="0">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" rowspan="2">
      <widget class="QWidget" name="solMenu" native="true">
       <property name="maximumSize">
        <size>
@@ -777,31 +786,6 @@ QComboBox:on{
                   </sizepolicy>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_7">
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="lblStatus">
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>&lt;b&gt;Status:&lt;/b&gt; Waiting...</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_upsettings">
-                    <property name="font">
-                     <font>
-                      <pointsize>14</pointsize>
-                      <bold>true</bold>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>Backup Settings</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="4" column="0">
                    <widget class="QLabel" name="label_infloc">
                     <property name="font">
@@ -815,97 +799,45 @@ QComboBox:on{
                     </property>
                    </widget>
                   </item>
-                  <item row="6" column="1">
-                   <widget class="QLabel" name="lblRemainingTimeToAutoBackup">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="font">
-                     <font>
-                      <pointsize>11</pointsize>
-                     </font>
-                    </property>
-                    <property name="text">
-                     <string>00:00:00</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="0" colspan="2">
-                   <widget class="QWidget" name="s_backupType" native="true">
-                    <layout class="QGridLayout" name="gridLayout">
-                     <property name="leftMargin">
-                      <number>30</number>
-                     </property>
-                     <item row="12" column="0">
-                      <spacer name="horizontalSpacer_3">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>40</width>
-                         <height>20</height>
-                        </size>
-                       </property>
-                      </spacer>
-                     </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QWidget" name="s_filterfile" native="true">
+                    <layout class="QGridLayout" name="gridLayout_9">
                      <item row="0" column="0">
-                      <widget class="QFrame" name="frameAutoBackup">
-                       <property name="enabled">
-                        <bool>false</bool>
+                      <widget class="QLabel" name="label_filterfiles">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
                        </property>
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
+                       <property name="text">
+                        <string>Filter your exclude files type</string>
                        </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QHBoxLayout" name="horizontalLayout_9">
-                        <property name="leftMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>0</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>0</number>
-                        </property>
-                       </layout>
                       </widget>
                      </item>
-                     <item row="12" column="1" colspan="2">
-                      <widget class="QPushButton" name="btnBackupNow">
+                     <item row="2" column="0">
+                      <widget class="QLineEdit" name="lineEdit_filetype">
                        <property name="minimumSize">
                         <size>
-                         <width>120</width>
-                         <height>120</height>
+                         <width>250</width>
+                         <height>30</height>
                         </size>
                        </property>
                        <property name="maximumSize">
                         <size>
-                         <width>120</width>
+                         <width>300</width>
                          <height>16777215</height>
                         </size>
                        </property>
-                       <property name="cursor">
-                        <cursorShape>PointingHandCursor</cursorShape>
-                       </property>
                        <property name="text">
-                        <string>BACKUP FILE !</string>
+                        <string/>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Please enter the file name. Ex: .txt / myFiles.png</string>
                        </property>
                       </widget>
                      </item>
-                     <item row="12" column="3">
-                      <spacer name="horizontalSpacer_4">
+                     <item row="2" column="1">
+                      <spacer name="horizontalSpacer_5">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
@@ -916,32 +848,6 @@ QComboBox:on{
                         </size>
                        </property>
                       </spacer>
-                     </item>
-                     <item row="9" column="0" rowspan="2" colspan="4">
-                      <widget class="QWidget" name="widget_2" native="true">
-                       <property name="minimumSize">
-                        <size>
-                         <width>0</width>
-                         <height>0</height>
-                        </size>
-                       </property>
-                       <layout class="QGridLayout" name="gridLayout_12">
-                        <item row="0" column="0" rowspan="2" colspan="2">
-                         <widget class="QLabel" name="label_source">
-                          <property name="text">
-                           <string>Source Location:</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="0">
-                         <widget class="QLabel" name="label_backup">
-                          <property name="text">
-                           <string>Backup Location:</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
                      </item>
                     </layout>
                    </widget>
@@ -1146,45 +1052,14 @@ QComboBox:on{
                     </layout>
                    </widget>
                   </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QWidget" name="s_filterfile" native="true">
-                    <layout class="QGridLayout" name="gridLayout_9">
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="label_filterfiles">
-                       <property name="font">
-                        <font>
-                         <pointsize>12</pointsize>
-                        </font>
-                       </property>
-                       <property name="text">
-                        <string>Filter your exclude files type</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QLineEdit" name="lineEdit_filetype">
-                       <property name="minimumSize">
-                        <size>
-                         <width>250</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>300</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="text">
-                        <string/>
-                       </property>
-                       <property name="placeholderText">
-                        <string>Please enter the file name. Ex: .txt / myFiles.png</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <spacer name="horizontalSpacer_5">
+                  <item row="5" column="0" colspan="2">
+                   <widget class="QWidget" name="s_backupType" native="true">
+                    <layout class="QGridLayout" name="gridLayout">
+                     <property name="leftMargin">
+                      <number>30</number>
+                     </property>
+                     <item row="12" column="0">
+                      <spacer name="horizontalSpacer_3">
                        <property name="orientation">
                         <enum>Qt::Horizontal</enum>
                        </property>
@@ -1196,7 +1071,108 @@ QComboBox:on{
                        </property>
                       </spacer>
                      </item>
+                     <item row="0" column="0">
+                      <widget class="QFrame" name="frameAutoBackup">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="frameShape">
+                        <enum>QFrame::StyledPanel</enum>
+                       </property>
+                       <property name="frameShadow">
+                        <enum>QFrame::Raised</enum>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_9">
+                        <property name="leftMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>0</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>0</number>
+                        </property>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="12" column="1" colspan="2">
+                      <widget class="QPushButton" name="btnBackupNow">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>120</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>120</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="text">
+                        <string>BACKUP FILE !</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="12" column="3">
+                      <spacer name="horizontalSpacer_4">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="9" column="0" rowspan="2" colspan="4">
+                      <widget class="QWidget" name="widget_2" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_12">
+                        <item row="0" column="0" rowspan="2" colspan="2">
+                         <widget class="QLabel" name="label_source">
+                          <property name="text">
+                           <string>Source Location:</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_backup">
+                          <property name="text">
+                           <string>Backup Location:</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
                     </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_upsettings">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Backup Settings</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="0" column="0" colspan="2">
@@ -1246,13 +1222,6 @@ QComboBox:on{
                        </property>
                        <property name="text">
                         <string>Backup name</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QCheckBox" name="chkOptionsCreatewithDate">
-                       <property name="text">
-                        <string>Create backup dir with dates (it will disable hash compare for performance)</string>
                        </property>
                       </widget>
                      </item>
@@ -1430,6 +1399,9 @@ QComboBox:on{
              </widget>
              <widget class="QWidget" name="pageDashboard">
               <layout class="QGridLayout" name="gridLayout_3">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
                <property name="topMargin">
                 <number>0</number>
                </property>
@@ -1439,30 +1411,14 @@ QComboBox:on{
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <property name="horizontalSpacing">
+               <property name="spacing">
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QPushButton" name="btnRecoverLast">
-                 <property name="font">
-                  <font>
-                   <pointsize>14</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color:green;
-border-radius:30px;
-color:white;
-height:200px;</string>
-                 </property>
-                 <property name="text">
-                  <string>Recover!</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
                 <widget class="QTableWidget" name="tableDashboard">
+                 <property name="styleSheet">
+                  <string notr="true">border-bottom: 0px solid #FEFEFF;</string>
+                 </property>
                  <attribute name="verticalHeaderVisible">
                   <bool>false</bool>
                  </attribute>
@@ -1478,7 +1434,7 @@ height:200px;</string>
                  </column>
                  <column>
                   <property name="text">
-                   <string>Total Changed Files Count</string>
+                   <string>Last Backup Changed Files Count</string>
                   </property>
                  </column>
                  <column>
@@ -1495,6 +1451,72 @@ height:200px;</string>
           </layout>
          </widget>
          <widget class="QWidget" name="page_Dashboard22222"/>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QWidget" name="widBottomBar" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(240,240,240)</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_13">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="horizontalSpacing">
+        <number>0</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="lblStatus">
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">padding:3px;</string>
+         </property>
+         <property name="text">
+          <string>&lt;b&gt;Status:&lt;/b&gt; Waiting...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="lblRemainingTimeToAutoBackup">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>00:00:00</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
         </widget>
        </item>
       </layout>

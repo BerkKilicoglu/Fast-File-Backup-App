@@ -54,5 +54,39 @@ def CopyFile(src:str, des:str) -> bool:
             os.remove(des)
     shutil.copyfile(src, des)
     return True
+def Sync(backupName:str, Src:str, Des:str, ExcludedFileTypes:list=[], ui=None) -> int: # returns: total changed files count
+    try:
+        ProcessedFilesInSrc = GetFilesNameList(Src, excluded=ExcludedFileTypes,
+                                               removeSrcDir=False)  # , FilesInDes = GetFilesNameList(Src, [".txt"]), GetFilesNameList(Des)
+        if True:
+            DestinationPath = f"{Des}{os.sep}{backupName}"
+        else:  # new version, optional backup.
+            DateNow = datetime.now().strftime("%Y-%m-%d %H.%M.%S")
+            DestinationPath = f"{Des}{os.sep}{backupName}{os.sep}{DateNow}"
 
+        os.makedirs(DestinationPath, exist_ok=True)
+        totalChangedFiles = 0
+        for FileSrc in ProcessedFilesInSrc:
+            ResultDes = FileSrc.replace(Src, DestinationPath)
+            ParsedFileName = FileSrc.replace(Src, "")
+            if len(ParsedFileName) > 0:  # For safety.
+                ParsedFileName = ParsedFileName[1:]  # Remove os.sep in first character
+            if os.path.exists(ResultDes):  # For more performance, hash compare, if hashes are the same; it will not copy.
+                hashSrc = GetFileMD5(FileSrc)
+                hashDes = GetFileMD5(ResultDes)
+                if hashSrc == hashDes:
+                    print("Not copied file: %s [Files are the same]" % str(FileSrc))
+                    continue
+
+            if CopyFile(FileSrc, ResultDes):
+                totalChangedFiles += 1
+            else:
+                print("[ERR] File: %s not copied (CopyFile is false)" % str(FileSrc))
+            if ui:
+                ui.lblStatus.setText(
+                f"<b>Status: </b> File copying ({ParsedFileName}) {totalChangedFiles}/{len(ProcessedFilesInSrc)} {((totalChangedFiles) / len(ProcessedFilesInSrc) * 100)}%")
+        return totalChangedFiles
+    except Exception as err:
+        utils.hataKodGoster("Sync: %s"%str(err))
+        return 0
 #print(GetFilesList(r"C:\Users\Emre\Desktop\Test1"))

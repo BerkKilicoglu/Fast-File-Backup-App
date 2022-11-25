@@ -2,17 +2,14 @@
     "backupName": "MyProject",
     "sourceLocation": "C:\\Users\\Emre\\Desktop\\Test1",
     "backupLocation": "C:\\Users\\Emre\\Desktop\\Test2",
-    "excludeFileTypes": [
-        ".txt"
-    ],
-    "autoBackupEnabled": true,
-    "autoBackupPeriod": "12 hours",
-    "dateLastBackup": "2022-11-25 09:54:08",
-    "saves": [
-        {
-            "backupName": "MyProject",
-            "date": "2022-11-25 09:54:08",
-            "totalChangedFiles": 0
+    "excludeFileTypes": [],
+    "autoBackupEnabled": 0,
+    "autoBackupPeriod": "1 min",
+    "dateLastBackup": "2022-11-25 12:36:59",
+    "saves": {
+        "MyProject": {
+            "date": "2022-11-25 12:36:59",
+            "totalChangedFiles": 9
         }
-    ]
+    }
 }

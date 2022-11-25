@@ -17,7 +17,7 @@ class EStackedWidgetSliding(QStackedWidget):
         self.QueueToShowWidget = Queue() #bu olmazsa index karisiyor next index -1 geliyor büyük bug oluyor (tetiklenmeyi şöyle bulabilirsin: self.ui.stackedTopBar.slideInWgt(self.ui.topBar_Ayarlar) bunu iki kez alt alta yaz (not stackedTopBar olmalı)). ALT ALTA 2 kez yazilinca 2. cagirisinta kuyruga ekliyor, kuyruktada diğer ana ui.forms'a kayiyor (kuyruk ramde yeni olusturulmadigi icin) bu seferde bulamiyor -1 donuyor
         self.parent = parent
         self.m_direction = Qt.Vertical
-        self.m_speed = 800#400
+        self.m_speed = 700#400
         # OutBack, yukarı gidip tekrar geliyor
         # OutCubic güzel, biraz lag lı ama
         # OutQuart güzel
