@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 import sys, os, json, time
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView
 from PyQt5 import QtGui
 from Sync import GetFileMD5, CopyFile, GetFilesNameList
+from components.ETableWidgetItem import ETableWidgetItem
+from components.ButtonRecovery import ButtonRecovery
 from datetime import datetime
 
 from Utils import Utils
@@ -29,6 +31,18 @@ class Main(QMainWindow):
 
 
             ui.cmbBackupPeriod.setCurrentText(self.Settings["autoBackupPeriod"])
+            liste = self.getUi().tableDashboard
+            liste.setRowCount(0)
+            liste.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+            for dictSaveInfo in self.Settings["saves"]:
+                index = liste.rowCount()
+                liste.insertRow(index)
+                liste.setItem(index, 0, ETableWidgetItem(str(dictSaveInfo["backupName"])))
+                liste.setItem(index, 1, ETableWidgetItem(str(dictSaveInfo["date"])))
+                liste.setItem(index, 2, ETableWidgetItem(str(dictSaveInfo["totalChangedFiles"])))
+                liste.setCellWidget(index, 3, ButtonRecovery(dictSaveInfo))
+
         except Exception as err:
             self.utils.hataKodGoster("RefreshGui: %s"%str(err))
     def getUi(self):
@@ -82,8 +96,15 @@ class Main(QMainWindow):
 
 
             self.Settings["dateLastBackup"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            DictSaveInfo = {
+                "backupName":backupName,
+                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "totalChangedFiles": totalChangedFiles
+
+            }
+            self.Settings["saves"].insert(0, DictSaveInfo)
             self.SaveSettings()
-            
+            self.RefreshGui() # for add to dashboard list
             
             if self.getUi().chkAutoBackup.isChecked():
                 self.getUi().lblRemainingTimeToAutoBackup.setVisible(True)
@@ -121,7 +142,8 @@ class Main(QMainWindow):
         "excludeFileTypes":[],
         "autoBackupEnabled": 0,
         "autoBackupPeriod":"1 min",
-        "dateLastBackup": ""
+        "dateLastBackup": "",
+        "saves":[]
     }
     SETTINGS_PATH = "Settings.json"
     def LoadSettings(self):

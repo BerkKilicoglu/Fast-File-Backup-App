@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys, os
+import sys, os, time, webbrowser
 from datetime import datetime, timedelta
 import Main
 
@@ -57,6 +57,18 @@ class homepage(object):
         self.ui.btnSelectLocation.clicked.connect(self.SelectBackupDir)
         self.ui.txtBackupName.textChanged.connect(self.BackupNameDegisti)
         self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
+        self.ui.lineEdit_search.textChanged.connect(self.SearchDegisti)
+        def releaseGitEmre(eventRelease):
+            if eventRelease.button() != Qt.LeftButton:
+                return
+            webbrowser.open("https://www.github.com/emrecpp")
+        def releaseGitBerk(eventRelease):
+            if eventRelease.button() != Qt.LeftButton:
+                return
+            webbrowser.open("https://www.github.com/berkkilicoglu")
+
+        self.ui.btnGitEmre.mouseReleaseEvent = releaseGitEmre
+        self.ui.btnGitBerk.mouseReleaseEvent = releaseGitBerk
 
         def changedAutoBackup(newState:int):
             self.ui.frameAutoBackup.setEnabled(newState)
@@ -116,6 +128,20 @@ class homepage(object):
             self.parent.SaveSettings()
         except Exception as err:
             self.utils.hataKodGoster("FileTypeDegisti: %s"%str(err))
+    def SearchDegisti(self, newText:str):
+        try:
+            onStoragePage = self.ui.stackedWidget_2.currentWidget() == self.ui.pageStorage
+            if onStoragePage:
+                self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
+            for i in range(self.ui.tableDashboard.rowCount()):
+                BackupName = self.ui.tableDashboard.item(i, 0).text()
+                Date = self.ui.tableDashboard.item(i, 1).text()
+                if (newText.lower() in BackupName.lower()) or (newText.lower() in Date):
+                    self.ui.tableDashboard.showRow(i)
+                else:
+                    self.ui.tableDashboard.hideRow(i)
+        except Exception as err:
+            self.utils.hataKodGoster("SearchDegisti: %s" % str(err))
     def SelectSourceDir(self):
         folderBackupDir = QFileDialog.getExistingDirectory(self.parent, 'Select Source Directory')
         if not folderBackupDir:
@@ -162,13 +188,14 @@ class homepage(object):
             self.ui.pushButton_Storage.setStyleSheet("background-color: #415AAF; color: black;")
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/nightblue/home.svg"))
             self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/white/package.svg"))
+            self.ui.label_menuname.setText("Dashboard")
         if storage:
             self.ui.stackedWidget_2.slideInWgt(self.ui.pageStorage)
             self.ui.pushButton_Storage.setStyleSheet("background-color: #FEFEFF; color: #415AAF")
             self.ui.pushButton_2_Dashboard.setStyleSheet("background-color: #415AAF;")
             self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/nightblue/package.svg"))
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/white/home.svg"))
-
+            self.ui.label_menuname.setText("Storage")
 
     SolMenuWidth = -1
     def menu_hide_unhide(self):

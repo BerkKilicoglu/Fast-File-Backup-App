@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageOXfcgN.ui'
+## Form generated from reading UI file 'homepagefDXdXq.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -759,20 +759,21 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setHorizontalSpacing(0)
         self.gridLayout_3.setContentsMargins(-1, 0, 0, 0)
-        self.tableWidget = QTableWidget(self.pageDashboard)
-        if (self.tableWidget.columnCount() < 4):
-            self.tableWidget.setColumnCount(4)
+        self.tableDashboard = QTableWidget(self.pageDashboard)
+        if (self.tableDashboard.columnCount() < 4):
+            self.tableDashboard.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.tableDashboard.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.tableDashboard.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         __qtablewidgetitem2 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        self.tableDashboard.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         __qtablewidgetitem3 = QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)
-        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableDashboard.setHorizontalHeaderItem(3, __qtablewidgetitem3)
+        self.tableDashboard.setObjectName(u"tableDashboard")
+        self.tableDashboard.verticalHeader().setVisible(False)
 
-        self.gridLayout_3.addWidget(self.tableWidget, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.tableDashboard, 0, 0, 1, 1)
 
         self.stackedWidget_2.addWidget(self.pageDashboard)
 
@@ -793,7 +794,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(0)
-        self.stackedWidget_2.setCurrentIndex(0)
+        self.stackedWidget_2.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -843,13 +844,13 @@ class Ui_MainWindow(object):
         self.label_upicon.setText("")
         self.label_browsefile.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
         self.btnSelectSrcDirectory.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
-        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem = self.tableDashboard.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Name", None));
-        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1 = self.tableDashboard.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Date", None));
-        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Total files count", None));
-        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)
+        ___qtablewidgetitem2 = self.tableDashboard.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Total Changed Files Count", None));
+        ___qtablewidgetitem3 = self.tableDashboard.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Process", None));
     # retranslateUi
 

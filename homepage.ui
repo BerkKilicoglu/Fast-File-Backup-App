@@ -749,7 +749,7 @@ QComboBox:on{
            <item row="0" column="0">
             <widget class="EStackedWidgetSliding" name="stackedWidget_2">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="pageStorage">
               <layout class="QGridLayout" name="gridLayout_2">
@@ -1436,7 +1436,10 @@ QComboBox:on{
                 <number>0</number>
                </property>
                <item row="0" column="0">
-                <widget class="QTableWidget" name="tableWidget">
+                <widget class="QTableWidget" name="tableDashboard">
+                 <attribute name="verticalHeaderVisible">
+                  <bool>false</bool>
+                 </attribute>
                  <column>
                   <property name="text">
                    <string>Name</string>
@@ -1449,7 +1452,7 @@ QComboBox:on{
                  </column>
                  <column>
                   <property name="text">
-                   <string>Total files count</string>
+                   <string>Total Changed Files Count</string>
                   </property>
                  </column>
                  <column>
