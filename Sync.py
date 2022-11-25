@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys, os, json, time, hashlib, shutil
+from PyQt5.QtWidgets import QApplication
 from Utils import Utils
 from glob import glob
 from pathlib import Path
@@ -56,6 +57,7 @@ def CopyFile(src:str, des:str) -> bool:
     return True
 def Sync(backupName:str, Src:str, Des:str, ExcludedFileTypes:list=[], ui=None) -> int: # returns: total changed files count
     try:
+        QApplication.processEvents()
         ProcessedFilesInSrc = GetFilesNameList(Src, excluded=ExcludedFileTypes,
                                                removeSrcDir=False)  # , FilesInDes = GetFilesNameList(Src, [".txt"]), GetFilesNameList(Des)
         if True:
@@ -86,8 +88,8 @@ def Sync(backupName:str, Src:str, Des:str, ExcludedFileTypes:list=[], ui=None) -
             else:
                 print("[ERR] File: %s not copied (CopyFile is false)" % str(FileSrc))
             if ui:
-                ui.lblStatus.setText(
-                f"<b>Status: </b> File copying ({ParsedFileName}) {totalChangedFiles}/{len(ProcessedFilesInSrc)} {((totalChangedFiles) / len(ProcessedFilesInSrc) * 100)}%")
+                ui.lblStatus.setText(f"<b>Status: </b> File copying ({ParsedFileName}) {totalChangedFiles}/{len(ProcessedFilesInSrc)} {((totalChangedFiles) / len(ProcessedFilesInSrc) * 100):.2f}%")
+                QApplication.processEvents()
         return totalChangedFiles
     except Exception as err:
         utils.hataKodGoster("Sync: %s"%str(err))

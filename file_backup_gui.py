@@ -173,11 +173,15 @@ class homepage(object):
         self.dragEnter=False
     def SurukleDropEvent(self,event):
         mime = event.mimeData()
-        self.parent.selectedDirectories = []
+        #self.parent.selectedDirectories = []
         for file in mime.urls():
             CorrectPath = self.utils.pathConvert(file.toLocalFile())
             if os.path.isdir(CorrectPath):
-                self.parent.selectedDirectories.append(CorrectPath)
+                self.parent.Settings["sourceLocation"] = CorrectPath
+                self.parent.SaveSettings()
+                self.parent.RefreshGui()
+                break # does not supported multiple directories yet
+                #self.parent.selectedDirectories.append(CorrectPath)
             else:
                 print(f"{CorrectPath} klasor olmadigi icin selectedDirectories'e eklenmedi!")
         self.dragEnter=False

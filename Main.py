@@ -7,11 +7,12 @@ from components.ETableWidgetItem import ETableWidgetItem
 from components.ButtonRecovery import ButtonRecovery
 from datetime import datetime
 
+
 from Utils import Utils
 if __name__ == "__main__":
     from file_backup_gui import homepage
 class Main(QMainWindow):
-    selectedDirectories = []
+    #selectedDirectories = []
     def __init__(self):
         super().__init__()
 
