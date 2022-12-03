@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>995</height>
+    <width>991</width>
+    <height>944</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -44,7 +44,7 @@ border:none
 	background-color: #FEFEFF/*#EFF9FE*/;
 }
 
-#header, #uploadfiles, #lblStatus, #uploadsettings,#lblRemainingTimeToAutoBackup{
+#header, #uploadfiles, #lblStatus, #uploadsettings,#lblRemainingTimeToAutoBackup,#uploadDrive, #drivesettings{
 	background-color: #FEFEFF;
 }
 
@@ -52,14 +52,20 @@ border:none
 	background-color: #415AAF;
 }
 
-#lineEdit_filetype {
+#lineEdit_filetype, #lineEdit_filetype_2{
 	background-color: #E5E5E5;
-color:#415AAF;
+	color:#415AAF;
+}
+#lineEdit_filetype_2{
+	color: #00ac47
 }
 
-#txtBackupName{
+#txtBackupName, #txtBackupName_2{
 	color: #415AAF;
 	background-color: #E5E5E5;
+}
+#txtBackupName_2{
+	color: #00AC47;
 }
 #lineEdit_search{
 	
@@ -75,13 +81,18 @@ color:#415AAF;
 	color: #415AAF;
 }
 
-#frame_upload{
+#frame_upload, #frame_Drive{
 	border-radius: 10px;
 	border: 1.8px dotted #619EF1;
 	background-color: #F5F8FC;
 }
 
-#btnSelectSrcDirectory, #btnSelectLocation{
+#frame_Drive{
+	border: 1.8px dotted rgb(0, 172, 71);
+	background-color: #effae8;
+}
+
+#btnSelectSrcDirectory, #btnSelectLocation, #pushButton_srcDirDrive{
 	background-color: #415AAF;
 	border-radius: 25px;
 	font-size: 14px;
@@ -89,25 +100,37 @@ color:#415AAF;
 	color: white;
 }
 
-#btnSelectSrcDirectory::hover, #btnSelectLocation::hover{
+#pushButton_srcDirDrive{
+	background-color: #00AC47;
+}
+
+#btnSelectSrcDirectory::hover, #btnSelectLocation::hover, #pushButton_srcDirDrive::hover{
 	background-color: #1F2A5B;
 	color: white;
 	font-size: 15px;
 	font-weight: bold;
 }
 
-#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed{
+#pushButton_srcDirDrive::hover{
+	background-color: #00832D;
+}
+
+#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed, #pushButton_srcDirDrive::pressed{
 	background-color: #8BA0D6;
 	font-size: 14px;
 	font-weight: bold;
 }
 
-#lineEdit_filetype, #txtBackupName{
+#pushButton_srcDirDrive::pressed{
+	background-color: #BEEDB1;
+}
+
+#lineEdit_filetype, #txtBackupName, #txtBackupName_2, #lineEdit_filetype_2{
 	border-radius: 10px;
 	padding-left: 5px;
 }
 
-#btnBackupNow{
+#btnBackupNow, #btnDriveBackup{
 	font: 75 10pt &quot;Microsoft YaHei UI&quot;;
 	font-weight: bold;
 	color: #fff;
@@ -115,7 +138,12 @@ color:#415AAF;
 	border: 3px solid  rgb(61, 217, 245);
 	border-radius:60px;
 }
-#btnBackupNow::hover{
+
+#btnDriveBackup{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(255, 186, 0), stop:1 #ACD657);
+	border: 3px solid  #BEDF7C;
+}
+#btnBackupNow::hover, #btnDriveBackup::hover{
 	font: 75 10pt &quot;Microsoft YaHei UI&quot;;
 	font-weight: bold;
 	color: white;
@@ -123,13 +151,25 @@ color:#415AAF;
 	border: 3px solid #8BA0D6;
 	border-radius:60px;
 }
-#btnBackupNow::pressed{
+
+#btnDriveBackup::hover{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #f5ff00, stop:1 #7fe845);
+	border: 3px solid #7fe845;
+
+}
+
+#btnBackupNow::pressed, #btnDriveBackup::pressed{
 	font: 75 10pt &quot;Microsoft YaHei UI&quot;;
 	font-weight: bold;
 	color: white;
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #415AAF, stop:1 #D4F1FF);
 	border: 3px solid #D4F1FF;
 	border-radius:60px;
+}
+
+#btnDriveBackup::pressed{
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #fbfd00, stop:1 #517601);
+	border: 3px solid #94c507;
 }
 
 #pushButton_Storage{
@@ -140,7 +180,7 @@ color:#415AAF;
 	border-top-left-radius: 20px;
 }
 
-#pushButton_2_Dashboard{
+#pushButton_2_Dashboard, #pushButton_gDrive{
 	padding: 10px 5px;
 	text-align: left;
 }
@@ -149,6 +189,7 @@ color:#415AAF;
 	background-color: #415AAF;
 	color: white;
 }
+
 QComboBox{
 border: none;
 background-color: rgb(65,90,175);
@@ -163,12 +204,15 @@ QComboBox:on{
     background-color: rgb(65,90,175);
 }
 
-#label_source, #label_backup{
+#label_source, #label_backup, #label_drvsource, #label_drvbackup{
 	font-size: 14px;
 	color: #415AAF;
 	font-weight: bold;
 	margin: 0px;
 	padding: 6px;
+}
+#label_drvsource, #label_drvbackup{
+	color: #00ac47;
 }
 
 #label_infloc{
@@ -178,7 +222,7 @@ QComboBox:on{
 }
 </string>
    </property>
-   <layout class="QGridLayout" name="gridLayout_6">
+   <layout class="QGridLayout" name="gridLayout_20">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -273,6 +317,7 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>18</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -320,6 +365,12 @@ QComboBox:on{
              </item>
              <item row="1" column="0" colspan="4">
               <widget class="QFrame" name="frame_section">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
                <property name="frameShape">
                 <enum>QFrame::StyledPanel</enum>
                </property>
@@ -353,6 +404,7 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -391,6 +443,7 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
+                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -415,6 +468,40 @@ QComboBox:on{
                   </property>
                   <property name="checked">
                    <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButton_gDrive">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>50</height>
+                   </size>
+                  </property>
+                  <property name="font">
+                   <font>
+                    <pointsize>12</pointsize>
+                   </font>
+                  </property>
+                  <property name="cursor">
+                   <cursorShape>PointingHandCursor</cursorShape>
+                  </property>
+                  <property name="text">
+                   <string>Google Drive</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="assets.qrc">
+                    <normaloff>:/logo/assets/logo/googleDrive.png</normaloff>:/logo/assets/logo/googleDrive.png</iconset>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>32</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
@@ -499,6 +586,7 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -521,6 +609,7 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
+                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -605,6 +694,7 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>16</pointsize>
+                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -791,6 +881,7 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -832,7 +923,7 @@ QComboBox:on{
                         <string/>
                        </property>
                        <property name="placeholderText">
-                        <string>Please enter the file name. Ex: .txt / myFiles.png</string>
+                        <string>Please enter the file name. Ex: .txt;myFiles.png</string>
                        </property>
                       </widget>
                      </item>
@@ -891,6 +982,7 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>-1</pointsize>
+                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -932,6 +1024,7 @@ QComboBox:on{
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
+                            <weight>50</weight>
                             <bold>false</bold>
                            </font>
                           </property>
@@ -1167,6 +1260,7 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1217,6 +1311,7 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
+                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -1269,6 +1364,7 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
+                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1358,6 +1454,7 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
+                         <weight>50</weight>
                          <italic>true</italic>
                          <bold>false</bold>
                          <underline>false</underline>
@@ -1442,6 +1539,421 @@ QComboBox:on{
                    <string>Process</string>
                   </property>
                  </column>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="pageDrive">
+              <layout class="QVBoxLayout" name="verticalLayout_6">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="uploadDrive" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
+                  <property name="spacing">
+                   <number>25</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>5</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>5</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="label_drivefiles">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Backup Files</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="frame_Drive">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>160</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="acceptDrops">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                     <property name="spacing">
+                      <number>25</number>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>25</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>25</number>
+                     </property>
+                     <item alignment="Qt::AlignHCenter">
+                      <widget class="QLabel" name="label_upicon_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>60</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>60</width>
+                         <height>60</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="pixmap">
+                        <pixmap resource="assets.qrc">:/logo/assets/logo/uploadfile.png</pixmap>
+                       </property>
+                       <property name="scaledContents">
+                        <bool>true</bool>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item alignment="Qt::AlignHCenter">
+                      <widget class="QLabel" name="label_browsefile_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>160</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>10</pointsize>
+                         <weight>50</weight>
+                         <italic>true</italic>
+                         <bold>false</bold>
+                         <underline>false</underline>
+                         <strikeout>false</strikeout>
+                         <kerning>true</kerning>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Drag and Drop directory or Browse</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item alignment="Qt::AlignHCenter">
+                      <widget class="QPushButton" name="pushButton_srcDirDrive">
+                       <property name="minimumSize">
+                        <size>
+                         <width>150</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>150</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>Select Directory</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="drivesettings" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <property name="topMargin">
+                   <number>9</number>
+                  </property>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_drvinfloc">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Source and Backup Location</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QWidget" name="s_filterfile_2" native="true">
+                    <layout class="QGridLayout" name="gridLayout_15">
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_filterfiles_2">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Filter your exclude files type</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QLineEdit" name="lineEdit_filetype_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>250</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>300</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Please enter the file name. Ex: .txt;myFiles.png</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <spacer name="horizontalSpacer_8">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QWidget" name="s_drvbackupType" native="true">
+                    <layout class="QGridLayout" name="gridLayout_6">
+                     <property name="leftMargin">
+                      <number>30</number>
+                     </property>
+                     <item row="11" column="3">
+                      <spacer name="horizontalSpacer_12">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item row="8" column="0" rowspan="2" colspan="4">
+                      <widget class="QWidget" name="widget_3" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>0</height>
+                        </size>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_18">
+                        <item row="0" column="0" rowspan="2" colspan="2">
+                         <widget class="QLabel" name="label_drvsource">
+                          <property name="text">
+                           <string>Source Location:</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QLabel" name="label_drvbackup">
+                          <property name="text">
+                           <string>Backup Location:</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item row="11" column="1" colspan="2">
+                      <widget class="QPushButton" name="btnDriveBackup">
+                       <property name="minimumSize">
+                        <size>
+                         <width>120</width>
+                         <height>120</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>120</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>PointingHandCursor</cursorShape>
+                       </property>
+                       <property name="text">
+                        <string>BACKUP FILE !</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="11" column="0">
+                      <spacer name="horizontalSpacer_11">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>40</width>
+                         <height>20</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_drvupsettings">
+                    <property name="font">
+                     <font>
+                      <pointsize>14</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Backup Settings</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QWidget" name="widget_4" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_19">
+                     <item row="1" column="1">
+                      <widget class="QLineEdit" name="txtBackupName_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>300</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string/>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Please Enter Backup Name</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QLabel" name="label_7">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <weight>50</weight>
+                         <bold>false</bold>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Backup name</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>

@@ -291,8 +291,11 @@
   <qresource prefix="logo">
     <file>assets/logo/check.png</file>
     <file>assets/logo/error.png</file>
+    <file>assets/logo/googleDrive2.png</file>
     <file>assets/logo/GitHub-Mark-64px.png</file>
+    <file>assets/logo/uploadfile.png</file>
     <file>assets/logo/GitHub-Mark-Light-64px.png</file>
+    <file>assets/logo/googleDrive.png</file>
     <file>assets/logo/BerkEmreLogo.png</file>
   </qresource>
   <qresource prefix="whiteIcons">

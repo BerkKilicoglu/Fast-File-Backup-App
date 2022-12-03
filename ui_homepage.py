@@ -1,34 +1,29 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageReLmRF.ui'
+## Form generated from reading UI file 'homepagexOsaGk.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.2
+## Created by: Qt User Interface Compiler version 5.14.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
+    QRect, QSize, QUrl, Qt)
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
+    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
+    QRadialGradient)
+from PyQt5.QtWidgets import *
 
 from components.EStackedWidgetSliding import EStackedWidgetSliding
+
 import assets_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if not MainWindow.objectName():
+        if MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(894, 995)
+        MainWindow.resize(991, 944)
         MainWindow.setMinimumSize(QSize(0, 0))
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -50,7 +45,7 @@ class Ui_MainWindow(object):
 "	background-color: #FEFEFF/*#EFF9FE*/;\n"
 "}\n"
 "\n"
-"#header, #uploadfiles, #lblStatus, #uploadsettings,#lblRemainingTimeToAutoBackup{\n"
+"#header, #uploadfiles, #lblStatus, #uploadsettings,#lblRemainingTimeToAutoBackup,#uploadDrive, #drivesettings{\n"
 "	background-color: #FEFEFF;\n"
 "}\n"
 "\n"
@@ -58,14 +53,20 @@ class Ui_MainWindow(object):
 "	background-color: #415AAF;\n"
 "}\n"
 "\n"
-"#lineEdit_filetype {\n"
+"#lineEdit_filetype, #lineEdit_filetype_2{\n"
 "	background-color: #E5E5E5;\n"
-"color:#415AAF;\n"
+"	color:#415AAF;\n"
+"}\n"
+"#lineEdit_filetype_2{\n"
+"	color: #00ac47\n"
 "}\n"
 "\n"
-"#txtBackupName{\n"
+"#txtBackupName, #txtBackupName_2{\n"
 "	color: #415AAF;\n"
 "	background-color: #E5E5E5;\n"
+"}\n"
+"#txtBackupName_2{\n"
+"	color: #00AC47;\n"
 "}\n"
 "#lineEdit_search{\n"
 "	\n"
@@ -81,13 +82,19 @@ class Ui_MainWindow(object):
 "	color: #415AAF;\n"
 "}\n"
 "\n"
-"#frame_upload{\n"
+"#frame_upload, #frame_Drive{\n"
 "	border-radius: 10px;\n"
 "	border: 1.8px dotted #619EF1;\n"
 "	background-color: #F5F8FC;\n"
 "}\n"
+""
+                        "\n"
+"#frame_Drive{\n"
+"	border: 1.8px dotted rgb(0, 172, 71);\n"
+"	background-color: #effae8;\n"
+"}\n"
 "\n"
-"#btnSelectSrcDirectory, #btnSelectLocation{\n"
+"#btnSelectSrcDirectory, #btnSelectLocation, #pushButton_srcDirDrive{\n"
 "	background-color: #415AAF;\n"
 "	border-radius: 25px;\n"
 "	font-size: 14px;\n"
@@ -95,26 +102,38 @@ class Ui_MainWindow(object):
 "	color: white;\n"
 "}\n"
 "\n"
-""
-                        "#btnSelectSrcDirectory::hover, #btnSelectLocation::hover{\n"
+"#pushButton_srcDirDrive{\n"
+"	background-color: #00AC47;\n"
+"}\n"
+"\n"
+"#btnSelectSrcDirectory::hover, #btnSelectLocation::hover, #pushButton_srcDirDrive::hover{\n"
 "	background-color: #1F2A5B;\n"
 "	color: white;\n"
 "	font-size: 15px;\n"
 "	font-weight: bold;\n"
 "}\n"
 "\n"
-"#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed{\n"
+"#pushButton_srcDirDrive::hover{\n"
+"	background-color: #00832D;\n"
+"}\n"
+"\n"
+"#btnSelectSrcDirectory::pressed, #btnSelectLocation::pressed, #pushButton_srcDirDrive::pressed{\n"
 "	background-color: #8BA0D6;\n"
 "	font-size: 14px;\n"
 "	font-weight: bold;\n"
 "}\n"
 "\n"
-"#lineEdit_filetype, #txtBackupName{\n"
-"	border-radius: 10px;\n"
+"#pushButton_srcDirDrive::pressed{\n"
+"	background-color: #BEEDB1;\n"
+"}\n"
+"\n"
+"#lineEdit_filetype, #txtBackupName, #txtBackupName_2, #lineEdit_filetype_2{\n"
+"	borde"
+                        "r-radius: 10px;\n"
 "	padding-left: 5px;\n"
 "}\n"
 "\n"
-"#btnBackupNow{\n"
+"#btnBackupNow, #btnDriveBackup{\n"
 "	font: 75 10pt \"Microsoft YaHei UI\";\n"
 "	font-weight: bold;\n"
 "	color: #fff;\n"
@@ -122,7 +141,12 @@ class Ui_MainWindow(object):
 "	border: 3px solid  rgb(61, 217, 245);\n"
 "	border-radius:60px;\n"
 "}\n"
-"#btnBackupNow::hover{\n"
+"\n"
+"#btnDriveBackup{\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb(255, 186, 0), stop:1 #ACD657);\n"
+"	border: 3px solid  #BEDF7C;\n"
+"}\n"
+"#btnBackupNow::hover, #btnDriveBackup::hover{\n"
 "	font: 75 10pt \"Microsoft YaHei UI\";\n"
 "	font-weight: bold;\n"
 "	color: white;\n"
@@ -130,14 +154,26 @@ class Ui_MainWindow(object):
 "	border: 3px solid #8BA0D6;\n"
 "	border-radius:60px;\n"
 "}\n"
-"#btnBackup"
-                        "Now::pressed{\n"
+"\n"
+"#btnDriveBackup::hover{\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #f5ff00, stop:1 #7fe845);\n"
+"	border: 3px soli"
+                        "d #7fe845;\n"
+"\n"
+"}\n"
+"\n"
+"#btnBackupNow::pressed, #btnDriveBackup::pressed{\n"
 "	font: 75 10pt \"Microsoft YaHei UI\";\n"
 "	font-weight: bold;\n"
 "	color: white;\n"
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #415AAF, stop:1 #D4F1FF);\n"
 "	border: 3px solid #D4F1FF;\n"
 "	border-radius:60px;\n"
+"}\n"
+"\n"
+"#btnDriveBackup::pressed{\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #fbfd00, stop:1 #517601);\n"
+"	border: 3px solid #94c507;\n"
 "}\n"
 "\n"
 "#pushButton_Storage{\n"
@@ -148,7 +184,7 @@ class Ui_MainWindow(object):
 "	border-top-left-radius: 20px;\n"
 "}\n"
 "\n"
-"#pushButton_2_Dashboard{\n"
+"#pushButton_2_Dashboard, #pushButton_gDrive{\n"
 "	padding: 10px 5px;\n"
 "	text-align: left;\n"
 "}\n"
@@ -157,13 +193,15 @@ class Ui_MainWindow(object):
 "	background-color: #415AAF;\n"
 "	color: white;\n"
 "}\n"
+"\n"
 "QComboBox{\n"
 "border: none;\n"
 "background-color: rgb(65,90,175);\n"
 "color: 	white;\n"
 "font-weight: bold;\n"
 "padding: 3px;\n"
-"}\n"
+""
+                        "}\n"
 "QComboBox:disabled{\n"
 "background-color: rgb(45,60,145);\n"
 "}\n"
@@ -171,13 +209,15 @@ class Ui_MainWindow(object):
 "    background-color: rgb(65,90,175);\n"
 "}\n"
 "\n"
-"#label_source, #label_backup{\n"
+"#label_source, #label_backup, #label_drvsource, #label_drvbackup{\n"
 "	font-size: 14px;\n"
 "	color: #415AAF;\n"
 "	font-weight: bold;\n"
 "	margin: 0px;\n"
-"	padd"
-                        "ing: 6px;\n"
+"	padding: 6px;\n"
+"}\n"
+"#label_drvsource, #label_drvbackup{\n"
+"	color: #00ac47;\n"
 "}\n"
 "\n"
 "#label_infloc{\n"
@@ -186,10 +226,10 @@ class Ui_MainWindow(object):
 "	margin-left: 0px;\n"
 "}\n"
 "")
-        self.gridLayout_6 = QGridLayout(self.centralwidget)
-        self.gridLayout_6.setSpacing(0)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_20 = QGridLayout(self.centralwidget)
+        self.gridLayout_20.setSpacing(0)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.gridLayout_20.setContentsMargins(0, 0, 0, 0)
         self.solMenu = QWidget(self.centralwidget)
         self.solMenu.setObjectName(u"solMenu")
         self.solMenu.setMaximumSize(QSize(275, 16777215))
@@ -223,6 +263,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(18)
         font1.setBold(True)
+        font1.setWeight(75)
         self.label_brand.setFont(font1)
         self.label_brand.setStyleSheet(u"color:white")
 
@@ -249,6 +290,7 @@ class Ui_MainWindow(object):
 
         self.frame_section = QFrame(self.frame_menusection)
         self.frame_section.setObjectName(u"frame_section")
+        self.frame_section.setMinimumSize(QSize(0, 50))
         self.frame_section.setFrameShape(QFrame.StyledPanel)
         self.frame_section.setFrameShadow(QFrame.Raised)
         self.verticalLayout_12 = QVBoxLayout(self.frame_section)
@@ -261,6 +303,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
+        font2.setWeight(50)
         self.pushButton_Storage.setFont(font2)
         self.pushButton_Storage.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
@@ -285,6 +328,21 @@ class Ui_MainWindow(object):
         self.pushButton_2_Dashboard.setChecked(False)
 
         self.verticalLayout_12.addWidget(self.pushButton_2_Dashboard)
+
+        self.pushButton_gDrive = QPushButton(self.frame_section)
+        self.pushButton_gDrive.setObjectName(u"pushButton_gDrive")
+        self.pushButton_gDrive.setMinimumSize(QSize(0, 50))
+        font3 = QFont()
+        font3.setPointSize(12)
+        self.pushButton_gDrive.setFont(font3)
+        self.pushButton_gDrive.setCursor(QCursor(Qt.PointingHandCursor))
+        icon3 = QIcon()
+        icon3.addFile(u":/logo/assets/logo/googleDrive.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_gDrive.setIcon(icon3)
+        self.pushButton_gDrive.setIconSize(QSize(32, 32))
+        self.pushButton_gDrive.setCheckable(True)
+
+        self.verticalLayout_12.addWidget(self.pushButton_gDrive)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -318,10 +376,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.btnGitBerk = QPushButton(self.frame_git)
         self.btnGitBerk.setObjectName(u"btnGitBerk")
-        font3 = QFont()
-        font3.setPointSize(10)
-        font3.setBold(True)
-        self.btnGitBerk.setFont(font3)
+        font4 = QFont()
+        font4.setPointSize(10)
+        font4.setBold(True)
+        font4.setWeight(75)
+        self.btnGitBerk.setFont(font4)
         self.btnGitBerk.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitBerk.setIconSize(QSize(40, 40))
 
@@ -329,7 +388,7 @@ class Ui_MainWindow(object):
 
         self.btnGitEmre = QPushButton(self.frame_git)
         self.btnGitEmre.setObjectName(u"btnGitEmre")
-        self.btnGitEmre.setFont(font3)
+        self.btnGitEmre.setFont(font4)
         self.btnGitEmre.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitEmre.setIconSize(QSize(40, 40))
 
@@ -345,7 +404,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.addWidget(self.frame_menumain)
 
 
-        self.gridLayout_6.addWidget(self.solMenu, 0, 0, 2, 1)
+        self.gridLayout_20.addWidget(self.solMenu, 0, 0, 2, 1)
 
         self.mainBody = QWidget(self.centralwidget)
         self.mainBody.setObjectName(u"mainBody")
@@ -369,19 +428,20 @@ class Ui_MainWindow(object):
         self.menuBtn = QPushButton(self.h_section)
         self.menuBtn.setObjectName(u"menuBtn")
         self.menuBtn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/nightblueIcons/assets/icons/nightblue/menu.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.menuBtn.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u":/nightblueIcons/assets/icons/nightblue/menu.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.menuBtn.setIcon(icon4)
         self.menuBtn.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_3.addWidget(self.menuBtn)
 
         self.label_menuname = QLabel(self.h_section)
         self.label_menuname.setObjectName(u"label_menuname")
-        font4 = QFont()
-        font4.setPointSize(16)
-        font4.setBold(True)
-        self.label_menuname.setFont(font4)
+        font5 = QFont()
+        font5.setPointSize(16)
+        font5.setBold(True)
+        font5.setWeight(75)
+        self.label_menuname.setFont(font5)
 
         self.horizontalLayout_3.addWidget(self.label_menuname)
 
@@ -469,10 +529,11 @@ class Ui_MainWindow(object):
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.label_infloc = QLabel(self.uploadsettings)
         self.label_infloc.setObjectName(u"label_infloc")
-        font5 = QFont()
-        font5.setPointSize(14)
-        font5.setBold(True)
-        self.label_infloc.setFont(font5)
+        font6 = QFont()
+        font6.setPointSize(14)
+        font6.setBold(True)
+        font6.setWeight(75)
+        self.label_infloc.setFont(font6)
 
         self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
 
@@ -482,9 +543,7 @@ class Ui_MainWindow(object):
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.label_filterfiles = QLabel(self.s_filterfile)
         self.label_filterfiles.setObjectName(u"label_filterfiles")
-        font6 = QFont()
-        font6.setPointSize(12)
-        self.label_filterfiles.setFont(font6)
+        self.label_filterfiles.setFont(font3)
 
         self.gridLayout_9.addWidget(self.label_filterfiles, 0, 0, 1, 1)
 
@@ -519,6 +578,7 @@ class Ui_MainWindow(object):
         self.btnSelectLocation.setMaximumSize(QSize(175, 50))
         font7 = QFont()
         font7.setBold(True)
+        font7.setWeight(75)
         self.btnSelectLocation.setFont(font7)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -544,7 +604,7 @@ class Ui_MainWindow(object):
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMaximumSize(QSize(120, 16777215))
-        self.label_2.setFont(font6)
+        self.label_2.setFont(font3)
 
         self.gridLayout_8.addWidget(self.label_2, 1, 0, 1, 1)
 
@@ -633,7 +693,7 @@ class Ui_MainWindow(object):
 
         self.label_upsettings = QLabel(self.uploadsettings)
         self.label_upsettings.setObjectName(u"label_upsettings")
-        self.label_upsettings.setFont(font5)
+        self.label_upsettings.setFont(font6)
 
         self.gridLayout_7.addWidget(self.label_upsettings, 1, 0, 1, 1)
 
@@ -682,7 +742,7 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.label_upfiles.sizePolicy().hasHeightForWidth())
         self.label_upfiles.setSizePolicy(sizePolicy4)
-        self.label_upfiles.setFont(font5)
+        self.label_upfiles.setFont(font6)
 
         self.verticalLayout_2.addWidget(self.label_upfiles)
 
@@ -717,6 +777,7 @@ class Ui_MainWindow(object):
         font8.setBold(False)
         font8.setItalic(True)
         font8.setUnderline(False)
+        font8.setWeight(50)
         font8.setStrikeOut(False)
         font8.setKerning(True)
         self.label_browsefile.setFont(font8)
@@ -762,6 +823,183 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.tableDashboard, 0, 0, 1, 1)
 
         self.stackedWidget_2.addWidget(self.pageDashboard)
+        self.pageDrive = QWidget()
+        self.pageDrive.setObjectName(u"pageDrive")
+        self.verticalLayout_6 = QVBoxLayout(self.pageDrive)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.uploadDrive = QWidget(self.pageDrive)
+        self.uploadDrive.setObjectName(u"uploadDrive")
+        sizePolicy.setHeightForWidth(self.uploadDrive.sizePolicy().hasHeightForWidth())
+        self.uploadDrive.setSizePolicy(sizePolicy)
+        self.verticalLayout_4 = QVBoxLayout(self.uploadDrive)
+        self.verticalLayout_4.setSpacing(25)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(5, 0, 5, 5)
+        self.label_drivefiles = QLabel(self.uploadDrive)
+        self.label_drivefiles.setObjectName(u"label_drivefiles")
+        self.label_drivefiles.setEnabled(True)
+        sizePolicy4.setHeightForWidth(self.label_drivefiles.sizePolicy().hasHeightForWidth())
+        self.label_drivefiles.setSizePolicy(sizePolicy4)
+        self.label_drivefiles.setFont(font6)
+
+        self.verticalLayout_4.addWidget(self.label_drivefiles)
+
+        self.frame_Drive = QFrame(self.uploadDrive)
+        self.frame_Drive.setObjectName(u"frame_Drive")
+        sizePolicy2.setHeightForWidth(self.frame_Drive.sizePolicy().hasHeightForWidth())
+        self.frame_Drive.setSizePolicy(sizePolicy2)
+        self.frame_Drive.setMinimumSize(QSize(160, 0))
+        self.frame_Drive.setAcceptDrops(True)
+        self.frame_Drive.setStyleSheet(u"")
+        self.frame_Drive.setFrameShape(QFrame.StyledPanel)
+        self.frame_Drive.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_5 = QVBoxLayout(self.frame_Drive)
+        self.verticalLayout_5.setSpacing(25)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, 25, 0, 25)
+        self.label_upicon_2 = QLabel(self.frame_Drive)
+        self.label_upicon_2.setObjectName(u"label_upicon_2")
+        self.label_upicon_2.setMinimumSize(QSize(60, 60))
+        self.label_upicon_2.setMaximumSize(QSize(60, 60))
+        self.label_upicon_2.setPixmap(QPixmap(u":/logo/assets/logo/uploadfile.png"))
+        self.label_upicon_2.setScaledContents(True)
+        self.label_upicon_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_upicon_2, 0, Qt.AlignHCenter)
+
+        self.label_browsefile_2 = QLabel(self.frame_Drive)
+        self.label_browsefile_2.setObjectName(u"label_browsefile_2")
+        self.label_browsefile_2.setMinimumSize(QSize(160, 0))
+        self.label_browsefile_2.setFont(font8)
+
+        self.verticalLayout_5.addWidget(self.label_browsefile_2, 0, Qt.AlignHCenter)
+
+        self.pushButton_srcDirDrive = QPushButton(self.frame_Drive)
+        self.pushButton_srcDirDrive.setObjectName(u"pushButton_srcDirDrive")
+        self.pushButton_srcDirDrive.setMinimumSize(QSize(150, 50))
+        self.pushButton_srcDirDrive.setMaximumSize(QSize(150, 50))
+
+        self.verticalLayout_5.addWidget(self.pushButton_srcDirDrive, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_4.addWidget(self.frame_Drive)
+
+
+        self.verticalLayout_6.addWidget(self.uploadDrive)
+
+        self.drivesettings = QWidget(self.pageDrive)
+        self.drivesettings.setObjectName(u"drivesettings")
+        sizePolicy2.setHeightForWidth(self.drivesettings.sizePolicy().hasHeightForWidth())
+        self.drivesettings.setSizePolicy(sizePolicy2)
+        self.gridLayout_14 = QGridLayout(self.drivesettings)
+        self.gridLayout_14.setObjectName(u"gridLayout_14")
+        self.gridLayout_14.setContentsMargins(-1, 9, -1, -1)
+        self.label_drvinfloc = QLabel(self.drivesettings)
+        self.label_drvinfloc.setObjectName(u"label_drvinfloc")
+        self.label_drvinfloc.setFont(font6)
+
+        self.gridLayout_14.addWidget(self.label_drvinfloc, 3, 0, 1, 1)
+
+        self.s_filterfile_2 = QWidget(self.drivesettings)
+        self.s_filterfile_2.setObjectName(u"s_filterfile_2")
+        self.gridLayout_15 = QGridLayout(self.s_filterfile_2)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.label_filterfiles_2 = QLabel(self.s_filterfile_2)
+        self.label_filterfiles_2.setObjectName(u"label_filterfiles_2")
+        self.label_filterfiles_2.setFont(font3)
+
+        self.gridLayout_15.addWidget(self.label_filterfiles_2, 0, 0, 1, 1)
+
+        self.lineEdit_filetype_2 = QLineEdit(self.s_filterfile_2)
+        self.lineEdit_filetype_2.setObjectName(u"lineEdit_filetype_2")
+        self.lineEdit_filetype_2.setMinimumSize(QSize(250, 30))
+        self.lineEdit_filetype_2.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_15.addWidget(self.lineEdit_filetype_2, 2, 0, 1, 1)
+
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_15.addItem(self.horizontalSpacer_8, 2, 1, 1, 1)
+
+
+        self.gridLayout_14.addWidget(self.s_filterfile_2, 2, 0, 1, 2)
+
+        self.s_drvbackupType = QWidget(self.drivesettings)
+        self.s_drvbackupType.setObjectName(u"s_drvbackupType")
+        self.gridLayout_6 = QGridLayout(self.s_drvbackupType)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(30, -1, -1, -1)
+        self.horizontalSpacer_12 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_12, 11, 3, 1, 1)
+
+        self.widget_3 = QWidget(self.s_drvbackupType)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setMinimumSize(QSize(0, 0))
+        self.gridLayout_18 = QGridLayout(self.widget_3)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.label_drvsource = QLabel(self.widget_3)
+        self.label_drvsource.setObjectName(u"label_drvsource")
+
+        self.gridLayout_18.addWidget(self.label_drvsource, 0, 0, 2, 2)
+
+        self.label_drvbackup = QLabel(self.widget_3)
+        self.label_drvbackup.setObjectName(u"label_drvbackup")
+
+        self.gridLayout_18.addWidget(self.label_drvbackup, 2, 0, 1, 1)
+
+
+        self.gridLayout_6.addWidget(self.widget_3, 8, 0, 2, 4)
+
+        self.btnDriveBackup = QPushButton(self.s_drvbackupType)
+        self.btnDriveBackup.setObjectName(u"btnDriveBackup")
+        self.btnDriveBackup.setMinimumSize(QSize(120, 120))
+        self.btnDriveBackup.setMaximumSize(QSize(120, 16777215))
+        self.btnDriveBackup.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.gridLayout_6.addWidget(self.btnDriveBackup, 11, 1, 1, 2)
+
+        self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_11, 11, 0, 1, 1)
+
+
+        self.gridLayout_14.addWidget(self.s_drvbackupType, 4, 0, 1, 2)
+
+        self.label_drvupsettings = QLabel(self.drivesettings)
+        self.label_drvupsettings.setObjectName(u"label_drvupsettings")
+        self.label_drvupsettings.setFont(font6)
+
+        self.gridLayout_14.addWidget(self.label_drvupsettings, 1, 0, 1, 1)
+
+        self.widget_4 = QWidget(self.drivesettings)
+        self.widget_4.setObjectName(u"widget_4")
+        self.widget_4.setMinimumSize(QSize(0, 0))
+        self.gridLayout_19 = QGridLayout(self.widget_4)
+        self.gridLayout_19.setObjectName(u"gridLayout_19")
+        self.txtBackupName_2 = QLineEdit(self.widget_4)
+        self.txtBackupName_2.setObjectName(u"txtBackupName_2")
+        self.txtBackupName_2.setMinimumSize(QSize(0, 30))
+        self.txtBackupName_2.setMaximumSize(QSize(300, 16777215))
+
+        self.gridLayout_19.addWidget(self.txtBackupName_2, 1, 1, 1, 1)
+
+        self.label_7 = QLabel(self.widget_4)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy3.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy3)
+        self.label_7.setFont(font2)
+
+        self.gridLayout_19.addWidget(self.label_7, 0, 1, 1, 1)
+
+
+        self.gridLayout_14.addWidget(self.widget_4, 0, 0, 1, 2)
+
+
+        self.verticalLayout_6.addWidget(self.drivesettings)
+
+        self.stackedWidget_2.addWidget(self.pageDrive)
 
         self.gridLayout_4.addWidget(self.stackedWidget_2, 0, 0, 1, 1)
 
@@ -773,7 +1011,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.stackedWidget)
 
 
-        self.gridLayout_6.addWidget(self.mainBody, 0, 1, 1, 1)
+        self.gridLayout_20.addWidget(self.mainBody, 0, 1, 1, 1)
 
         self.widBottomBar = QWidget(self.centralwidget)
         self.widBottomBar.setObjectName(u"widBottomBar")
@@ -803,7 +1041,7 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addWidget(self.lblRemainingTimeToAutoBackup, 0, 1, 1, 1)
 
 
-        self.gridLayout_6.addWidget(self.widBottomBar, 1, 1, 1, 1)
+        self.gridLayout_20.addWidget(self.widBottomBar, 1, 1, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
 
@@ -822,6 +1060,7 @@ class Ui_MainWindow(object):
         self.label_brand.setText(QCoreApplication.translate("MainWindow", u"EB File Backup Automation", None))
         self.pushButton_Storage.setText(QCoreApplication.translate("MainWindow", u"Storage", None))
         self.pushButton_2_Dashboard.setText(QCoreApplication.translate("MainWindow", u"Dashboard", None))
+        self.pushButton_gDrive.setText(QCoreApplication.translate("MainWindow", u"Google Drive", None))
         self.label.setText("")
         self.btnGitBerk.setText(QCoreApplication.translate("MainWindow", u"BerkKilicoglu", None))
         self.btnGitEmre.setText(QCoreApplication.translate("MainWindow", u"Emrecpp", None))
@@ -833,7 +1072,7 @@ class Ui_MainWindow(object):
         self.label_infloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
         self.label_filterfiles.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
         self.lineEdit_filetype.setText("")
-        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt / myFiles.png", None))
+        self.lineEdit_filetype.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt;myFiles.png", None))
         self.label_3.setText("")
         self.btnSelectLocation.setText(QCoreApplication.translate("MainWindow", u"Select Backup Location", None))
         self.chkAutoBackup.setText(QCoreApplication.translate("MainWindow", u"Automatic Backup", None))
@@ -866,6 +1105,21 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Last Backup Changed Files Count", None));
         ___qtablewidgetitem3 = self.tableDashboard.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Process", None));
+        self.label_drivefiles.setText(QCoreApplication.translate("MainWindow", u"Backup Files", None))
+        self.label_upicon_2.setText("")
+        self.label_browsefile_2.setText(QCoreApplication.translate("MainWindow", u"Drag and Drop directory or Browse", None))
+        self.pushButton_srcDirDrive.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
+        self.label_drvinfloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
+        self.label_filterfiles_2.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
+        self.lineEdit_filetype_2.setText("")
+        self.lineEdit_filetype_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt;myFiles.png", None))
+        self.label_drvsource.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
+        self.label_drvbackup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
+        self.btnDriveBackup.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
+        self.label_drvupsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
+        self.txtBackupName_2.setText("")
+        self.txtBackupName_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
         self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"<b>Status:</b> Waiting...", None))
         self.lblRemainingTimeToAutoBackup.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))
     # retranslateUi

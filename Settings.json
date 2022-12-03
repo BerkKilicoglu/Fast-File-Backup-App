@@ -1,13 +1,13 @@
 {
-    "backupName": "EB",
-    "sourceLocation": "C:\\Users\\Emre\\Desktop\\Dosyalarım",
-    "backupLocation": "C:\\Users\\Emre\\Desktop\\yedeklerim",
+    "backupName": "deneme",
+    "sourceLocation": "C:\\Users\\Berk\\PycharmProjects\\FileBackUp\\deneme",
+    "backupLocation": "C:\\Users\\Berk\\Desktop\\yedeklerim",
     "excludeFileTypes": [
-        ".txt"
+        ""
     ],
     "autoBackupEnabled": false,
-    "autoBackupPeriod": "5 sec",
-    "dateLastBackup": "2022-11-25 14:13:07",
+    "autoBackupPeriod": "1 week",
+    "dateLastBackup": "2022-12-03 22:53:18",
     "saves": {
         "MyProject": {
             "date": "2022-11-25 12:47:39",
@@ -18,8 +18,80 @@
             "totalChangedFiles": 6
         },
         "EB": {
-            "date": "2022-11-25 14:13:07",
-            "totalChangedFiles": 7
+            "date": "2022-11-25 20:25:15",
+            "totalChangedFiles": 0
+        },
+        "BerkDeneme": {
+            "date": "2022-11-25 20:27:05",
+            "totalChangedFiles": 0
+        },
+        "AlicanYedek": {
+            "date": "2022-11-27 16:54:09",
+            "totalChangedFiles": 0
+        },
+        "berk": {
+            "date": "2022-12-02 18:10:05",
+            "totalChangedFiles": 0
+        },
+        "sd": {
+            "date": "2022-12-02 18:12:57",
+            "totalChangedFiles": 0
+        },
+        "1": {
+            "date": "2022-12-02 18:45:14",
+            "totalChangedFiles": 3
+        },
+        "23": {
+            "date": "2022-12-03 00:30:16",
+            "totalChangedFiles": 3
+        },
+        "drive deneme": {
+            "date": "2022-12-03 00:31:11",
+            "totalChangedFiles": 3
+        },
+        "DriveDeneme": {
+            "date": "2022-12-03 15:17:05",
+            "totalChangedFiles": 4
+        },
+        "DriveDeneme2": {
+            "date": "2022-12-03 15:22:41",
+            "totalChangedFiles": 4
+        },
+        "DriveDeneme3": {
+            "date": "2022-12-03 20:24:26",
+            "totalChangedFiles": 4
+        },
+        "localasd": {
+            "date": "2022-12-03 20:44:46",
+            "totalChangedFiles": 4
+        },
+        "driveasd": {
+            "date": "2022-12-03 20:45:11",
+            "totalChangedFiles": 4
+        },
+        "123": {
+            "date": "2022-12-03 20:46:02",
+            "totalChangedFiles": 4
+        },
+        "1234": {
+            "date": "2022-12-03 20:47:29",
+            "totalChangedFiles": 4
+        },
+        "121212323": {
+            "date": "2022-12-03 21:19:25",
+            "totalChangedFiles": 4
+        },
+        "denememm": {
+            "date": "2022-12-03 21:21:09",
+            "totalChangedFiles": 4
+        },
+        "12344": {
+            "date": "2022-12-03 22:44:36",
+            "totalChangedFiles": 2
+        },
+        "deneme": {
+            "date": "2022-12-03 22:53:18",
+            "totalChangedFiles": 4
         }
     }
 }
