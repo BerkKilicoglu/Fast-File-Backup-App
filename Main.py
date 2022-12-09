@@ -6,6 +6,7 @@ from Sync import GetFileMD5, CopyFile, GetFilesNameList, Sync
 from components.ETableWidgetItem import ETableWidgetItem
 from components.ButtonRecovery import ButtonRecovery
 from datetime import datetime
+from driveSync import *
 
 
 from Utils import Utils
@@ -21,6 +22,8 @@ class Main(QMainWindow):
         self.LoadSettings()
         self.RefreshGui()
 
+
+
     def RefreshGui(self):
         try:
             ui = self.getUi()
@@ -29,9 +32,17 @@ class Main(QMainWindow):
             ui.txtBackupName.setText(self.Settings["backupName"])
             ui.lineEdit_filetype.setText(";".join(self.Settings["excludeFileTypes"]))
             ui.chkAutoBackup.setChecked(self.Settings["autoBackupEnabled"])
+            ui.label_drvsource.setText("Source Location: " + ((" <font color='black'><b>" + self.Settings["sourceLocation"] + "</b></font>")
+                                                              if self.Settings["sourceLocation"] else " <b>(Not Set)</b>"))
+            ui.txtBackupName_2.setText(self.Settings["backupName"])
+            ui.lineEdit_filetype_2.setText(";".join(self.Settings["excludeFileTypes"]))
+            ui.label_drvbackup.setText("Backup Location: " + (
+                (" <font color='black'><b>drive.google.com/drive/" + self.Settings["backupName"]+"</b></font>") if self.Settings[
+                    "backupLocation"] else " <b>(Not Set)</b>"))
 
 
             ui.cmbBackupPeriod.setCurrentText(self.Settings["autoBackupPeriod"])
+
             liste = self.getUi().tableDashboard
             liste.setRowCount(0)
             liste.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -122,6 +133,65 @@ class Main(QMainWindow):
         "autoBackupPeriod":"1 min",
         "dateLastBackup": "",
         "saves":{}
+    }
+    SETTINGS_PATH = "Settings.json"
+
+    def DriveBackupNow(self):
+        try:
+            backupName = self.getUi().txtBackupName_2.text().strip()
+            ExcludedFileTypes = self.getUi().lineEdit_filetype_2.text().split(";")
+            if not backupName:
+                self.utils.msgHata("Please enter backup name.")
+                return False
+            DriveSrc = self.Settings["sourceLocation"]
+            if not DriveSrc or not os.path.exists(DriveSrc) \
+                    or not os.path.isdir(DriveSrc):  # or not os.path.exists(Des):
+                self.utils.msgHata(
+                    f"Please be sure you have selected Source Location & Backup location and These locations are directories.\nAlso they can't be the same.\n\n\nSrc Location: {DriveSrc}\n\n")
+                return False
+
+            drive = MyDrive()
+            processedFiles = GetFilesNameList(DriveSrc, excluded=ExcludedFileTypes, removeSrcDir=False)
+
+            num_files = len(processedFiles)
+            drive.uploadFiles(backupName, processedFiles, totalChangedFiles=num_files, ui=self.getUi())
+
+            if num_files != 0:
+                self.getUi().lblStatus.setText(
+                    f"<b>Status:</b> {num_files} files copied on {datetime.now().strftime('%d %B %Y %I:%M:%S %p')}.")
+                self.utils.msgUyariUnlem("Success",
+                                         f"{num_files} files copied! (Same files skipped for performance)",
+                                         False)
+            else:
+                self.getUi().lblStatus.setText(
+                    f"<b>Status:</b> Already up to date on {datetime.now().strftime('%d %B %Y %I:%M:%S %p')}.")
+
+            self.Settings["dateLastBackup"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            DictSaveInfo = {
+                "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "totalChangedFiles": num_files
+
+            }
+            if backupName not in self.Settings["saves"]:
+                self.Settings["saves"][backupName] = {}
+            self.Settings["saves"][backupName] = DictSaveInfo
+            self.SaveSettings()
+            self.RefreshGui()  # for add to dashboard list
+
+
+
+        except Exception as err:
+            self.utils.hataKodGoster("[DEBUG] Drive Errors: %s" % str(err))
+
+    Settings = {
+        "backupName": "",
+        "sourceLocation": "",
+        "backupLocation": "",
+        "excludeFileTypes": [],
+        "autoBackupEnabled": 0,
+        "autoBackupPeriod": "1 min",
+        "dateLastBackup": "",
+        "saves": {}
     }
     SETTINGS_PATH = "Settings.json"
     def LoadSettings(self):

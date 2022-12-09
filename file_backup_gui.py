@@ -46,18 +46,27 @@ class homepage(object):
         self.ui.lblRemainingTimeToAutoBackup.setVisible(False) # default hiden
         self.ui.label_brand.setWordWrap(True)
 
-        self.ui.pushButton_2_Dashboard.clicked.connect(lambda: self.menusection(storage=False, dashboard=True))
-        self.ui.pushButton_Storage.clicked.connect(lambda: self.menusection(storage=True, dashboard=False))
+        self.ui.pushButton_2_Dashboard.clicked.connect(lambda: self.menusection(storage=False, dashboard=True, googleDrive=False))
+        self.ui.pushButton_Storage.clicked.connect(lambda: self.menusection(storage=True, dashboard=False, googleDrive=False))
+        self.ui.pushButton_gDrive.clicked.connect(lambda: self.menusection(storage=False, dashboard=False, googleDrive=True))
         self.ui.frame_upload.dragEnterEvent = self.SurukleEnterEvent
         self.ui.frame_upload.dragLeaveEvent = self.SurukleLeaveEvent
         self.ui.frame_upload.dropEvent = self.SurukleDropEvent
 
+        self.ui.frame_Drive.dragEnterEvent = self.SurukleEnterEvent
+        self.ui.frame_Drive.dragLeaveEvent = self.SurukleLeaveEvent
+        self.ui.frame_Drive.dropEvent = self.SurukleDropEvent
+
         self.ui.btnBackupNow.clicked.connect(self.parent.BackupNow)
+        self.ui.btnDriveBackup.clicked.connect(self.parent.DriveBackupNow)
         self.ui.btnSelectSrcDirectory.clicked.connect(self.SelectSourceDir)
+        self.ui.pushButton_srcDirDrive.clicked.connect(self.SelectSourceDir)
         self.ui.btnSelectLocation.clicked.connect(self.SelectBackupDir)
         self.ui.txtBackupName.textChanged.connect(self.BackupNameDegisti)
         self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
         self.ui.lineEdit_search.textChanged.connect(self.SearchDegisti)
+        self.ui.txtBackupName_2.textChanged.connect(self.BackupNameDegisti)
+        self.ui.lineEdit_filetype_2.textChanged.connect(self.FilterTypeDegisti)
 
         def releaseGitEmre(eventRelease):
             if eventRelease.button() != Qt.LeftButton:
@@ -75,6 +84,7 @@ class homepage(object):
             self.ui.frameAutoBackup.setEnabled(newState)
             self.parent.Settings["autoBackupEnabled"] = bool(newState)
             self.parent.SaveSettings()
+            self.ui.cmbBackupPeriod.setEnabled(newState)
 
 
         self.ui.chkAutoBackup.stateChanged.connect(changedAutoBackup)
@@ -122,6 +132,7 @@ class homepage(object):
         try:
             self.parent.Settings["backupName"] = newText
             self.parent.SaveSettings()
+            self.parent.RefreshGui()
         except Exception as err:
             self.utils.hataKodGoster("BackupNameDegisti: %s"%str(err))
     def FilterTypeDegisti(self, newText:str):
@@ -134,7 +145,7 @@ class homepage(object):
         try:
             onStoragePage = not self.onDashboard#self.ui.stackedWidget_2.currentWidget() == self.ui.pageStorage
             if onStoragePage:
-                self.menusection(storage=False,dashboard=True)
+                self.menusection(storage=False,dashboard=True, googleDrive=False)
                 #self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
             for i in range(self.ui.tableDashboard.rowCount()):
                 BackupName = self.ui.tableDashboard.item(i, 0).text()
@@ -188,23 +199,55 @@ class homepage(object):
 
 
     onDashboard = False
-    def menusection(self, storage, dashboard):
+    onGoogleDrive = False
+    def menusection(self, storage, dashboard, googleDrive):
+        dashboard_noneclicked = "background-color: #415AAF;"
+        dashboard_clicked = "background-color: #FEFEFF;border-top-left-radius: 20px; color: #415AAF"
+        storage_noneclicked = "background-color: #415AAF; color: black;"
+        storage_clicked = "background-color: #FEFEFF; color: #415AAF;"
+        drive_clicked = "background-color: #FEFEFF; border-top-left-radius:20px; color: #00AC47"
+        drive_noneclicked = "background-color: #415AAF;"
+
         if dashboard:
             self.onDashboard=True
+            self.onGoogleDrive = False
             self.ui.stackedWidget_2.slideInWgt(self.ui.pageDashboard)
-            self.ui.pushButton_2_Dashboard.setStyleSheet("background-color: #FEFEFF;border-top-left-radius: 20px; color: #415AAF")
-            self.ui.pushButton_Storage.setStyleSheet("background-color: #415AAF; color: black;")
+            self.ui.pushButton_2_Dashboard.setStyleSheet(dashboard_clicked)
+            self.ui.pushButton_Storage.setStyleSheet(storage_noneclicked)
+            self.ui.pushButton_gDrive.setStyleSheet(drive_noneclicked)
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/nightblue/home.svg"))
             self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/white/package.svg"))
+            self.ui.pushButton_gDrive.setIcon(QtGui.QIcon("assets/logo/googleDrive.png"))
+            self.ui.solMenu.setStyleSheet("background-color:#415AAF")
             self.ui.label_menuname.setText("Dashboard")
         if storage:
             self.onDashboard=False
+            self.onGoogleDrive = False
             self.ui.stackedWidget_2.slideInWgt(self.ui.pageStorage)
-            self.ui.pushButton_Storage.setStyleSheet("background-color: #FEFEFF; color: #415AAF")
-            self.ui.pushButton_2_Dashboard.setStyleSheet("background-color: #415AAF;")
+            self.ui.pushButton_Storage.setStyleSheet(storage_clicked)
+            self.ui.pushButton_2_Dashboard.setStyleSheet(dashboard_noneclicked)
+            self.ui.pushButton_gDrive.setStyleSheet(drive_noneclicked)
             self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/nightblue/package.svg"))
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/white/home.svg"))
+            self.ui.pushButton_gDrive.setIcon(QtGui.QIcon("assets/logo/googleDrive.png"))
+            self.ui.solMenu.setStyleSheet("background-color:#415AAF")
             self.ui.label_menuname.setText("Storage")
+        if googleDrive:
+            self.onDashboard=False
+            self.onGoogleDrive = True
+            self.ui.stackedWidget_2.slideInWgt(self.ui.pageDrive)
+            self.ui.pushButton_gDrive.setStyleSheet(drive_clicked)
+            self.ui.pushButton_Storage.setStyleSheet(storage_noneclicked+"background-color: #00AC47")
+            self.ui.pushButton_2_Dashboard.setStyleSheet(dashboard_noneclicked+"background-color: #00AC47")
+            self.ui.pushButton_gDrive.setIcon(QtGui.QIcon("assets/logo/googleDrive2.png"))
+            self.ui.pushButton_Storage.setIcon(QtGui.QIcon("assets/icons/white/package.svg"))
+            self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/white/home.svg"))
+            self.ui.solMenu.setStyleSheet("background-color:#00AC47")
+            self.ui.label_menuname.setText("Google Drive")
+
+
+
+
 
     SolMenuWidth = -1
     def menu_hide_unhide(self):
