@@ -1,29 +1,34 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepagexOsaGk.ui'
+## Form generated from reading UI file 'homepagekDsvmO.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.14.1
+## Created by: Qt User Interface Compiler version 6.2.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QMetaObject, QObject, QPoint,
-    QRect, QSize, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
-    QFontDatabase, QIcon, QLinearGradient, QPalette, QPainter, QPixmap,
-    QRadialGradient)
-from PyQt5.QtWidgets import *
+from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
+    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
+    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
+    QVBoxLayout, QWidget)
 
 from components.EStackedWidgetSliding import EStackedWidgetSliding
-
 import assets_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        if MainWindow.objectName():
+        if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(991, 944)
+        MainWindow.resize(991, 948)
         MainWindow.setMinimumSize(QSize(0, 0))
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo/BerkEmreLogo.png", QSize(), QIcon.Normal, QIcon.Off)
@@ -53,19 +58,19 @@ class Ui_MainWindow(object):
 "	background-color: #415AAF;\n"
 "}\n"
 "\n"
-"#lineEdit_filetype, #lineEdit_filetype_2{\n"
+"#lineEdit_filetype, #lineEdit_filetype_Drive{\n"
 "	background-color: #E5E5E5;\n"
 "	color:#415AAF;\n"
 "}\n"
-"#lineEdit_filetype_2{\n"
+"#lineEdit_filetype_Drive{\n"
 "	color: #00ac47\n"
 "}\n"
 "\n"
-"#txtBackupName, #txtBackupName_2{\n"
+"#txtBackupName, #txtBackupName_Drive{\n"
 "	color: #415AAF;\n"
 "	background-color: #E5E5E5;\n"
 "}\n"
-"#txtBackupName_2{\n"
+"#txtBackupName_Drive{\n"
 "	color: #00AC47;\n"
 "}\n"
 "#lineEdit_search{\n"
@@ -85,10 +90,10 @@ class Ui_MainWindow(object):
 "#frame_upload, #frame_Drive{\n"
 "	border-radius: 10px;\n"
 "	border: 1.8px dotted #619EF1;\n"
-"	background-color: #F5F8FC;\n"
+"	background-color: #F"
+                        "5F8FC;\n"
 "}\n"
-""
-                        "\n"
+"\n"
 "#frame_Drive{\n"
 "	border: 1.8px dotted rgb(0, 172, 71);\n"
 "	background-color: #effae8;\n"
@@ -127,9 +132,9 @@ class Ui_MainWindow(object):
 "	background-color: #BEEDB1;\n"
 "}\n"
 "\n"
-"#lineEdit_filetype, #txtBackupName, #txtBackupName_2, #lineEdit_filetype_2{\n"
-"	borde"
-                        "r-radius: 10px;\n"
+"#lineEdit_filetype, #txtBackupName, #txtBackupName_Drive, #lineEdit_f"
+                        "iletype_Drive{\n"
+"	border-radius: 10px;\n"
 "	padding-left: 5px;\n"
 "}\n"
 "\n"
@@ -156,9 +161,9 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "#btnDriveBackup::hover{\n"
-"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #f5ff00, stop:1 #7fe845);\n"
-"	border: 3px soli"
-                        "d #7fe845;\n"
+"	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 #f5ff00, stop:1 #7fe84"
+                        "5);\n"
+"	border: 3px solid #7fe845;\n"
 "\n"
 "}\n"
 "\n"
@@ -198,10 +203,10 @@ class Ui_MainWindow(object):
 "border: none;\n"
 "background-color: rgb(65,90,175);\n"
 "color: 	white;\n"
-"font-weight: bold;\n"
+"font-weight:"
+                        " bold;\n"
 "padding: 3px;\n"
-""
-                        "}\n"
+"}\n"
 "QComboBox:disabled{\n"
 "background-color: rgb(45,60,145);\n"
 "}\n"
@@ -263,7 +268,6 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(18)
         font1.setBold(True)
-        font1.setWeight(75)
         self.label_brand.setFont(font1)
         self.label_brand.setStyleSheet(u"color:white")
 
@@ -303,7 +307,6 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
-        font2.setWeight(50)
         self.pushButton_Storage.setFont(font2)
         self.pushButton_Storage.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
@@ -379,7 +382,6 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(10)
         font4.setBold(True)
-        font4.setWeight(75)
         self.btnGitBerk.setFont(font4)
         self.btnGitBerk.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitBerk.setIconSize(QSize(40, 40))
@@ -440,7 +442,6 @@ class Ui_MainWindow(object):
         font5 = QFont()
         font5.setPointSize(16)
         font5.setBold(True)
-        font5.setWeight(75)
         self.label_menuname.setFont(font5)
 
         self.horizontalLayout_3.addWidget(self.label_menuname)
@@ -532,7 +533,6 @@ class Ui_MainWindow(object):
         font6 = QFont()
         font6.setPointSize(14)
         font6.setBold(True)
-        font6.setWeight(75)
         self.label_infloc.setFont(font6)
 
         self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
@@ -578,7 +578,6 @@ class Ui_MainWindow(object):
         self.btnSelectLocation.setMaximumSize(QSize(175, 50))
         font7 = QFont()
         font7.setBold(True)
-        font7.setWeight(75)
         self.btnSelectLocation.setFont(font7)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -777,7 +776,6 @@ class Ui_MainWindow(object):
         font8.setBold(False)
         font8.setItalic(True)
         font8.setUnderline(False)
-        font8.setWeight(50)
         font8.setStrikeOut(False)
         font8.setKerning(True)
         self.label_browsefile.setFont(font8)
@@ -911,12 +909,12 @@ class Ui_MainWindow(object):
 
         self.gridLayout_15.addWidget(self.label_filterfiles_2, 0, 0, 1, 1)
 
-        self.lineEdit_filetype_2 = QLineEdit(self.s_filterfile_2)
-        self.lineEdit_filetype_2.setObjectName(u"lineEdit_filetype_2")
-        self.lineEdit_filetype_2.setMinimumSize(QSize(250, 30))
-        self.lineEdit_filetype_2.setMaximumSize(QSize(300, 16777215))
+        self.lineEdit_filetype_Drive = QLineEdit(self.s_filterfile_2)
+        self.lineEdit_filetype_Drive.setObjectName(u"lineEdit_filetype_Drive")
+        self.lineEdit_filetype_Drive.setMinimumSize(QSize(250, 30))
+        self.lineEdit_filetype_Drive.setMaximumSize(QSize(300, 16777215))
 
-        self.gridLayout_15.addWidget(self.lineEdit_filetype_2, 2, 0, 1, 1)
+        self.gridLayout_15.addWidget(self.lineEdit_filetype_Drive, 2, 0, 1, 1)
 
         self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -978,12 +976,12 @@ class Ui_MainWindow(object):
         self.widget_4.setMinimumSize(QSize(0, 0))
         self.gridLayout_19 = QGridLayout(self.widget_4)
         self.gridLayout_19.setObjectName(u"gridLayout_19")
-        self.txtBackupName_2 = QLineEdit(self.widget_4)
-        self.txtBackupName_2.setObjectName(u"txtBackupName_2")
-        self.txtBackupName_2.setMinimumSize(QSize(0, 30))
-        self.txtBackupName_2.setMaximumSize(QSize(300, 16777215))
+        self.txtBackupName_Drive = QLineEdit(self.widget_4)
+        self.txtBackupName_Drive.setObjectName(u"txtBackupName_Drive")
+        self.txtBackupName_Drive.setMinimumSize(QSize(0, 30))
+        self.txtBackupName_Drive.setMaximumSize(QSize(300, 16777215))
 
-        self.gridLayout_19.addWidget(self.txtBackupName_2, 1, 1, 1, 1)
+        self.gridLayout_19.addWidget(self.txtBackupName_Drive, 1, 1, 1, 1)
 
         self.label_7 = QLabel(self.widget_4)
         self.label_7.setObjectName(u"label_7")
@@ -1111,14 +1109,14 @@ class Ui_MainWindow(object):
         self.pushButton_srcDirDrive.setText(QCoreApplication.translate("MainWindow", u"Select Directory", None))
         self.label_drvinfloc.setText(QCoreApplication.translate("MainWindow", u"Source and Backup Location", None))
         self.label_filterfiles_2.setText(QCoreApplication.translate("MainWindow", u"Filter your exclude files type", None))
-        self.lineEdit_filetype_2.setText("")
-        self.lineEdit_filetype_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt;myFiles.png", None))
+        self.lineEdit_filetype_Drive.setText("")
+        self.lineEdit_filetype_Drive.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please enter the file name. Ex: .txt;myFiles.png", None))
         self.label_drvsource.setText(QCoreApplication.translate("MainWindow", u"Source Location:", None))
         self.label_drvbackup.setText(QCoreApplication.translate("MainWindow", u"Backup Location:", None))
         self.btnDriveBackup.setText(QCoreApplication.translate("MainWindow", u"BACKUP FILE !", None))
         self.label_drvupsettings.setText(QCoreApplication.translate("MainWindow", u"Backup Settings", None))
-        self.txtBackupName_2.setText("")
-        self.txtBackupName_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
+        self.txtBackupName_Drive.setText("")
+        self.txtBackupName_Drive.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Please Enter Backup Name", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Backup name", None))
         self.lblStatus.setText(QCoreApplication.translate("MainWindow", u"<b>Status:</b> Waiting...", None))
         self.lblRemainingTimeToAutoBackup.setText(QCoreApplication.translate("MainWindow", u"00:00:00", None))

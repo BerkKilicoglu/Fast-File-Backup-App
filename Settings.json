@@ -1,0 +1,15 @@
+{
+    "backupName": "adsdasdasdasda",
+    "sourceLocation": "C:\\Users\\Emre\\Desktop\\Xray",
+    "backupLocation": "C:\\Users\\Emre\\Desktop\\FileBackupAutomation",
+    "excludeFileTypes": [],
+    "autoBackupEnabled": 0,
+    "autoBackupPeriod": "1 min",
+    "dateLastBackup": "2022-12-09 14:30:11",
+    "saves": {
+        "EMRE XRAY": {
+            "date": "2022-12-09 14:30:11",
+            "totalChangedFiles": 18
+        }
+    }
+}

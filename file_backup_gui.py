@@ -65,8 +65,8 @@ class homepage(object):
         self.ui.txtBackupName.textChanged.connect(self.BackupNameDegisti)
         self.ui.lineEdit_filetype.textChanged.connect(self.FilterTypeDegisti)
         self.ui.lineEdit_search.textChanged.connect(self.SearchDegisti)
-        self.ui.txtBackupName_2.textChanged.connect(self.BackupNameDegisti)
-        self.ui.lineEdit_filetype_2.textChanged.connect(self.FilterTypeDegisti)
+        self.ui.txtBackupName_Drive.textChanged.connect(self.BackupNameDegisti)
+        self.ui.lineEdit_filetype_Drive.textChanged.connect(self.FilterTypeDegisti)
 
         def releaseGitEmre(eventRelease):
             if eventRelease.button() != Qt.LeftButton:

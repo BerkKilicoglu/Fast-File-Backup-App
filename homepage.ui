@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>991</width>
-    <height>944</height>
+    <height>948</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -52,19 +52,19 @@ border:none
 	background-color: #415AAF;
 }
 
-#lineEdit_filetype, #lineEdit_filetype_2{
+#lineEdit_filetype, #lineEdit_filetype_Drive{
 	background-color: #E5E5E5;
 	color:#415AAF;
 }
-#lineEdit_filetype_2{
+#lineEdit_filetype_Drive{
 	color: #00ac47
 }
 
-#txtBackupName, #txtBackupName_2{
+#txtBackupName, #txtBackupName_Drive{
 	color: #415AAF;
 	background-color: #E5E5E5;
 }
-#txtBackupName_2{
+#txtBackupName_Drive{
 	color: #00AC47;
 }
 #lineEdit_search{
@@ -125,7 +125,7 @@ border:none
 	background-color: #BEEDB1;
 }
 
-#lineEdit_filetype, #txtBackupName, #txtBackupName_2, #lineEdit_filetype_2{
+#lineEdit_filetype, #txtBackupName, #txtBackupName_Drive, #lineEdit_filetype_Drive{
 	border-radius: 10px;
 	padding-left: 5px;
 }
@@ -317,7 +317,6 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>18</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -404,7 +403,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -443,7 +441,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>12</pointsize>
-                    <weight>50</weight>
                     <bold>false</bold>
                    </font>
                   </property>
@@ -586,7 +583,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -609,7 +605,6 @@ QComboBox:on{
                   <property name="font">
                    <font>
                     <pointsize>10</pointsize>
-                    <weight>75</weight>
                     <bold>true</bold>
                    </font>
                   </property>
@@ -694,7 +689,6 @@ QComboBox:on{
                <property name="font">
                 <font>
                  <pointsize>16</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
@@ -881,7 +875,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -982,7 +975,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>-1</pointsize>
-                         <weight>75</weight>
                          <bold>true</bold>
                         </font>
                        </property>
@@ -1024,7 +1016,6 @@ QComboBox:on{
                           <property name="font">
                            <font>
                             <pointsize>12</pointsize>
-                            <weight>50</weight>
                             <bold>false</bold>
                            </font>
                           </property>
@@ -1260,7 +1251,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1311,7 +1301,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>
@@ -1364,7 +1353,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1454,7 +1442,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
                          <italic>true</italic>
                          <bold>false</bold>
                          <underline>false</underline>
@@ -1595,7 +1582,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1685,7 +1671,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>10</pointsize>
-                         <weight>50</weight>
                          <italic>true</italic>
                          <bold>false</bold>
                          <underline>false</underline>
@@ -1740,7 +1725,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1765,7 +1749,7 @@ QComboBox:on{
                       </widget>
                      </item>
                      <item row="2" column="0">
-                      <widget class="QLineEdit" name="lineEdit_filetype_2">
+                      <widget class="QLineEdit" name="lineEdit_filetype_Drive">
                        <property name="minimumSize">
                         <size>
                          <width>250</width>
@@ -1890,7 +1874,6 @@ QComboBox:on{
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
                       <bold>true</bold>
                      </font>
                     </property>
@@ -1909,7 +1892,7 @@ QComboBox:on{
                     </property>
                     <layout class="QGridLayout" name="gridLayout_19">
                      <item row="1" column="1">
-                      <widget class="QLineEdit" name="txtBackupName_2">
+                      <widget class="QLineEdit" name="txtBackupName_Drive">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -1941,7 +1924,6 @@ QComboBox:on{
                        <property name="font">
                         <font>
                          <pointsize>12</pointsize>
-                         <weight>50</weight>
                          <bold>false</bold>
                         </font>
                        </property>

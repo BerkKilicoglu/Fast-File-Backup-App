@@ -34,11 +34,9 @@ class Main(QMainWindow):
             ui.chkAutoBackup.setChecked(self.Settings["autoBackupEnabled"])
             ui.label_drvsource.setText("Source Location: " + ((" <font color='black'><b>" + self.Settings["sourceLocation"] + "</b></font>")
                                                               if self.Settings["sourceLocation"] else " <b>(Not Set)</b>"))
-            ui.txtBackupName_2.setText(self.Settings["backupName"])
-            ui.lineEdit_filetype_2.setText(";".join(self.Settings["excludeFileTypes"]))
-            ui.label_drvbackup.setText("Backup Location: " + (
-                (" <font color='black'><b>drive.google.com/drive/" + self.Settings["backupName"]+"</b></font>") if self.Settings[
-                    "backupLocation"] else " <b>(Not Set)</b>"))
+            ui.txtBackupName_Drive.setText(self.Settings["backupName"])
+            ui.lineEdit_filetype_Drive.setText(";".join(self.Settings["excludeFileTypes"]))
+            ui.label_drvbackup.setText("Backup Location: " + (" <font color='black'><b>drive.google.com/drive/" + self.Settings["backupName"]+"</b></font>"))
 
 
             ui.cmbBackupPeriod.setCurrentText(self.Settings["autoBackupPeriod"])
@@ -138,8 +136,8 @@ class Main(QMainWindow):
 
     def DriveBackupNow(self):
         try:
-            backupName = self.getUi().txtBackupName_2.text().strip()
-            ExcludedFileTypes = self.getUi().lineEdit_filetype_2.text().split(";")
+            backupName = self.getUi().txtBackupName_Drive.text().strip()
+            ExcludedFileTypes = self.getUi().lineEdit_filetype_Drive.text().split(";")
             if not backupName:
                 self.utils.msgHata("Please enter backup name.")
                 return False
