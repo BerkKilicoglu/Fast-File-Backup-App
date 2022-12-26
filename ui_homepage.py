@@ -1,27 +1,19 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepagekDsvmO.ui'
+## Form generated from reading UI file 'homepageIcNGbW.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.2.2
+## Created by: Qt User Interface Compiler version 5.15.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PyQt5.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PyQt5.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-from PyQt5.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame,
-    QGridLayout, QHBoxLayout, QHeaderView, QLabel,
-    QLineEdit, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QTableWidget, QTableWidgetItem,
-    QVBoxLayout, QWidget)
+from PyQt5.QtCore import *
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 
 from components.EStackedWidgetSliding import EStackedWidgetSliding
+
 import assets_rc
 
 class Ui_MainWindow(object):
@@ -238,12 +230,14 @@ class Ui_MainWindow(object):
         self.solMenu = QWidget(self.centralwidget)
         self.solMenu.setObjectName(u"solMenu")
         self.solMenu.setMaximumSize(QSize(275, 16777215))
+        self.solMenu.setStyleSheet(u"border:none")
         self.verticalLayout_9 = QVBoxLayout(self.solMenu)
         self.verticalLayout_9.setSpacing(0)
         self.verticalLayout_9.setObjectName(u"verticalLayout_9")
         self.verticalLayout_9.setContentsMargins(15, 0, 0, 0)
         self.frame_menumain = QFrame(self.solMenu)
         self.frame_menumain.setObjectName(u"frame_menumain")
+        self.frame_menumain.setStyleSheet(u"border:none")
         self.frame_menumain.setFrameShape(QFrame.StyledPanel)
         self.frame_menumain.setFrameShadow(QFrame.Raised)
         self.verticalLayout_10 = QVBoxLayout(self.frame_menumain)
@@ -268,6 +262,7 @@ class Ui_MainWindow(object):
         font1 = QFont()
         font1.setPointSize(18)
         font1.setBold(True)
+        font1.setWeight(75)
         self.label_brand.setFont(font1)
         self.label_brand.setStyleSheet(u"color:white")
 
@@ -307,6 +302,7 @@ class Ui_MainWindow(object):
         font2 = QFont()
         font2.setPointSize(12)
         font2.setBold(False)
+        font2.setWeight(50)
         self.pushButton_Storage.setFont(font2)
         self.pushButton_Storage.setCursor(QCursor(Qt.PointingHandCursor))
         icon1 = QIcon()
@@ -382,6 +378,7 @@ class Ui_MainWindow(object):
         font4 = QFont()
         font4.setPointSize(10)
         font4.setBold(True)
+        font4.setWeight(75)
         self.btnGitBerk.setFont(font4)
         self.btnGitBerk.setCursor(QCursor(Qt.PointingHandCursor))
         self.btnGitBerk.setIconSize(QSize(40, 40))
@@ -442,6 +439,7 @@ class Ui_MainWindow(object):
         font5 = QFont()
         font5.setPointSize(16)
         font5.setBold(True)
+        font5.setWeight(75)
         self.label_menuname.setFont(font5)
 
         self.horizontalLayout_3.addWidget(self.label_menuname)
@@ -533,6 +531,7 @@ class Ui_MainWindow(object):
         font6 = QFont()
         font6.setPointSize(14)
         font6.setBold(True)
+        font6.setWeight(75)
         self.label_infloc.setFont(font6)
 
         self.gridLayout_7.addWidget(self.label_infloc, 4, 0, 1, 1)
@@ -578,6 +577,7 @@ class Ui_MainWindow(object):
         self.btnSelectLocation.setMaximumSize(QSize(175, 50))
         font7 = QFont()
         font7.setBold(True)
+        font7.setWeight(75)
         self.btnSelectLocation.setFont(font7)
         self.btnSelectLocation.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -776,6 +776,7 @@ class Ui_MainWindow(object):
         font8.setBold(False)
         font8.setItalic(True)
         font8.setUnderline(False)
+        font8.setWeight(50)
         font8.setStrikeOut(False)
         font8.setKerning(True)
         self.label_browsefile.setFont(font8)

@@ -18,7 +18,8 @@ def GetFileMD5(src:str) -> str: # Get file to MD5 Hash
             chunk = f.read(CHUNK_SIZE)
 
     return file_hash.hexdigest()
-def GetFilesNameList(srcDir:str, filters:list=["*.*"], excluded:list=[], removeSrcDir=True) -> list:
+def GetFilesNameList(srcDir:str, filters:list=["*"], excluded:list=[], removeSrcDir=True) -> list:
+    # Note: filters değişkeninde "*" kullanılınca tüm dosyaları alıyor, "*.*" kullanılınca dosyanın adında nokta olması zorunlu oluyor yoksa yok sayıyor
     Output = []
     if os.path.exists(srcDir) and os.path.isdir(srcDir):
         for x in os.walk(srcDir):

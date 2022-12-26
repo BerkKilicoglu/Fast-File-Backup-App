@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import sys, os, json, time
 from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView
-from PyQt5 import QtGui
+from PyQt5 import QtGui, Qt
 from Sync import GetFileMD5, CopyFile, GetFilesNameList, Sync
 from components.ETableWidgetItem import ETableWidgetItem
 from components.ButtonRecovery import ButtonRecovery
@@ -16,7 +16,6 @@ class Main(QMainWindow):
     #selectedDirectories = []
     def __init__(self):
         super().__init__()
-
         self.utils = Utils(widParent=self)
         self.homepage = homepage(parent=self)
         self.LoadSettings()
@@ -62,6 +61,8 @@ class Main(QMainWindow):
         try:
             backupName = self.getUi().txtBackupName.text().strip()
             ExcludedFileTypes = self.getUi().lineEdit_filetype.text().split(";")
+            while "" in ExcludedFileTypes:
+                ExcludedFileTypes.remove("")
             if not backupName:
                 self.utils.msgHata("Please enter backup name.")
                 return False
