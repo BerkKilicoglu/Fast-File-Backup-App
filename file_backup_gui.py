@@ -244,6 +244,21 @@ class homepage(object):
             self.ui.pushButton_2_Dashboard.setIcon(QtGui.QIcon("assets/icons/white/home.svg"))
             self.ui.solMenu.setStyleSheet("background-color:#00AC47")
             self.ui.label_menuname.setText("Google Drive")
+            self.ui.label_menuname.setStyleSheet("color: #00AC47")
+            self.ui.frame_search.setStyleSheet("border-radius: 10px; border: 2px solid #00ac47")
+            self.ui.lineEdit_search.setStyleSheet("border:none;color:green")
+            self.ui.label_searchicon.setStyleSheet("border:none")
+            self.ui.label_searchicon.setPixmap(QPixmap("assets/icons/green/search.svg"))
+            self.ui.menuBtn.setIcon(QIcon("assets/icons/green/menu.svg"))
+        else:
+            self.ui.label_menuname.setStyleSheet("color: #415AAF")
+            self.ui.frame_search.setStyleSheet("border-radius: 10px; border: 2px solid #415AAF")
+            self.ui.lineEdit_search.setStyleSheet("border:none;color:#415AAF")
+            self.ui.label_searchicon.setStyleSheet("border:none")
+            self.ui.label_searchicon.setPixmap(QPixmap("assets/icons/nightblue/search.svg"))
+            self.ui.menuBtn.setIcon(QIcon("assets/icons/nightblue/menu.svg"))
+
+
 
 
 

@@ -61,11 +61,18 @@ class Main(QMainWindow):
         try:
             backupName = self.getUi().txtBackupName.text().strip()
             ExcludedFileTypes = self.getUi().lineEdit_filetype.text().split(";")
+            AutoBackup = self.getUi().chkAutoBackup.isChecked()
             while "" in ExcludedFileTypes:
                 ExcludedFileTypes.remove("")
             if not backupName:
                 self.utils.msgHata("Please enter backup name.")
                 return False
+            if backupName in self.Settings["saves"] and not AutoBackup:
+                answer = self.utils.msgOverWrite()
+                if answer:
+                    DateNow = datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
+                    backupName = f"{backupName}{'_'}{DateNow}"
+
             Src = self.Settings["sourceLocation"]
             Des = self.Settings["backupLocation"]
             if not Src or not Des or not os.path.exists(Src)\
@@ -73,7 +80,6 @@ class Main(QMainWindow):
                     or Src == Des:# or not os.path.exists(Des):
                 self.utils.msgHata(f"Please be sure you have selected Source Location & Backup location and These locations are directories.\nAlso they can't be the same.\n\n\nSrc Location: {Src}\n\nDes Location: {Des}")
                 return False
-
             totalChangedFiles = Sync(backupName=backupName, Src=Src, Des=Des, ExcludedFileTypes=ExcludedFileTypes, ui=self.getUi())
             if totalChangedFiles != 0:
                 self.getUi().lblStatus.setText(f"<b>Status:</b> {totalChangedFiles} files copied on {datetime.now().strftime('%d %B %Y %I:%M:%S %p')}.")
@@ -94,7 +100,7 @@ class Main(QMainWindow):
             self.SaveSettings()
             self.RefreshGui() # for add to dashboard list
             
-            if self.getUi().chkAutoBackup.isChecked():
+            if AutoBackup:
                 self.getUi().lblRemainingTimeToAutoBackup.setVisible(True)
                 selectedPeriod = self.getUi().cmbBackupPeriod.currentText()
                 self.homepage.periodInSeconds = 60

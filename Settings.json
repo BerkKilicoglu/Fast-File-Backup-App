@@ -1,22 +1,52 @@
 {
-    "backupName": "proje1",
-    "sourceLocation": "/home/emre/Masaüstü/test",
-    "backupLocation": "/home/emre/Masaüstü/test2",
-    "excludeFileTypes": [],
-    "autoBackupEnabled": 0,
-    "autoBackupPeriod": "1 min",
-    "dateLastBackup": "2022-12-26 19:01:14",
+    "backupName": "",
+    "sourceLocation": "C:\\Users\\Berk\\Desktop\\123",
+    "backupLocation": "C:\\Users\\Berk\\Desktop\\yedekler",
+    "excludeFileTypes": [
+        ""
+    ],
+    "autoBackupEnabled": false,
+    "autoBackupPeriod": "5 sec",
+    "dateLastBackup": "2022-12-29 02:17:27",
     "saves": {
-        "EMRE XRAY": {
-            "date": "2022-12-09 14:30:11",
-            "totalChangedFiles": 18
-        },
-        "adsdasdasdasda": {
-            "date": "2022-12-26 18:54:03",
+        "berk": {
+            "date": "2022-12-29 01:44:13",
             "totalChangedFiles": 0
         },
-        "proje1": {
-            "date": "2022-12-26 19:01:14",
+        "berk_2022-12-29_01.41.38": {
+            "date": "2022-12-29 01:41:40",
+            "totalChangedFiles": 2
+        },
+        "berk_2022-12-29_01.41.46": {
+            "date": "2022-12-29 01:41:47",
+            "totalChangedFiles": 2
+        },
+        "berk_2022-12-29_01.44.15": {
+            "date": "2022-12-29 01:44:16",
+            "totalChangedFiles": 4
+        },
+        "berk_2022-12-29_01.44.24": {
+            "date": "2022-12-29 01:44:25",
+            "totalChangedFiles": 2
+        },
+        "berk123": {
+            "date": "2022-12-29 01:44:52",
+            "totalChangedFiles": 0
+        },
+        "resimler": {
+            "date": "2022-12-29 02:17:12",
+            "totalChangedFiles": 2
+        },
+        "resimler_2022-12-29_01.47.32": {
+            "date": "2022-12-29 01:47:49",
+            "totalChangedFiles": 1
+        },
+        "resimler_2022-12-29_01.47.51": {
+            "date": "2022-12-29 01:47:53",
+            "totalChangedFiles": 1
+        },
+        "resimler2": {
+            "date": "2022-12-29 02:17:27",
             "totalChangedFiles": 1
         }
     }

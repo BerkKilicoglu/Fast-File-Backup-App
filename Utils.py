@@ -63,3 +63,25 @@ class Utils():
             msgBox.exec_()
         except Exception as err:
             self.hataKodGoster("Utils msgUyariUnlem: %s" % str(err))
+    def msgOverWrite(self):
+        try:
+            msgBox = QMessageBox(self.widParent)
+
+
+            font = QFont('Arial', 12)
+            msgBox.setFont(font)
+            # font = QFont(self.fontAdi_Exo2, 14)
+            msgBox.setWindowTitle("Warning")
+            msgBox.setText("<p align='left'>This backup already exists! Will it be overwritten?<\p> "
+                           "<p style='color:red;font-size:15px;'> (If you choose <span style='font-weight:bold;'>No<\span>"
+                           "<span style='font-weight:normal;'>, new backup point will be created.)<\span><\p>")
+            #msgBox.setWindowIcon(QIcon(":/logo/assets/logo/error.png"))
+
+            msgBox.setIconPixmap(QPixmap(":/logo/assets/logo/warning.png").scaled(QSize(64,64),Qt.KeepAspectRatio, Qt.SmoothTransformation))
+            msgBox.addButton(QPushButton('Yes'), msgBox.YesRole)
+            msgBox.addButton(QPushButton('No'), msgBox.NoRole)
+
+            result = msgBox.exec_()
+            return result
+        except Exception as err:
+            self.hataKodGoster("Utils msgOverWrite: %s" % str(err))
