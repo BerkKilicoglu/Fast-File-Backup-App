@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'homepageIcNGbW.ui'
+## Form generated from reading UI file 'homepageXLAoZV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -589,6 +589,7 @@ class Ui_MainWindow(object):
 
         self.frame = QFrame(self.s_location)
         self.frame.setObjectName(u"frame")
+        self.frame.setStyleSheet(u"border:none")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_8 = QGridLayout(self.frame)

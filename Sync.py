@@ -25,6 +25,8 @@ def GetFilesNameList(srcDir:str, filters:list=["*"], excluded:list=[], removeSrc
         for x in os.walk(srcDir):
             for filter in filters:
                 for fullpath in glob(os.path.join(x[0], filter)):
+                    if os.path.isdir(fullpath):
+                        continue
                     fileExtension = Path(fullpath).suffix
                     filePath = fullpath.replace(srcDir, "")
 
@@ -49,6 +51,8 @@ def GetFilesNameList(srcDir:str, filters:list=["*"], excluded:list=[], removeSrc
     return Output
 def CopyFile(src:str, des:str) -> bool:
     if not os.path.exists(src):
+        return False
+    if os.path.isdir(src):
         return False
     os.makedirs(os.path.dirname(des), exist_ok=True)
     if os.path.exists(des):

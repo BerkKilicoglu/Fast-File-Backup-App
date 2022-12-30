@@ -145,6 +145,8 @@ class Main(QMainWindow):
         try:
             backupName = self.getUi().txtBackupName_Drive.text().strip()
             ExcludedFileTypes = self.getUi().lineEdit_filetype_Drive.text().split(";")
+            while "" in ExcludedFileTypes:
+                ExcludedFileTypes.remove("")
             if not backupName:
                 self.utils.msgHata("Please enter backup name.")
                 return False

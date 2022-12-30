@@ -74,7 +74,7 @@ class MyDrive():
                                                           fields="id").execute()
                 if ui:
                     ui.lblStatus.setText(
-                        f"<b>Status: </b> File copying ({file_name}) {totalChangedFiles}/{counter} {((counter / totalChangedFiles ) * 100):.2f}%")
+                        f"<b>Status: </b> File copying ({file_name}) {counter}/{totalChangedFiles} {((counter / totalChangedFiles ) * 100):.2f}%")
                     QApplication.processEvents()
 
                 counter += 1
