@@ -9,7 +9,7 @@ from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 from PyQt5.QtWidgets import QApplication
 
-#yetkilendirme ve kimlik doğrulama
+
 class MyDrive():
     def __init__(self):
         # If modify SCOPES, delete the token.json
@@ -58,7 +58,7 @@ class MyDrive():
 
             counter = 1
 
-            for file in files:  #os.listdir(SrcPath)
+            for file in files:
 
                 QApplication.processEvents()
                 file_name = os.path.basename(file)
@@ -67,7 +67,7 @@ class MyDrive():
                     "parents": [folder_id]
                 }
 
-                media = MediaFileUpload(f"{file}") #media = MediaFileUpload(f"{SrcPath}/{file}")
+                media = MediaFileUpload(f"{file}")
 
                 upload_file = self.service.files().create(body=file_metadata,
                                                           media_body=media,
